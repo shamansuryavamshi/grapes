@@ -1,0 +1,19 @@
+.git
+.gitignore
+.venv
+venv
+__pycache__
+*.py[cod]
+.pytest_cache
+.mypy_cache
+.ruff_cache
+
+# Not needed at inference time: these are the training entry point and its
+# heavyweight learning dependencies stay in the image only where required.
+Balanced_From_Sources/
+tests/
+requirements-dev.txt
+*.pth
+*.pt
+.env
+config.local.yaml

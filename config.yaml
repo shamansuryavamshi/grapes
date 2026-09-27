@@ -1,0 +1,115 @@
+# IWNET grape leaf disease classifier - configuration
+#
+# Every value here is the setting the reported 96.30% test result was produced
+# with. The dataclass defaults in iwnet/config.py are identical; this file exists
+# so the exact run is reproducible and reviewable.
+#
+#   python grape.py --build-dataset     # uses data.* below
+#   python grape.py                     # uses model.* and train.* below
+#
+# Override any single value from the command line:
+#   python grape.py --set train.epochs=60 --set data.test_split=0.25
+
+data:
+  # Single source of randomness. Baked into the dataset fingerprint and into
+  # every checkpoint, so a run can always be tied back to its split.
+  seed: 42
+
+  # 20% held out as the test set. Never used for training, tuning, model
+  # selection or early stopping.
+  test_split: 0.20
+  # 15% carved out of TRAIN for validation/early stopping. Keeping validation
+  # inside train is what keeps the test estimate honest.
+  val_split: 0.15
+  val_from_train: true
+
+  # Group-aware splitting: images that are perceptual near-duplicates of each
+  # other are clustered (pHash) and a whole cluster lands in one split. The
+  # sources contain re-encoded and lightly augmented copies of the same
+  # photograph - distinct files, so SHA-256 dedup misses them, but near-identical
+  # once decoded. A plain random split puts such copies on both sides of the
+  # train/test boundary and inflates the test accuracy.
+  group_splits: true
+  group_algorithm: phash
+  group_threshold: 6
+
+  img_exts: [".jpg", ".jpeg", ".png", ".bmp", ".webp"]
+  num_workers: 4
+  fail_on_corrupt: true
+
+  # Offline minority-class augmentation. Off by default: the group-aware split
+  # already runs on the raw pixels, and augmenting before the split would let a
+  # generated variant of a test image land in train.
+  aug_enabled: false
+  aug_prefix: "aug_"
+  aug_target: null
+
+model:
+  # EfficientNet-B3 + IW attention + adaptive scale fusion.
+  backbone: efficientnet_b3
+  out_indices: [1, 2, 3]
+  embedding_dim: 128
+  hidden_dim: 128
+  bottleneck_dim: 64
+  dropout: 0.5
+  dropout_hidden: 0.3
+  num_classes: 7
+  pretrained: true
+  # The backbone trains frozen for the first `train.unfreeze_epoch` epochs.
+  # Its BatchNorm layers are pinned to eval() while frozen - requires_grad=False
+  # alone does not stop the running statistics from drifting.
+  freeze_backbone: true
+
+train:
+  epochs: 40
+  batch_size: 8
+  image_size: 224
+  learning_rate: 0.001
+  weight_decay: 0.0001
+
+  # Linear warmup for 3 epochs, then cosine decay to exactly 0 on the last epoch.
+  warmup_epochs: 3
+
+  # Progressive unfreezing: the last 3 backbone stages unfreeze at epoch 10.
+  unfreeze_epoch: 10
+  unfreeze_stages: 3
+  # The unfrozen backbone trains at base_lr * this, so the pretrained features
+  # are adapted without destroying them.
+  backbone_lr_scale: 0.01
+
+  early_stop_patience: 10
+  label_smoothing: 0.1
+  mixup_alpha: 0.3
+  mixup_probability: 0.5
+  grad_clip: 1.0
+  grad_accum_steps: 1
+  use_class_weights: true
+  amp: true
+  deterministic: true
+  log_every_n_batches: 5
+
+leakage:
+  hash_algorithm: phash
+  # Hamming distance <= 6 on a 64-bit pHash.
+  near_dup_distance: 6
+  ahash_size: 8
+  # Refuse to train when the audit finds blocking duplicates, unless
+  # --allow-leakage is passed.
+  strict: true
+
+inference:
+  # Softmax output is reported as "model confidence". It is NOT calibrated and
+  # is not a diagnostic probability.
+  confidence_threshold: 0.0
+  max_upload_mb: 10.0
+
+api:
+  host: 127.0.0.1
+  port: 8000
+  max_upload_mb: 10.0
+  max_pixels: 40000000
+  cors_origins: []
+  rate_limit_per_minute: 30
+  request_timeout_seconds: 30
+  serve_frontend: true
+  log_level: INFO

@@ -1,0 +1,17 @@
+class,precision,recall,f1,auc,per_class_accuracy,support
+BacterialSpot,0.9524,1.0000,0.9756,0.9999,100.000%,140
+Black_Rot,0.9727,0.9889,0.9807,0.9993,98.889%,180
+DownyMildew,0.9551,0.8713,0.9113,0.9935,87.135%,171
+Esca,0.9885,0.9773,0.9829,0.9996,97.727%,176
+Healthy,0.9649,0.9880,0.9763,0.9985,98.802%,167
+Irrelavant,1.0000,0.9947,0.9973,1.0000,99.465%,187
+PowderyMildew,0.9012,0.9226,0.9118,0.9933,92.262%,168
+
+metric,value
+accuracy,0.9630
+balanced_accuracy,0.9633
+macro_f1,0.9623
+weighted_f1,0.9627
+macro_precision,0.9621
+macro_recall,0.9633
+total_samples,1189

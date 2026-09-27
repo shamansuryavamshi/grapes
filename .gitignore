@@ -1,0 +1,48 @@
+# ── Python ──────────────────────────────────────────────────────────────────
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.venv/
+venv/
+env/
+
+# ── Source data (read-only inputs, ~1.3 GB) ────────────────────────────────
+# These are the original, read-only source collections the dataset is built
+# from. They are third-party data, not project code, and together they are
+# ~1.3 GB - well past what a Git repository should carry (GitHub warns above
+# 1 GB and discourages files over 50 MB). They are also not reproducible from
+# this repo, so committing them would help nobody.
+#
+# To version them anyway, use Git LFS rather than deleting these lines:
+#   git lfs install
+#   git lfs track "Balanced_Final_Split/**/*.jpg" "Irrelevant/**/*"
+Balanced_Final_Split/
+Irrelevant/
+
+# ── Project artefacts ───────────────────────────────────────────────────────
+# The generated dataset is 5,929 JPEGs (~1 GB). Rebuild it with
+# `python grape.py --build-dataset` rather than committing a gigabyte of images.
+#
+# The reports and figures under results/ ARE committed: they are the evidence
+# behind the accuracy claimed in README.md, and they are only 4.4 MB.
+Balanced_From_Sources/train/
+Balanced_From_Sources/test/
+Balanced_From_Sources/results/split_manifest.csv
+
+# Trained weights (89 MB). Regenerate with `python grape.py`, or distribute
+# best_iwnet.pth out of band (GitHub Releases, LFS) - not through git history.
+*.pth
+*.pt
+
+# ── Local configuration ─────────────────────────────────────────────────────
+.env
+config.local.yaml
+
+# ── Editors / OS ────────────────────────────────────────────────────────────
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db

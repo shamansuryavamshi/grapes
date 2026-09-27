@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>IWNET &middot; Grape Leaf Disease Classification</title>
+<link rel="stylesheet" href="/styles.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>&#127807;</text></svg>">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="brand">
+    <span class="logo" aria-hidden="true">&#127807;</span>
+    <div>
+      <h1>IWNET</h1>
+      <p>Grape leaf disease classification &middot; EfficientNet-B3 + IW attention</p>
+    </div>
+  </div>
+  <div id="health" class="pill pill--unknown" title="Service status">checking&hellip;</div>
+</header>
+
+<main class="layout">
+
+  <!-- ── Input ─────────────────────────────────────────────── -->
+  <section class="panel">
+    <h2>1 &middot; Choose an image</h2>
+
+    <div id="drop" class="dropzone" tabindex="0" role="button"
+         aria-label="Drop an image here, or click to browse">
+      <input id="file" type="file" accept="image/*" hidden>
+      <div class="dropzone__inner">
+        <span class="dropzone__icon" aria-hidden="true">&#128247;</span>
+        <p><strong>Drop an image</strong> or click to browse</p>
+        <small>JPEG, PNG or WebP &middot; max 10&nbsp;MB</small>
+      </div>
+    </div>
+
+    <div class="preview">
+      <img id="preview" alt="" hidden>
+      <button id="clear" class="btn btn--ghost" hidden>Remove</button>
+    </div>
+
+    <div class="samples">
+      <h3>Or try a real test image</h3>
+      <p class="muted">Ground truth from the held-out test split.</p>
+      <div id="sampleGrid" class="sample-grid"></div>
+    </div>
+  </section>
+
+  <!-- ── Result ────────────────────────────────────────────── -->
+  <section class="panel">
+    <h2>2 &middot; Prediction</h2>
+
+    <div id="result" class="result result--empty">
+      <p class="muted">No prediction yet. Select an image to begin.</p>
+    </div>
+
+    <div id="spinner" class="spinner" hidden>
+      <div class="spinner__ring"></div>
+      <p>Analysing&hellip;</p>
+    </div>
+  </section>
+
+</main>
+
+<!-- ── Reference ───────────────────────────────────────────── -->
+<section class="panel panel--wide">
+  <h2>The seven classes</h2>
+  <p class="muted">
+    Six grapevine conditions plus a rejection class. The classes are descriptive
+    labels, not diagnoses or severities.
+  </p>
+  <div id="classGrid" class="class-grid"></div>
+</section>
+
+<footer class="footer">
+  <p>
+    <strong>Not a diagnostic device.</strong>
+    This is a research image classifier trained on a small, class-imbalanced
+    dataset. Confidence is an uncalibrated softmax score, not a probability of
+    disease. Always confirm with a qualified viticulture professional.
+  </p>
+</footer>
+
+<script src="/app.js"></script>
+</body>
+</html>

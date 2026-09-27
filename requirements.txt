@@ -1,0 +1,25 @@
+# Runtime dependencies for IWNET.
+#
+# Install PyTorch FIRST from the index that matches your hardware, otherwise pip
+# will pull a CPU-only wheel:
+#   pip install torch torchvision --index-url https://download.pytorch.org/whl/cu130
+# then:  pip install -r requirements.txt
+#
+# requirements-lock.txt pins the exact versions this project was trained and
+# tested with (Python 3.12.10, Windows, CUDA 13.0).
+
+torch>=2.4,<3
+torchvision>=0.19,<1
+
+numpy>=1.26
+pillow>=10.0
+scikit-learn>=1.4
+scipy>=1.11
+matplotlib>=3.8
+tqdm>=4.66
+PyYAML>=6.0
+
+fastapi>=0.110
+uvicorn[standard]>=0.27
+pydantic>=2.6
+python-multipart>=0.0.9
