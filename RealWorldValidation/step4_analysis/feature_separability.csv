@@ -1,0 +1,8 @@
+class,n,intra_class_mean_euclid_to_centroid,intra_class_mean_cos_to_centroid,intra_class_median_cos_to_centroid,intra_class_spread_cos_to_centroid,cos_query_to_centroid,rank_by_query_cosine
+BacterialSpot,700,0.287921,0.949010,0.966879,0.055353,0.936431,1
+Black_Rot,900,0.232610,0.967106,0.977222,0.044168,0.329726,4
+DownyMildew,853,0.399140,0.898000,0.941909,0.117996,0.320779,5
+Esca,876,0.100590,0.988334,0.997196,0.049191,0.220330,7
+Healthy,831,0.343018,0.931054,0.944490,0.059770,0.444106,3
+Irrelavant,933,0.072602,0.992826,0.998841,0.036203,0.447695,2
+PowderyMildew,836,0.371042,0.915891,0.940096,0.091896,0.220901,6

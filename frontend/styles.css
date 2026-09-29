@@ -203,3 +203,89 @@ small  { color: var(--muted); font-size: .8rem; }
   .layout { padding: 1rem; }
   .bar__row { grid-template-columns: 7rem 1fr 3rem; }
 }
+
+/* -- opt-in toggle -------------------------------------------- */
+.toggle {
+  display: flex; align-items: center; gap: .55rem;
+  margin: .9rem 0 .3rem; cursor: pointer; user-select: none;
+  font-size: .9rem;
+}
+.toggle input { position: absolute; opacity: 0; width: 0; height: 0; }
+.toggle__box {
+  flex: 0 0 auto; width: 1.05rem; height: 1.05rem;
+  border: 1px solid var(--line); border-radius: 5px;
+  background: var(--panel-2); position: relative;
+}
+.toggle input:checked + .toggle__box { background: var(--accent-dim); border-color: var(--accent-dim); }
+.toggle input:checked + .toggle__box::after {
+  content: ""; position: absolute; left: .29rem; top: .09rem;
+  width: .3rem; height: .55rem;
+  border: solid #0f1418; border-width: 0 2px 2px 0; transform: rotate(42deg);
+}
+.toggle input:focus-visible + .toggle__box { outline: 2px solid var(--accent); outline-offset: 2px; }
+.toggle__label { color: var(--text); }
+.toggle__hint { margin: 0 0 1rem; }
+
+/* -- inference visualization --------------------------------- */
+.viz__disclaimer {
+  font-size: .85rem; color: var(--muted);
+  border-left: 3px solid var(--info); padding-left: .7rem; margin-bottom: 1.1rem;
+}
+.viz__steps { list-style: none; margin: 0; padding: 0; counter-reset: none; }
+.viz__step {
+  border-top: 1px solid var(--line); padding: 1rem 0;
+}
+.viz__step:first-child { border-top: 0; padding-top: 0; }
+.viz__head { display: flex; align-items: baseline; gap: .6rem; margin-bottom: .3rem; }
+.viz__num {
+  flex: 0 0 auto; display: inline-grid; place-items: center;
+  width: 1.5rem; height: 1.5rem; border-radius: 50%;
+  background: var(--panel-2); border: 1px solid var(--line);
+  color: var(--accent); font-size: .78rem; font-weight: 700;
+}
+.viz__head h4 { margin: 0; font-size: 1rem; font-weight: 600; }
+.viz__caption { color: var(--muted); font-size: .85rem; margin: .2rem 0 .6rem; max-width: 78ch; }
+.viz__subhead {
+  font-size: .78rem; color: var(--muted); text-transform: uppercase;
+  letter-spacing: .05em; margin: .7rem 0 .3rem;
+}
+.viz__na { color: var(--warn); font-size: .85rem; margin: .2rem 0 0; }
+
+.viz__figure { margin: .5rem 0; display: inline-block; max-width: 100%; }
+.viz__figure + .viz__figure { margin-left: .8rem; }
+.viz__img {
+  display: block; max-width: 100%; height: auto;
+  border: 1px solid var(--line); border-radius: 8px; background: var(--panel-2);
+  image-rendering: auto;
+}
+.viz__figcaption { font-size: .78rem; color: var(--muted); margin-top: .3rem; max-width: 46ch; }
+
+.viz__bars { display: flex; flex-direction: column; gap: .22rem; margin: .3rem 0; }
+.viz__bar { display: grid; grid-template-columns: minmax(7rem, 14rem) 1fr 4.5rem; gap: .6rem; align-items: center; }
+.viz__barname { font-size: .78rem; color: var(--muted); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.viz__bar--top .viz__barname { color: var(--accent); font-weight: 600; }
+.viz__track { background: var(--panel-2); border-radius: 4px; height: .5rem; overflow: hidden; }
+.viz__fill { display: block; height: 100%; background: var(--info); border-radius: 4px; }
+.viz__bar--top .viz__fill { background: var(--accent); }
+.viz__barval { font-size: .78rem; color: var(--muted); text-align: right; font-variant-numeric: tabular-nums; }
+
+.viz__final {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(11rem, 1fr));
+  gap: .5rem; margin-top: .4rem;
+}
+.viz__kvp {
+  background: var(--panel-2); border: 1px solid var(--line);
+  border-radius: 8px; padding: .5rem .7rem;
+  display: flex; flex-direction: column; gap: .15rem;
+}
+.viz__kvkey { font-size: .72rem; color: var(--muted); text-transform: uppercase; letter-spacing: .05em; }
+.viz__kvval { font-size: 1rem; font-weight: 600; font-variant-numeric: tabular-nums; }
+
+.viz__tech { margin-top: 1.2rem; border-top: 1px solid var(--line); padding-top: .8rem; }
+.viz__tech summary { cursor: pointer; color: var(--muted); font-size: .85rem; }
+.viz__tech summary:hover { color: var(--text); }
+.viz__techline {
+  font-size: .78rem; color: var(--muted);
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  margin: .2rem 0; word-break: break-word;
+}

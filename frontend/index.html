@@ -41,6 +41,16 @@
       <button id="clear" class="btn btn--ghost" hidden>Remove</button>
     </div>
 
+    <label class="toggle">
+      <input id="showProcessing" type="checkbox">
+      <span class="toggle__box" aria-hidden="true"></span>
+      <span class="toggle__label">Show how the model processed this image</span>
+    </label>
+    <p class="muted toggle__hint">
+      Adds an interpretability breakdown below the prediction. It takes longer to
+      load and does <em>not</em> change the prediction.
+    </p>
+
     <div class="samples">
       <h3>Or try a real test image</h3>
       <p class="muted">Ground truth from the held-out test split.</p>
@@ -63,6 +73,18 @@
   </section>
 
 </main>
+
+<!-- ── Inference visualization ─────────────────────────────── -->
+<section id="viz" class="panel panel--wide viz" hidden aria-live="polite">
+  <h2>How IWNET processed this image</h2>
+  <p class="viz__disclaimer" id="vizDisclaimer"></p>
+  <ol id="vizSteps" class="viz__steps"></ol>
+
+  <details class="viz__tech">
+    <summary>Technical details</summary>
+    <div id="vizTech"></div>
+  </details>
+</section>
 
 <!-- ── Reference ───────────────────────────────────────────── -->
 <section class="panel panel--wide">

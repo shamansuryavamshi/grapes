@@ -1,0 +1,21 @@
+rank,training_image_path,training_class,split,cosine_similarity_bottleneck64,cosine_similarity_pooled128
+1,Balanced_From_Sources/train\BacterialSpot\train_307_Bacterial Leaf Spot_85.png,BacterialSpot,train,0.980528,0.894867
+2,Balanced_From_Sources/test\BacterialSpot\train_403_Bacterial Leaf Spot_24.png,BacterialSpot,test,0.974698,0.858919
+3,Balanced_From_Sources/train\BacterialSpot\train_474_Bacterial Leaf Spot_68.JPG,BacterialSpot,train,0.972249,0.831664
+4,Balanced_From_Sources/test\BacterialSpot\train_204_Bacterial Leaf Spot_80.jpg,BacterialSpot,test,0.972036,0.828143
+5,Balanced_From_Sources/train\BacterialSpot\train_673_Bacterial Leaf Spot_3.png,BacterialSpot,train,0.971003,0.897399
+6,Balanced_From_Sources/train\BacterialSpot\train_230_Bacterial Leaf Spot_23.jpg,BacterialSpot,train,0.970613,0.849579
+7,Balanced_From_Sources/train\BacterialSpot\train_159_Bacterial Leaf Spot_77.jpg,BacterialSpot,train,0.970593,0.845524
+8,Balanced_From_Sources/train\BacterialSpot\train_430_Bacterial Leaf Spot_23.jpg,BacterialSpot,train,0.968419,0.862676
+9,Balanced_From_Sources/train\BacterialSpot\train_203_Bacterial Leaf Spot_24.png,BacterialSpot,train,0.968187,0.842387
+10,Balanced_From_Sources/train\BacterialSpot\train_104_Bacterial Leaf Spot_80.jpg,BacterialSpot,train,0.968011,0.808831
+11,Balanced_From_Sources/train\BacterialSpot\train_321_Bacterial Leaf Spot_36.jpg,BacterialSpot,train,0.967934,0.825173
+12,Balanced_From_Sources/test\BacterialSpot\train_603_Bacterial Leaf Spot_24.png,BacterialSpot,test,0.967162,0.868219
+13,Balanced_From_Sources/train\BacterialSpot\train_273_Bacterial Leaf Spot_3.png,BacterialSpot,train,0.966692,0.905250
+14,Balanced_From_Sources/train\BacterialSpot\train_6_Bacterial Leaf Spot_16.jpg,BacterialSpot,train,0.966392,0.812683
+15,Balanced_From_Sources/test\BacterialSpot\train_503_Bacterial Leaf Spot_24.png,BacterialSpot,test,0.966260,0.844867
+16,Balanced_From_Sources/train\BacterialSpot\train_506_Bacterial Leaf Spot_16.jpg,BacterialSpot,train,0.965410,0.796963
+17,Balanced_From_Sources/train\BacterialSpot\train_406_Bacterial Leaf Spot_16.jpg,BacterialSpot,train,0.964198,0.809585
+18,Balanced_From_Sources/train\BacterialSpot\train_30_Bacterial Leaf Spot_23.jpg,BacterialSpot,train,0.963185,0.852697
+19,Balanced_From_Sources/test\BacterialSpot\train_604_Bacterial Leaf Spot_80.jpg,BacterialSpot,test,0.963054,0.831572
+20,Balanced_From_Sources/train\BacterialSpot\train_630_Bacterial Leaf Spot_23.jpg,BacterialSpot,train,0.962764,0.837538

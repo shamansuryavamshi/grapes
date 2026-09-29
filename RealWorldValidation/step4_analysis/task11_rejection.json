@@ -1,0 +1,168 @@
+{
+ "method": "Irrelavant probability from the unchanged production forward pass, compared across controlled input variants, the 17 external images and a stratified training sample. No threshold and no rejection rule was inspected, changed or applied.",
+ "training_sample": {
+  "n": 1050,
+  "by_class": {
+   "BacterialSpot": {
+    "n": 150,
+    "mean": 0.027590680867433548,
+    "median": 0.024515468627214432,
+    "p90": 0.04309263452887535,
+    "p99": 0.07991227507591248,
+    "max": 0.08468040078878403
+   },
+   "Black_Rot": {
+    "n": 150,
+    "mean": 0.023383038118481636,
+    "median": 0.01805439591407776,
+    "p90": 0.033594388514757156,
+    "p99": 0.09610772132873535,
+    "max": 0.2941616177558899
+   },
+   "DownyMildew": {
+    "n": 150,
+    "mean": 0.01647116057574749,
+    "median": 0.012992613017559052,
+    "p90": 0.03006083518266678,
+    "p99": 0.06163875758647919,
+    "max": 0.13589999079704285
+   },
+   "Esca": {
+    "n": 150,
+    "mean": 0.02278083935379982,
+    "median": 0.022480502724647522,
+    "p90": 0.02543884702026844,
+    "p99": 0.029243646189570427,
+    "max": 0.03254445642232895
+   },
+   "Healthy": {
+    "n": 150,
+    "mean": 0.02378574013710022,
+    "median": 0.016528915613889694,
+    "p90": 0.030562397092580795,
+    "p99": 0.20970918238162994,
+    "max": 0.5062958002090454
+   },
+   "Irrelavant": {
+    "n": 150,
+    "mean": 0.9047795534133911,
+    "median": 0.9052349328994751,
+    "p90": 0.9117699861526489,
+    "p99": 0.9179630279541016,
+    "max": 0.920085608959198
+   },
+   "PowderyMildew": {
+    "n": 150,
+    "mean": 0.018608376383781433,
+    "median": 0.015172673389315605,
+    "p90": 0.026671797037124634,
+    "p99": 0.11370676755905151,
+    "max": 0.15670561790466309
+   }
+  },
+  "p50": 0.021517936140298843,
+  "p90": 0.9031236171722412,
+  "p99": 0.9132216572761536,
+  "maxp": 0.920085608959198,
+  "non_irrelavant_p99": 0.08363558351993561,
+  "non_irrelavant_max": 0.5062958002090454,
+  "n_top1_irrelavant": 151,
+  "top1_irrelavant_frac": 0.1438095238095238
+ },
+ "variants": {
+  "A": {
+   "name": "original",
+   "retained_area_frac": 0.578731,
+   "irrelavant": 0.03041236102581024,
+   "top1": "BacterialSpot",
+   "stage3_weight": 0.936823
+  },
+  "B": {
+   "name": "centre_square",
+   "retained_area_frac": 0.578731,
+   "irrelavant": 0.03493179753422737,
+   "top1": "BacterialSpot",
+   "stage3_weight": 0.928957
+  },
+  "C": {
+   "name": "tight_0.60",
+   "retained_area_frac": 0.208343,
+   "irrelavant": 0.5304989814758301,
+   "top1": "Irrelavant",
+   "stage3_weight": 0.472434
+  },
+  "D": {
+   "name": "wide_squarepad",
+   "retained_area_frac": 0.617313,
+   "irrelavant": 0.1330513209104538,
+   "top1": "Healthy",
+   "stage3_weight": 0.853959
+  },
+  "E": {
+   "name": "resize_only",
+   "retained_area_frac": 0.578731,
+   "irrelavant": 0.0286913700401783,
+   "top1": "BacterialSpot",
+   "stage3_weight": 0.942158
+  },
+  "F": {
+   "name": "background_reduced",
+   "retained_area_frac": 0.30013,
+   "irrelavant": 0.14783743023872375,
+   "top1": "BacterialSpot",
+   "stage3_weight": 0.663231
+  },
+  "G": {
+   "name": "leaf_centered",
+   "retained_area_frac": 0.578731,
+   "irrelavant": 0.03493179753422737,
+   "top1": "BacterialSpot",
+   "stage3_weight": 0.928957
+  },
+  "H": {
+   "name": "hflip",
+   "retained_area_frac": 0.578731,
+   "irrelavant": 0.021944426000118256,
+   "top1": "BacterialSpot",
+   "stage3_weight": 0.977998
+  },
+  "I": {
+   "name": "vflip",
+   "retained_area_frac": 0.578731,
+   "irrelavant": 0.06508663296699524,
+   "top1": "BacterialSpot",
+   "stage3_weight": 0.893036
+  },
+  "J": {
+   "name": "rot90",
+   "retained_area_frac": 0.508973,
+   "irrelavant": 0.01676970161497593,
+   "top1": "BacterialSpot",
+   "stage3_weight": 0.956199
+  },
+  "K": {
+   "name": "rot180",
+   "retained_area_frac": 0.578731,
+   "irrelavant": 0.024204161018133163,
+   "top1": "BacterialSpot",
+   "stage3_weight": 0.960503
+  }
+ },
+ "variant_irrelavant_min": 0.01676970161497593,
+ "variant_irrelavant_max": 0.5304989814758301,
+ "variant_flip_count": 2,
+ "external": {
+  "n": 17,
+  "min": 0.009451205842196941,
+  "max": 0.27841684222221375,
+  "mean": 0.0688341399654746,
+  "p90": 0.13025272786617278,
+  "n_top1_irrelavant": 0
+ },
+ "findings": [
+  "Irrelavant was top-1 for 0 of the 17 external images, yet for 1 of the 11 controlled variants of the SAME image, under framing changes only.",
+  "Its probability on grape leaf.jpg ranges from 0.016770 to 0.530499 across those variants, a 31.6-fold spread, with no change to the image content beyond crop and geometry.",
+  "The training distribution is strongly bimodal by design: genuine Irrelavant members carry a high probability, while genuine non-Irrelavant classes sit at p99 0.0836 and max 0.5063.",
+  "The class is therefore a visual-content class whose probability is strongly coupled to input framing; the measurements do not show it acting as a stable out-of-distribution detector."
+ ]
+}

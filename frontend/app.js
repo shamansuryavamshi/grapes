@@ -13,6 +13,11 @@ const el = {
   spinner: $('spinner'),
   sampleGrid: $('sampleGrid'),
   classGrid: $('classGrid'),
+  showProcessing: $('showProcessing'),
+  viz: $('viz'),
+  vizSteps: $('vizSteps'),
+  vizDisclaimer: $('vizDisclaimer'),
+  vizTech: $('vizTech'),
 };
 
 let modelReady = false;
@@ -106,6 +111,246 @@ function showAlert(message, info) {
 
 function pct(x) { return (x * 100).toFixed(1) + '%'; }
 
+/* ── inference visualization ────────────────────────────────────
+   Renders the optional `visualization` payload returned when the request
+   asked for ?visualize=true. Everything here is presentation only: it reads
+   values the server already produced and never recomputes or rescales a
+   probability. Where the server could not expose a stage, the step says so
+   rather than showing a placeholder.
+   ---------------------------------------------------------------- */
+const VIZ_STEPS = [
+  ['original',          'Original image'],
+  ['resized',           'Resize'],
+  ['normalized',        'Normalized input'],
+  ['features',          'Feature representation'],
+  ['channel_attention', 'Channel attention'],
+  ['spatial_attention', 'Spatial attention'],
+  ['multi_scale',       'Multi-scale fusion'],
+  ['probabilities',     'Class probabilities'],
+  ['final',             'Final prediction'],
+];
+
+const VIZ_DEFAULT_DISCLAIMER =
+  'Interpretability aid. These tensors show how the network weighted its own ' +
+  'features. They are not a causal explanation of the prediction and should ' +
+  'not be read as a diagnosis.';
+
+function vizStepShell(n, title, caption) {
+  const li = document.createElement('li');
+  li.className = 'viz__step';
+  const head = document.createElement('div');
+  head.className = 'viz__head';
+  const num = document.createElement('span');
+  num.className = 'viz__num';
+  num.textContent = String(n);
+  const h = document.createElement('h4');
+  h.textContent = title;
+  head.append(num, h);
+  li.appendChild(head);
+  if (caption) {
+    const cap = document.createElement('p');
+    cap.className = 'viz__caption';
+    cap.textContent = caption;
+    li.appendChild(cap);
+  }
+  return li;
+}
+
+function vizNa() {
+  const p = document.createElement('p');
+  p.className = 'viz__na';
+  p.textContent = 'Not available for this image.';
+  return p;
+}
+
+function vizFigure(url, caption) {
+  const fig = document.createElement('figure');
+  fig.className = 'viz__figure';
+  const img = document.createElement('img');
+  img.className = 'viz__img';
+  img.src = url;
+  img.alt = caption || '';
+  img.setAttribute('loading', 'lazy');
+  fig.appendChild(img);
+  if (caption) {
+    const cap = document.createElement('figcaption');
+    cap.className = 'viz__figcaption';
+    cap.textContent = caption;
+    fig.appendChild(cap);
+  }
+  return fig;
+}
+
+function vizBars(rows) {
+  const wrap = document.createElement('div');
+  wrap.className = 'viz__bars';
+  for (const r of rows) {
+    const row = document.createElement('div');
+    row.className = 'viz__bar' + (r.top ? ' viz__bar--top' : '');
+    const name = document.createElement('span');
+    name.className = 'viz__barname';
+    name.textContent = r.name;
+    const track = document.createElement('span');
+    track.className = 'viz__track';
+    const fill = document.createElement('span');
+    fill.className = 'viz__fill';
+    fill.style.width = Math.max(0, Math.min(100, r.value * 100)).toFixed(2) + '%';
+    track.appendChild(fill);
+    const val = document.createElement('span');
+    val.className = 'viz__barval';
+    val.textContent = r.label !== undefined ? r.label : pct(r.value);
+    row.append(name, track, val);
+    wrap.appendChild(row);
+  }
+  return wrap;
+}
+
+function vizFinalStep(n, data) {
+  const li = vizStepShell(
+    n,
+    'Final prediction',
+    'The class the model returned, with the timings measured for this request.'
+  );
+  const box = document.createElement('div');
+  box.className = 'viz__final';
+  const t = (data && data.timing_ms) || {};
+  const rows = [
+    ['Predicted class', data ? data.prediction : '—'],
+    ['Confidence', data ? pct(data.confidence) : '—'],
+    ['Inference', (t.inference !== undefined ? t.inference : '?') + ' ms'],
+    ['Preprocessing', (t.preprocessing !== undefined ? t.preprocessing : '?') + ' ms'],
+  ];
+  for (const [k, v] of rows) {
+    const row = document.createElement('div');
+    row.className = 'viz__kvp';
+    const key = document.createElement('span');
+    key.className = 'viz__kvkey';
+    key.textContent = k;
+    const val = document.createElement('span');
+    val.className = 'viz__kvval';
+    val.textContent = v;
+    row.append(key, val);
+    box.appendChild(row);
+  }
+  li.appendChild(box);
+  return li;
+}
+
+function renderVisualization(viz, data) {
+  if (!el.viz) return;
+  if (!viz) {
+    el.viz.hidden = true;
+    el.vizSteps.replaceChildren();
+    el.vizTech.replaceChildren();
+    return;
+  }
+
+  el.viz.hidden = false;
+  el.vizSteps.replaceChildren();
+  el.vizTech.replaceChildren();
+  el.vizDisclaimer.textContent = viz.disclaimer || VIZ_DEFAULT_DISCLAIMER;
+
+  // Optional feature failed server-side: say so, still show the outcome.
+  if (viz.available === false) {
+    const li = vizStepShell(1, 'Processing breakdown', viz.message || 'Some processing visualizations are unavailable.');
+    li.appendChild(vizNa());
+    el.vizSteps.appendChild(li);
+    el.vizSteps.appendChild(vizFinalStep(2, data));
+    return;
+  }
+
+  const stages = viz.stages || {};
+  const tech = [];
+
+  VIZ_STEPS.forEach((entry, index) => {
+    const n = index + 1;
+    const key = entry[0];
+    if (key === 'final') {
+      el.vizSteps.appendChild(vizFinalStep(n, data));
+      return;
+    }
+    const stage = stages[key];
+    if (!stage) return;
+    const li = vizStepShell(n, stage.title || entry[1], stage.caption || '');
+
+    if (!stage.available) {
+      li.appendChild(vizNa());
+    } else if (key === 'channel_attention') {
+      for (const s of stage.stages || []) {
+        const head = document.createElement('p');
+        head.className = 'viz__subhead';
+        head.textContent =
+          'Stage ' + s.stage + ' — top ' + s.top_weights.length + ' of ' + s.channels +
+          ' channels (mean ' + s.mean.toFixed(3) + ')';
+        li.appendChild(head);
+        li.appendChild(vizBars(
+          s.top_channels.map((c, i) => ({ name: 'ch ' + c, value: s.top_weights[i], top: i === 0 }))
+        ));
+        tech.push('Channel attention stage ' + s.stage + ': ' + s.channels +
+          ' channels, min ' + s.min + ', max ' + s.max + ', mean ' + s.mean);
+      }
+    } else if (key === 'multi_scale') {
+      li.appendChild(vizBars(
+        (stage.scales || []).map((s) => ({
+          name: 'Stage ' + s.stage + ' (' + s.height + '×' + s.width + ', ' + s.channels + ' ch)',
+          value: s.weight,
+          label: pct(s.weight),
+        }))
+      ));
+      if (stage.iw_gates && stage.iw_gates.length) {
+        const p = document.createElement('p');
+        p.className = 'viz__subhead';
+        p.textContent = 'IWAttention per-sample gate: ' + stage.iw_gates.map((g) => g.toFixed(4)).join(', ');
+        li.appendChild(p);
+        tech.push('IW gate (one scalar per stage): ' + stage.iw_gates.join(', ') +
+          ' — ' + (stage.iw_gate_caption || ''));
+      }
+      tech.push('Adaptive scale weights (sum ' + stage.weight_sum + '): ' +
+        (stage.scales || []).map((s) => 'stage' + s.stage + '=' + s.weight).join(', '));
+    } else if (key === 'probabilities') {
+      li.appendChild(vizBars(
+        (stage.rows || []).map((r) => ({ name: r.name, value: r.probability, top: r.predicted }))
+      ));
+    } else if (key === 'normalized') {
+      if (stage.image) li.appendChild(vizFigure(stage.image, 'The normalized tensor, clipped for display.'));
+      if (stage.inverse_image) {
+        li.appendChild(vizFigure(stage.inverse_image, stage.inverse_caption || ''));
+      }
+      tech.push('Normalized tensor shape: ' + (stage.height || '?') + '×' + (stage.width || '?') + '×3');
+    } else if (key === 'spatial_attention') {
+      if (stage.image) li.appendChild(vizFigure(stage.image, stage.overlay_caption || ''));
+      if (stage.montage) li.appendChild(vizFigure(stage.montage, stage.montage_caption || ''));
+      for (const m of stage.maps || []) {
+        tech.push('Spatial attention stage ' + m.stage + ': ' + m.height + '×' + m.width +
+          ' map, min ' + m.min + ', max ' + m.max + ', mean ' + m.mean);
+      }
+    } else {
+      if (stage.image) li.appendChild(vizFigure(stage.image, ''));
+      if (key === 'features' && stage.stages) {
+        for (const s of stage.stages) {
+          tech.push('Projected features stage ' + s.stage + ': ' + s.channels + '×' +
+            s.height + '×' + s.width + '; top channels ' + s.top_channels.join(', '));
+        }
+      }
+      if (key === 'original' && stage.display_downscaled) {
+        tech.push('Original displayed at reduced size for transfer; prediction used the full image.');
+      }
+    }
+    el.vizSteps.appendChild(li);
+  });
+
+  tech.push('Capture source: ' + (viz.source || 'unknown'));
+  if (viz.unavailable_stages && viz.unavailable_stages.length) {
+    tech.push('Stages not exposed: ' + viz.unavailable_stages.join(', '));
+  }
+  for (const line of tech) {
+    const p = document.createElement('p');
+    p.className = 'viz__techline';
+    p.textContent = line;
+    el.vizTech.appendChild(p);
+  }
+}
+
 function renderResult(data) {
   el.result.className = 'result' + (data.is_rejection ? ' verdict--reject' : '');
   el.result.innerHTML = '';
@@ -190,23 +435,30 @@ async function predict({ blob, filename, path }) {
     return;
   }
   setBusy(true);
+  // Visualization is opt-in and only ever rides along with a prediction. The
+  // server returns the same prediction fields either way.
+  const withViz = el.showProcessing && el.showProcessing.checked;
+  const suffix = withViz ? (path ? '&' : '?') + 'visualize=true' : '';
   try {
     let res;
     if (path) {
-      res = await fetch('/api/predict?image_path=' + encodeURIComponent(path), { method: 'POST' });
+      res = await fetch('/api/predict?image_path=' + encodeURIComponent(path) + suffix, { method: 'POST' });
     } else {
       const form = new FormData();
       form.append('file', blob, filename || 'image');
-      res = await fetch('/api/predict', { method: 'POST', body: form });
+      res = await fetch('/api/predict' + suffix, { method: 'POST', body: form });
     }
     const data = await res.json();
     if (!res.ok) {
       showAlert(data.detail || ('Request failed with status ' + res.status));
+      renderVisualization(null, data);
     } else {
       renderResult(data);
+      renderVisualization(withViz ? data.visualization : null, data);
     }
   } catch (err) {
     showAlert('Could not reach the server: ' + err.message);
+    renderVisualization(null, null);
   } finally {
     setBusy(false);
   }
@@ -237,6 +489,7 @@ function reset() {
   el.result.className = 'result result--empty';
   el.result.innerHTML = '<p class="muted">No prediction yet. Select an image to begin.</p>';
   el.sampleGrid.querySelectorAll('.sample').forEach((n) => n.classList.remove('is-active'));
+  renderVisualization(null, null);
 }
 
 el.drop.addEventListener('click', () => el.file.click());

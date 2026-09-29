@@ -1,0 +1,291 @@
+[
+ {
+  "filename": "grape leaf.jpg",
+  "ground_truth": "Healthy",
+  "ground_truth_status": "VERIFIED",
+  "predicted_class": "BacterialSpot",
+  "confidence": 0.8787577152252197,
+  "probs": {
+   "BacterialSpot": 0.8787577152252197,
+   "Black_Rot": 0.02489737793803215,
+   "DownyMildew": 0.01469523087143898,
+   "Esca": 0.006004213355481625,
+   "Healthy": 0.035046033561229706,
+   "Irrelavant": 0.03041236102581024,
+   "PowderyMildew": 0.01018714439123869
+  },
+  "inference_ms": 108.55230000015581
+ },
+ {
+  "filename": "green-leaf-of-grapes-in-the-garden-free-photo.jpg",
+  "ground_truth": "UNKNOWN",
+  "ground_truth_status": "UNVERIFIED",
+  "predicted_class": "Healthy",
+  "confidence": 0.767340362071991,
+  "probs": {
+   "BacterialSpot": 0.04022041708230972,
+   "Black_Rot": 0.0845622792840004,
+   "DownyMildew": 0.01648653671145439,
+   "Esca": 0.016991164535284042,
+   "Healthy": 0.767340362071991,
+   "Irrelavant": 0.05779435858130455,
+   "PowderyMildew": 0.016604872420430183
+  },
+  "inference_ms": 97.5503999979992
+ },
+ {
+  "filename": "images (1).jfif",
+  "ground_truth": "UNKNOWN",
+  "ground_truth_status": "UNVERIFIED",
+  "predicted_class": "Healthy",
+  "confidence": 0.5956117510795593,
+  "probs": {
+   "BacterialSpot": 0.020900597795844078,
+   "Black_Rot": 0.13519823551177979,
+   "DownyMildew": 0.05705730617046356,
+   "Esca": 0.02357378788292408,
+   "Healthy": 0.5956117510795593,
+   "Irrelavant": 0.13859961926937103,
+   "PowderyMildew": 0.02905864641070366
+  },
+  "inference_ms": 90.66000000166241
+ },
+ {
+  "filename": "images (10).jfif",
+  "ground_truth": "UNKNOWN",
+  "ground_truth_status": "UNVERIFIED",
+  "predicted_class": "DownyMildew",
+  "confidence": 0.37651121616363525,
+  "probs": {
+   "BacterialSpot": 0.010525715537369251,
+   "Black_Rot": 0.22898434102535248,
+   "DownyMildew": 0.37651121616363525,
+   "Esca": 0.06907908618450165,
+   "Healthy": 0.1884637176990509,
+   "Irrelavant": 0.10819216072559357,
+   "PowderyMildew": 0.018243800848722458
+  },
+  "inference_ms": 94.71900000062305
+ },
+ {
+  "filename": "images (11).jfif",
+  "ground_truth": "UNKNOWN",
+  "ground_truth_status": "UNVERIFIED",
+  "predicted_class": "Healthy",
+  "confidence": 0.7235637307167053,
+  "probs": {
+   "BacterialSpot": 0.017908399924635887,
+   "Black_Rot": 0.05237576737999916,
+   "DownyMildew": 0.05235389620065689,
+   "Esca": 0.015230502001941204,
+   "Healthy": 0.7235637307167053,
+   "Irrelavant": 0.11211458593606949,
+   "PowderyMildew": 0.026453105732798576
+  },
+  "inference_ms": 95.38679999968736
+ },
+ {
+  "filename": "images (12).jfif",
+  "ground_truth": "UNKNOWN",
+  "ground_truth_status": "UNVERIFIED",
+  "predicted_class": "Black_Rot",
+  "confidence": 0.7345465421676636,
+  "probs": {
+   "BacterialSpot": 0.013697801157832146,
+   "Black_Rot": 0.7345465421676636,
+   "DownyMildew": 0.07384815067052841,
+   "Esca": 0.058827951550483704,
+   "Healthy": 0.08229875564575195,
+   "Irrelavant": 0.021114930510520935,
+   "PowderyMildew": 0.015665968880057335
+  },
+  "inference_ms": 99.35119999863673
+ },
+ {
+  "filename": "images (13).jfif",
+  "ground_truth": "UNKNOWN",
+  "ground_truth_status": "UNVERIFIED",
+  "predicted_class": "PowderyMildew",
+  "confidence": 0.5256924033164978,
+  "probs": {
+   "BacterialSpot": 0.022737914696335793,
+   "Black_Rot": 0.042071714997291565,
+   "DownyMildew": 0.2580719590187073,
+   "Esca": 0.028427565470337868,
+   "Healthy": 0.0991092249751091,
+   "Irrelavant": 0.023889239877462387,
+   "PowderyMildew": 0.5256924033164978
+  },
+  "inference_ms": 96.33699999903911
+ },
+ {
+  "filename": "images (2).jfif",
+  "ground_truth": "UNKNOWN",
+  "ground_truth_status": "UNVERIFIED",
+  "predicted_class": "Healthy",
+  "confidence": 0.2708795368671417,
+  "probs": {
+   "BacterialSpot": 0.18480779230594635,
+   "Black_Rot": 0.016340505331754684,
+   "DownyMildew": 0.19739502668380737,
+   "Esca": 0.014699256978929043,
+   "Healthy": 0.2708795368671417,
+   "Irrelavant": 0.12468812614679337,
+   "PowderyMildew": 0.19118976593017578
+  },
+  "inference_ms": 94.87109999827226
+ },
+ {
+  "filename": "images (3).jfif",
+  "ground_truth": "UNKNOWN",
+  "ground_truth_status": "UNVERIFIED",
+  "predicted_class": "Black_Rot",
+  "confidence": 0.7127818465232849,
+  "probs": {
+   "BacterialSpot": 0.03953012824058533,
+   "Black_Rot": 0.7127818465232849,
+   "DownyMildew": 0.03582193702459335,
+   "Esca": 0.043401774019002914,
+   "Healthy": 0.12219230085611343,
+   "Irrelavant": 0.0259943176060915,
+   "PowderyMildew": 0.02027774602174759
+  },
+  "inference_ms": 103.73820000313572
+ },
+ {
+  "filename": "images (4).jfif",
+  "ground_truth": "UNKNOWN",
+  "ground_truth_status": "UNVERIFIED",
+  "predicted_class": "Black_Rot",
+  "confidence": 0.5049959421157837,
+  "probs": {
+   "BacterialSpot": 0.010809626430273056,
+   "Black_Rot": 0.5049959421157837,
+   "DownyMildew": 0.042527031153440475,
+   "Esca": 0.025180425494909286,
+   "Healthy": 0.3189147412776947,
+   "Irrelavant": 0.053411513566970825,
+   "PowderyMildew": 0.04416070133447647
+  },
+  "inference_ms": 95.32330000001821
+ },
+ {
+  "filename": "images (5).jfif",
+  "ground_truth": "UNKNOWN",
+  "ground_truth_status": "UNVERIFIED",
+  "predicted_class": "Healthy",
+  "confidence": 0.8426886200904846,
+  "probs": {
+   "BacterialSpot": 0.02065979689359665,
+   "Black_Rot": 0.03457045182585716,
+   "DownyMildew": 0.04792257398366928,
+   "Esca": 0.015036680735647678,
+   "Healthy": 0.8426886200904846,
+   "Irrelavant": 0.009451205842196941,
+   "PowderyMildew": 0.02967068925499916
+  },
+  "inference_ms": 91.99589999843738
+ },
+ {
+  "filename": "images (6).jfif",
+  "ground_truth": "UNKNOWN",
+  "ground_truth_status": "UNVERIFIED",
+  "predicted_class": "Healthy",
+  "confidence": 0.7747284173965454,
+  "probs": {
+   "BacterialSpot": 0.03650907427072525,
+   "Black_Rot": 0.008044231683015823,
+   "DownyMildew": 0.01623847708106041,
+   "Esca": 0.007677052635699511,
+   "Healthy": 0.7747284173965454,
+   "Irrelavant": 0.02916388213634491,
+   "PowderyMildew": 0.12763887643814087
+  },
+  "inference_ms": 100.2306000009412
+ },
+ {
+  "filename": "images (7).jfif",
+  "ground_truth": "UNKNOWN",
+  "ground_truth_status": "UNVERIFIED",
+  "predicted_class": "Healthy",
+  "confidence": 0.4422439634799957,
+  "probs": {
+   "BacterialSpot": 0.05662483721971512,
+   "Black_Rot": 0.13058146834373474,
+   "DownyMildew": 0.1328398883342743,
+   "Esca": 0.1869647055864334,
+   "Healthy": 0.4422439634799957,
+   "Irrelavant": 0.021269716322422028,
+   "PowderyMildew": 0.029475422576069832
+  },
+  "inference_ms": 99.3014999985462
+ },
+ {
+  "filename": "images (8).jfif",
+  "ground_truth": "UNKNOWN",
+  "ground_truth_status": "UNVERIFIED",
+  "predicted_class": "Esca",
+  "confidence": 0.39243173599243164,
+  "probs": {
+   "BacterialSpot": 0.04907478019595146,
+   "Black_Rot": 0.021658893674612045,
+   "DownyMildew": 0.00985718797892332,
+   "Esca": 0.39243173599243164,
+   "Healthy": 0.36843639612197876,
+   "Irrelavant": 0.022172804921865463,
+   "PowderyMildew": 0.13636821508407593
+  },
+  "inference_ms": 91.21539999978268
+ },
+ {
+  "filename": "images (9).jfif",
+  "ground_truth": "UNKNOWN",
+  "ground_truth_status": "UNVERIFIED",
+  "predicted_class": "Black_Rot",
+  "confidence": 0.48218223452568054,
+  "probs": {
+   "BacterialSpot": 0.0986156240105629,
+   "Black_Rot": 0.48218223452568054,
+   "DownyMildew": 0.04308700934052467,
+   "Esca": 0.028083976358175278,
+   "Healthy": 0.0320434495806694,
+   "Irrelavant": 0.27841684222221375,
+   "PowderyMildew": 0.037570927292108536
+  },
+  "inference_ms": 97.63670000029379
+ },
+ {
+  "filename": "images.jfif",
+  "ground_truth": "UNKNOWN",
+  "ground_truth_status": "UNVERIFIED",
+  "predicted_class": "Healthy",
+  "confidence": 0.615791380405426,
+  "probs": {
+   "BacterialSpot": 0.06316249072551727,
+   "Black_Rot": 0.20751680433750153,
+   "DownyMildew": 0.02305191569030285,
+   "Esca": 0.031692661345005035,
+   "Healthy": 0.615791380405426,
+   "Irrelavant": 0.025705916807055473,
+   "PowderyMildew": 0.03307883441448212
+  },
+  "inference_ms": 106.86960000020918
+ },
+ {
+  "filename": "img1.jfif",
+  "ground_truth": "UNKNOWN",
+  "ground_truth_status": "UNVERIFIED",
+  "predicted_class": "Healthy",
+  "confidence": 0.6770438551902771,
+  "probs": {
+   "BacterialSpot": 0.08252551406621933,
+   "Black_Rot": 0.08969414234161377,
+   "DownyMildew": 0.02124442346394062,
+   "Esca": 0.032022181898355484,
+   "Healthy": 0.6770438551902771,
+   "Irrelavant": 0.08778878301382065,
+   "PowderyMildew": 0.009681090712547302
+  },
+  "inference_ms": 114.43620000136434
+ }
+]

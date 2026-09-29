@@ -1,0 +1,47 @@
+{
+ "finding_id": "S4-ATTN-01",
+ "title": "Stage-1 channel attention and spatial attention are input-independent in this checkpoint",
+ "task": "Step 4 Task 8 (attention / multi-scale), plus a measurement-integrity check prompted by an identical s1_ca_max column across all 11 variants",
+ "status": "MEASURED FACT",
+ "method": {
+  "channel_attention": "forward hook on the last nn.Linear of model.att{s}.ca.fc, i.e. the pre-sigmoid activation; sigmoid applied afterwards. Same module the shipped capture mechanism uses (iwnet/inference/capture.py:119).",
+  "hidden_layer": "forward hook on model.att{s}.ca.fc[0] (the Linear before the ReLU).",
+  "spatial_attention": "forward hook on model.att{s}.sa.conv, read through IntermediateTrace.spatial_attention.",
+  "images": "41 images = 30 uniformly sampled real training images (numpy default_rng(7)) + grape leaf.jpg + the 10 Step 4 controlled variants. For the channel-attention constant test, 51 images (40 sampled + query + 10 variants).",
+  "inference": "unchanged production transform and unchanged production forward pass, single image, batch size 1, CPU, deterministic."
+ },
+ "measurements": {
+  "stage1_channel_attention": {
+   "output_bit_identical_across_all_51_images": true,
+   "constant_vector": { "mean": 0.46648, "max": 0.570571, "min": 0.376848, "n_channels": 32 },
+   "hidden_relu_units_active": "0 of 51 images",
+   "ca_fc_0_bias": [0.055, -0.0277, -0.1389, 0.0406],
+   "ca_fc_0_weight_absmax": 0.2448,
+   "interpretation_limit": "The pre-ReLU activation of the stage-1 hidden layer is negative for every tested input, so the hidden vector is identically zero and the output equals sigmoid(ca.fc[2].bias). This is a statement about the checkpoint's weights, not a claim about why they took those values."
+  },
+  "stage1_spatial_attention": {
+   "sa_map_mean_over_41_images": { "min": 0.999828, "max": 0.999998, "median": 0.999981 },
+   "saturated_at_unity_on_all_41_images": true,
+   "sa_entropy_nats_on_query": 8.0507,
+   "note": "8.0507 nats equals ln(224*224) = ln(50176), i.e. a uniform map. The stage-1 spatial map is effectively the multiplicative identity."
+  },
+  "stage2_and_stage3_are_alive": {
+   "channel_attention_hidden_relu_active": "51 of 51 images for both stage 2 and stage 3",
+   "spatial_attention_mean_range": { "stage2": [0.790546, 0.864869], "stage3": [0.17706, 0.612227] }
+  },
+  "consistent_with_the_scale_weights": {
+   "stage1_projected_feature_std_on_query": 0.098352,
+   "stage2_projected_feature_std_on_query": 0.428743,
+   "stage3_projected_feature_std_on_query": 1.311543,
+   "corpus_median_scale_weights": { "stage1": 0.0067, "stage2": 0.0109, "stage3": 0.9377 }
+  }
+ },
+ "consequence_for_task_8": "Stage-1 attention statistics cannot discriminate between images because they do not vary. Any Step 4 conclusion about stage-1 channel or spatial attention must be stated as a constant, not as a per-image measurement. This does not make stage 1 information-free: model.att1.iw (the image-wise gate) and the backbone stage-1 feature itself remain input-dependent, and the stage-1 adaptive weight does vary across images and across variants (0.013326 to 0.516605).",
+ "relation_to_hypothesis_H4": "Does not support H4. The stage-3 weight of the query is at the 49.87th percentile of the training distribution, and it ranges 0.472434 to 0.977998 across the controlled variants without tracking the class change. The stage-1 collapse is a separate measured training artefact and is not offered as the cause of the confirmed failure.",
+ "not_claimed": [
+  "No claim that the stage-1 collapse caused the Healthy to BacterialSpot failure.",
+  "No claim about why the weights reached these values.",
+  "No claim that any attention map detected a lesion, spot or disease.",
+  "No statement that the model ignores stage 1 entirely; only that its two attention sub-modules are inert."
+ ]
+}

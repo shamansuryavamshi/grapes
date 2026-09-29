@@ -1,0 +1,458 @@
+{
+ "document": "Step 4 hypothesis register, derived ONLY from measured Step 3 output.",
+ "source": "RealWorldValidation/step3_analysis/step3_report.txt, feature_analysis.json, attention_analysis.json, nearest_neighbors.csv, class_similarity_summary.csv",
+ "ground_truth": {
+  "image": "grape leaf.jpg",
+  "label": "Healthy",
+  "status": "VERIFIED",
+  "note": "The only one of the 17 external images with verifiable ground truth. The other 16 remain UNKNOWN and are never treated as correct or incorrect."
+ },
+ "method_note": "Training class labels were taken from dataset directory names only. Model output was never used to assign a label. Feature spaces A (head[0] AdaptiveAvgPool2d output, 128-d) and B (head[8] BatchNorm1d output, 64-d) are existing IWNET internals read with read-only forward hooks; observer fidelity against the shipped capture mechanism was 4.415e-07 max absolute scale-weight difference.",
+ "step3_findings": [
+  {
+   "id": "F1",
+   "finding": "The failure reproduces exactly through the production path: BacterialSpot 0.878758, Healthy 0.035046, probability sum 1.000000, is_rejection False.",
+   "measured_value": {
+    "BacterialSpot": 0.878758,
+    "Healthy": 0.035046,
+    "sum": 1.0
+   },
+   "type": "MEASURED FACT"
+  },
+  {
+   "id": "F2",
+   "finding": "The top 20 nearest training images by cosine similarity on feature B are 20 out of 20 BacterialSpot, spanning 0.962764 to 0.980528.",
+   "measured_value": {
+    "top20_composition": {
+     "BacterialSpot": 20
+    },
+    "cos_min": 0.962764,
+    "cos_max": 0.980528,
+    "from_test_split": 4,
+    "from_train_split": 16
+   },
+   "type": "MEASURED FACT"
+  },
+  {
+   "id": "F3",
+   "finding": "Cosine similarity to the class centroid: BacterialSpot +0.936431 versus Healthy +0.444106, a gap of +0.492325. Irrelavant is the next highest at +0.447695, only 0.003589 above Healthy.",
+   "measured_value": {
+    "BacterialSpot": 0.936431,
+    "Irrelavant": 0.447695,
+    "Healthy": 0.444106,
+    "Black_Rot": 0.329726,
+    "DownyMildew": 0.320779,
+    "PowderyMildew": 0.220901,
+    "Esca": 0.22033
+   },
+   "type": "MEASURED FACT"
+  },
+  {
+   "id": "F4",
+   "finding": "The single best Healthy neighbour scores 0.915473; the single best BacterialSpot neighbour scores 0.980528. BacterialSpot is higher by 0.065055 and 0.0 percent of the 831 Healthy training images score above that best BacterialSpot image.",
+   "measured_value": {
+    "best_healthy": 0.915473,
+    "best_bacterialspot": 0.980528,
+    "gap": -0.065055,
+    "pct_healthy_above_best_bs": 0.0
+   },
+   "type": "MEASURED FACT"
+  },
+  {
+   "id": "F5",
+   "finding": "The query is closer to the MEDIAN BacterialSpot training image (0.895694) than to the best Healthy one is low, and the whole BacterialSpot similarity distribution is shifted high: median 0.895694, p95 0.956668, p99 0.968440, minimum 0.556895. The Healthy distribution to the query is median 0.410659, p95 0.520565, maximum 0.915473.",
+   "measured_value": {
+    "BacterialSpot": {
+     "median": 0.895694,
+     "p95": 0.956668,
+     "p99": 0.96844,
+     "min": 0.556895
+    },
+    "Healthy": {
+     "median": 0.410659,
+     "p95": 0.520565,
+     "max": 0.915473
+    }
+   },
+   "type": "MEASURED FACT",
+   "significance": "BacterialSpot p95 (0.956668) exceeds the best Healthy image (0.915473), so 5 percent or more of BacterialSpot training images outrank every Healthy training image against this query."
+  },
+  {
+   "id": "F6",
+   "finding": "k-nearest-neighbour class composition is 100 percent BacterialSpot at every k tested: k = 1, 3, 5, 10, 20, 50 and 100.",
+   "measured_value": {
+    "k1": "BacterialSpot 1/1",
+    "k5": "BacterialSpot 5/5",
+    "k20": "BacterialSpot 20/20",
+    "k50": "BacterialSpot 50/50",
+    "k100": "BacterialSpot 100/100"
+   },
+   "type": "MEASURED FACT"
+  },
+  {
+   "id": "F7",
+   "finding": "The 93.6823 percent stage-3 weight is NOT unusual. 2972 of 5929 training images (50.13 percent) have a stage-3 weight at or above 0.936823, placing the query at the 49.87th percentile. The Healthy class median is 0.9803 and the BacterialSpot class median is 0.9776, both HIGHER than the query.",
+   "measured_value": {
+    "query_stage3": 0.936823,
+    "corpus_median_stage3": 0.9377,
+    "percentile": 49.87,
+    "Healthy_median": 0.9803,
+    "BacterialSpot_median": 0.9776,
+    "Esca_median": 0.0014,
+    "Irrelavant_median": 0.0004
+   },
+   "type": "MEASURED FACT",
+   "significance": "This directly contradicts a Stage-3-domination explanation. Only Esca and Irrelavant habitually avoid stage 3."
+  },
+  {
+   "id": "F8",
+   "finding": "Stage-3 attention statistics place the query nearer the BacterialSpot group than the Healthy group. Channel-attention mean: query 0.49540, BacterialSpot group 0.49890, Healthy group 0.52097. Channel-attention max: query 0.82339, which is below every one of the 6 Healthy representatives (minimum 0.97955) but above 2 of 6 BacterialSpot representatives (0.62222, 0.70220). Stage-3 IW gate: query 0.4109, Healthy group 0.3193, BacterialSpot group 0.2939, so the query is higher than both.",
+   "measured_value": {
+    "ca_mean": {
+     "query": 0.4954,
+     "Healthy": 0.52097,
+     "BacterialSpot": 0.4989
+    },
+    "ca_max": {
+     "query": 0.82339,
+     "Healthy_min_rep": 0.97955,
+     "BacterialSpot_min_rep": 0.62222
+    },
+    "iw3": {
+     "query": 0.4109,
+     "Healthy": 0.3193,
+     "BacterialSpot": 0.2939
+    }
+   },
+   "type": "MEASURED FACT",
+   "caveat": "n = 6 representatives per class, chosen deterministically as those nearest their own class median. This is a small descriptive sample, not a distributional test."
+  },
+  {
+   "id": "F9",
+   "finding": "Measurable image statistics place the query outside BOTH class distributions. Versus the Healthy median it is extreme on meanSat +4.16 IQR, greenFrac +4.42 IQR, lowSatFrac -3.70 IQR, meanB -2.86 IQR. Versus the BacterialSpot median it is extreme on darkFrac +11.39 IQR, sharpness +3.08 IQR, meanSat +1.40 IQR, meanB -1.50 IQR. It is closer to the BacterialSpot distribution than the Healthy distribution on 6 of 8 colour and composition axes, and closer to Healthy on sharpness and meanR.",
+   "measured_value": {
+    "meanSat": {
+     "query": 0.6227,
+     "Healthy_med": 0.2713,
+     "z_H": 4.16,
+     "BactSpot_med": 0.2997,
+     "z_B": 1.4
+    },
+    "greenFrac": {
+     "query": 0.9862,
+     "Healthy_med": 0.537,
+     "z_H": 4.42,
+     "BactSpot_med": 0.4898,
+     "z_B": 0.94
+    },
+    "lowSatFrac": {
+     "query": 0.0388,
+     "Healthy_med": 0.49,
+     "z_H": -3.7,
+     "BactSpot_med": 0.6357,
+     "z_B": -2.17
+    },
+    "sharpness": {
+     "query": 0.0792,
+     "Healthy_med": 0.0441,
+     "z_H": 1.73,
+     "BactSpot_med": 0.0261,
+     "z_B": 3.08
+    },
+    "darkFrac": {
+     "query": 0.0509,
+     "Healthy_med": 0.0063,
+     "z_H": 1.4,
+     "BactSpot_med": 0.0003,
+     "z_B": 11.39
+    }
+   },
+   "type": "MEASURED FACT"
+  },
+  {
+   "id": "F10",
+   "finding": "Every one of the 5929 training images is exactly 256 x 256. The query is 1920 x 1440. There is therefore zero size or aspect-ratio variance in the training distribution against which the query can be scored.",
+   "measured_value": {
+    "training_long_side": 256,
+    "training_short_side": 256,
+    "query": "1920x1440"
+   },
+   "type": "MEASURED FACT"
+  },
+  {
+   "id": "F11",
+   "finding": "The production transform retains only part of the source. Resize(255) maps 1920x1440 to 255x340, then CenterCrop((224,224)) keeps the central 224/255 = 87.8 percent of the short side and 224/340 = 65.9 percent of the long side, so the network input is drawn from the central 57.9 percent of the original frame area.",
+   "measured_value": {
+    "after_resize": "255x340",
+    "retained_width_frac": 0.6588,
+    "retained_height_frac": 0.8784,
+    "retained_area_frac": 0.5786
+   },
+   "type": "MEASURED FACT"
+  },
+  {
+   "id": "F12",
+   "finding": "4 of the 20 nearest neighbours come from the Balanced_From_Sources test split and 16 from train.",
+   "type": "MEASURED FACT",
+   "significance": "Nearest-neighbour evidence therefore spans both splits and is not an artefact of the training split alone."
+  }
+ ],
+ "hypotheses_to_test": [
+  {
+   "id": "H1",
+   "category": "A. Feature-space class overlap",
+   "hypothesis": "The representation of grape leaf.jpg genuinely lies inside the BacterialSpot region of the learned feature space rather than near the Healthy/BacterialSpot boundary.",
+   "tested_by": [
+    "Task 2/3 controlled variants",
+    "Task 5 neighbour groups",
+    "Task 6 class separability",
+    "Task 9 comparison against genuine Healthy and BacterialSpot images"
+   ],
+   "derived_from": [
+    "F2",
+    "F3",
+    "F4",
+    "F5",
+    "F6"
+   ]
+  },
+  {
+   "id": "H2",
+   "category": "B. Dataset / domain shift",
+   "hypothesis": "The query's representation is substantially different from the whole training distribution, and it is that domain difference rather than a Healthy-to-BacterialSpot confusion that places it in the BacterialSpot region.",
+   "tested_by": [
+    "Task 6 separability",
+    "Task 9 statistics",
+    "Task 10 the 16 UNKNOWN external images as unlabelled diagnostics"
+   ],
+   "derived_from": [
+    "F9",
+    "F10"
+   ]
+  },
+  {
+   "id": "H3",
+   "category": "C. Background / composition sensitivity",
+   "hypothesis": "The amount of surrounding background retained by the production centre crop materially changes the classification.",
+   "tested_by": [
+    "Task 2 variants B, C, D, F, G",
+    "Task 4 background comparison"
+   ],
+   "derived_from": [
+    "F9",
+    "F11"
+   ]
+  },
+  {
+   "id": "H4",
+   "category": "D. Multi-scale / attention dependence",
+   "hypothesis": "The 93.6823 percent stage-3 weight causes or is associated with the error.",
+   "tested_by": [
+    "Task 8 scale weights and IW gates across all variants",
+    "Task 9 against 12 genuine class representatives"
+   ],
+   "derived_from": [
+    "F7",
+    "F8"
+   ],
+   "step3_prior": "F7 already contradicts this. Step 3 measured the value at the 49.87th percentile of the training distribution and below both the Healthy and BacterialSpot class medians."
+  },
+  {
+   "id": "H5",
+   "category": "E. Preprocessing sensitivity",
+   "hypothesis": "Small controlled changes to the input presentation before the unchanged production preprocessing materially alter the prediction, the 64-d bottleneck or the adaptive scale weights.",
+   "tested_by": [
+    "Task 3 agreement, probability delta, feature cosine similarity, scale-weight delta and logit delta across all 11 variants"
+   ],
+   "derived_from": [
+    "F11"
+   ]
+  },
+  {
+   "id": "H6",
+   "category": "F. Classifier-boundary error",
+   "hypothesis": "The 64-d representation is not obviously BacterialSpot-like, but the final 64-to-7 linear layer maps it to BacterialSpot anyway.",
+   "tested_by": [
+    "Task 7 logits and top-1 versus top-2 margin",
+    "Task 6 centroid distances",
+    "Task 5 neighbour group means"
+   ],
+   "derived_from": [
+    "F3",
+    "F4"
+   ]
+  },
+  {
+   "id": "H7",
+   "category": "Rejection-class behaviour",
+   "hypothesis": "Irrelavant is an unstable class under input framing rather than a reliable out-of-distribution or rejection signal.",
+   "tested_by": [
+    "Task 11 Irrelavant probability across all variants and against the gallery distribution",
+    "Task 10 across the 16 UNKNOWN images"
+   ],
+   "derived_from": [
+    "Step 2 observation that Irrelavant fired 0 of 17 on full external frames but 80 to 90 percent under some crops",
+    "F3 in which Irrelavant is the second closest class to the query at +0.447695"
+   ]
+  },
+  {
+   "id": "H8",
+   "category": "Class specificity",
+   "hypothesis": "The failure is specific to this image rather than a general weakness of the model on external input.",
+   "tested_by": [
+    "Task 10 unlabelled behavioural comparison of the 16 UNKNOWN images against the confirmed failure"
+   ],
+   "derived_from": [
+    "F2",
+    "F5"
+   ]
+  }
+ ],
+ "evidence_for_each_hypothesis": {
+  "H1": [
+   "F2: 20 of 20 nearest training images are BacterialSpot at cosine 0.9628 to 0.9805.",
+   "F3: centroid cosine BacterialSpot +0.936431 versus Healthy +0.444106, a gap of 0.492.",
+   "F4: best BacterialSpot 0.980528 beats best Healthy 0.915473 and 0.0 percent of Healthy images exceed it.",
+   "F5: BacterialSpot median similarity to the query is 0.895694 and p95 is 0.956668, both far above the Healthy median of 0.410659.",
+   "F6: k-NN is 100 percent BacterialSpot at every k from 1 to 100.",
+   "F8: stage-3 channel-attention mean 0.49540 sits with the BacterialSpot group (0.49890) rather than the Healthy group (0.52097)."
+  ],
+  "H2": [
+   "F9: meanSat +4.16 IQR from the Healthy median, greenFrac +4.42 IQR, lowSatFrac -3.70 IQR, so the image is far outside the Healthy appearance distribution.",
+   "F9: darkFrac +11.39 IQR from the BacterialSpot median, sharpness +3.08 IQR, so it is also far outside the BacterialSpot appearance distribution.",
+   "F10: every training image is 256 x 256; the query is 1920 x 1440, a structural difference the training set never exhibits."
+  ],
+  "H3": [
+   "F9: lowSatFrac 0.0388 against class medians of 0.4900 (Healthy) and 0.6357 (BacterialSpot), so the query carries almost none of the low-saturation background pixels typical of training images.",
+   "F11: the production centre crop discards 42 percent of the frame width before the network sees anything."
+  ],
+  "H4": [
+   "F8: the query's stage-3 IW gate of 0.4109 is higher than both the Healthy group (0.3193) and the BacterialSpot group (0.2939), which is a measurable attention difference."
+  ],
+  "H5": [
+   "F11: the network input is derived from the central 57.9 percent of the original frame, so input presentation is a live variable."
+  ],
+  "H6": [
+   "F3: the centroid gap is large, which on its face is the opposite of a boundary case, but Step 3 did not inspect the final logits or the top-1 versus top-2 margin."
+  ],
+  "H7": [
+   "F3: Irrelavant is the second closest class to the query at +0.447695, only 0.003589 ahead of Healthy, and Step 2 measured it firing 0 of 17 on full external frames but 80 to 90 percent under some crops."
+  ],
+  "H8": [
+   "F5: BacterialSpot p95 similarity to the query is 0.956668, above the best Healthy image, so a large part of the BacterialSpot class occupies this region."
+  ]
+ },
+ "evidence_against_each_hypothesis": {
+  "H1": [
+   "F9: the query is an extreme outlier against the BacterialSpot distribution too, darkFrac +11.39 IQR and sharpness +3.08 IQR, so it is not sitting inside a well-populated typical region."
+  ],
+  "H2": [
+   "F3: if the query were simply out of distribution for the model as a whole, no class centroid would sit at +0.936. The distance to the BacterialSpot centroid is extremely small.",
+   "F8: the query's stage-3 attention statistics land inside the range spanned by genuine BacterialSpot representatives rather than outside all of them."
+  ],
+  "H3": [
+   "Nothing measured yet in Step 3 isolates background from content. F9 measures composition statistics but cannot show whether removing the background would change the decision."
+  ],
+  "H4": [
+   "F7: the stage-3 weight of 0.936823 sits at the 49.87th percentile of the training distribution and is LOWER than the Healthy median of 0.9803 and the BacterialSpot median of 0.9776. Half of all training images score at or above it.",
+   "F7: the two classes that habitually avoid stage 3, Esca median 0.0014 and Irrelavant median 0.0004, are not the classes in contention here.",
+   "F8: every one of the 12 class representatives also carries a stage-3 weight between 0.8641 and 0.9981, so stage-3 dominance is shared and cannot discriminate."
+  ],
+  "H5": [
+   "Nothing measured yet in Step 3 varies the input presentation, so this hypothesis is currently untested rather than supported."
+  ],
+  "H6": [
+   "F3 and F4: a large centroid gap and a neighbourhood that is 100 percent BacterialSpot up to k=100 argue the representation is genuinely BacterialSpot-like, not that a thin margin was crossed.",
+   "F1: confidence is 0.878758 with Healthy at 0.035046, which is not the profile of a near-tie at the decision boundary."
+  ],
+  "H7": [
+   "Nothing in Step 3 measured Irrelavant under controlled framing, so the instability claim remains unverified."
+  ],
+  "H8": [
+   "F5: the region is well populated by BacterialSpot training images, which is consistent with a specific image-level effect rather than a random failure."
+  ]
+ },
+ "explicitly_not_claimed": [
+  "No claim that any attention map detected a lesion, spot or disease.",
+  "No claim that the model classified the leaf as bacterial spot because of any visual feature.",
+  "No accuracy claim derived from the 17 external images; 16 have unknown ground truth.",
+  "No use of model output as ground truth for any training image.",
+  "No causal conclusion from any single correlation.",
+  "No claim that the model detected a lesion, spot or disease on any image.",
+  "No claim that background caused the error; the centre-crop family cannot separate background from magnification and the measured relationship is reported instead.",
+  "No accuracy figure for the 16 UNKNOWN external images, and no UNKNOWN image is called correct or incorrect.",
+  "No general accuracy claim from the 17-image external set.",
+  "No visual cause for the position of the 64-d representation; the measurements locate it, they do not explain it."
+ ],
+ "final_verdicts": {
+  "chosen_primary_category": "A. Feature-space class overlap",
+  "chosen_primary_hypothesis": "H1",
+  "step3_hypothesis_status": "SUPPORTED",
+  "step3_explanation": "Step 3 concluded (its own Task 4) that the query sits closer to BacterialSpot than to Healthy in the 64-d bottleneck. Step 4 reproduces that conclusion and strengthens it with centroid separability, intra-class spread, 1-NN self-retrieval region occupancy, a 15-per-class logit-profile comparison, and stability under five content-preserving perturbations. Step 3 F7 (stage-3 weight not unusual) and F8 (stage-3 attention nearer the BacterialSpot group) are also confirmed.",
+  "step3_addition_not_present_in_step3": "Framing / window-selection sensitivity. Step 3 did not test input framing. Step 4 measured it and found it material but not the reason the answer is BacterialSpot: 9 of 11 variants retain the class, and the changed variants move in both directions (one to Irrelavant, one to Healthy).",
+  "verdicts": {
+   "H1": {
+    "status": "SUPPORTED - PRIMARY",
+    "category": "A. Feature-space class overlap",
+    "basis": "20/20 nearest training images BacterialSpot at mean cosine 0.968469 (weakest 0.962764 exceeds the strongest of the top-20 Healthy, 0.915473; group mean gap +0.341693). Centroid cosine +0.936431 vs +0.444106 for Healthy, margin +0.488736, while the BacterialSpot-Healthy centroid similarity is only 0.356527. The 0.936431 is within 0.013 of the genuine BacterialSpot intra-class mean of 0.949010. BacterialSpot 1-NN self-retrieval 0.9986 and 20/20 of the query neighbours have a BacterialSpot image as their own nearest. BacterialSpot logit +3.395030 vs the 15 nearest genuine BacterialSpot members +3.228722. 14/14 class-discriminative internal quantities nearer the BacterialSpot group. Stable under hflip, vflip, rot90, rot180 and a 50 percent downscale.",
+    "confidence": "HIGH"
+   },
+   "H2": {
+    "status": "PARTIALLY SUPPORTED - secondary contributor, not proximate cause",
+    "category": "B. Dataset / domain shift",
+    "basis": "Pixel-level domain shift is real and measured: the image is an extreme pixel-statistic outlier against BOTH class distributions (Step 3 F9), every training image is 256x256 while this one is 1920x1440, and the production transform shows the network only 57.87 percent of the frame. But the representation is not in no-man's land: it sits 0.936431 from the BacterialSpot centroid versus 0.444106 from Healthy, inside a densely populated cluster, with normal stage-2 and stage-3 attention.",
+    "confidence": "MODERATE"
+   },
+   "H3": {
+    "status": "SUPPORTED - secondary contributor, confounded with scale",
+    "category": "C. Background / composition sensitivity",
+    "basis": "Background-reduced variant F moved P(BacterialSpot) by -19.44 pp and 64-d cosine to 0.914773; tight crop C changed the top-1 to Irrelavant and wider D changed it to Healthy. Across 11 variants P(BacterialSpot) spans 0.224136 to 0.883231 and 64-d cosine 0.682600 to 0.999874. LIMITATION: because production ends in CenterCrop(224) every centre-crop change is simultaneously a magnification change, so background cannot be isolated from scale with this design.",
+    "confidence": "MODERATE"
+   },
+   "H4": {
+    "status": "NOT SUPPORTED",
+    "category": "D. Multi-scale / attention dependence",
+    "basis": "The query stage-3 weight 0.936823 sits at the 49.87th percentile of 5929 training images and below both the Healthy median (0.9803) and BacterialSpot median (0.9776). Across variants it ranges 0.472434 to 0.977998 without tracking the class change: the Irrelavant flip is at 0.472434, the Healthy flip at 0.853959, and the stable BacterialSpot variants span 0.893036 to 0.977998. Stage-3 dominance is shared by all classes except Esca and Irrelavant.",
+    "confidence": "HIGH (that it is not the cause)"
+   },
+   "H5": {
+    "status": "SUPPORTED - secondary, bounded",
+    "category": "E. Preprocessing sensitivity",
+    "basis": "Production discards 42 percent of the frame width; 2 of 11 controlled variants changed the top-1 class and the BacterialSpot probability swung 65.9 pp. Bounded because hflip, vflip, rot90, rot180 and a 50 percent downscale all keep BacterialSpot with 64-d cosine at or above 0.966023, and 9 of 11 variants retain the class.",
+    "confidence": "MODERATE"
+   },
+   "H6": {
+    "status": "NOT SUPPORTED",
+    "category": "F. Classifier-boundary error",
+    "basis": "Top-1/top-2 margin +3.221847 logits with a runner-up probability of 0.035046 against 0.878758 (84.4 pp gap, spread 4.98605). The 64-d representation is unambiguously on the BacterialSpot side, so the classifier is reporting its input faithfully rather than making a marginal call.",
+    "confidence": "HIGH (that it is not the cause)"
+   },
+   "H7": {
+    "status": "SUPPORTED - measured coupling, intent not determined",
+    "category": "Rejection-class behaviour",
+    "basis": "Irrelavant is second-closest to the query at +0.447695, only 0.003589 above Healthy. It is top-1 for 0 of the 17 external images yet for 1 of the 11 variants, where it reached 0.530499, above the 0.5063 maximum over the 900 sampled non-Irrelavant training images. Its probability on this one image spans 0.016770 to 0.530499, a 31.6-fold spread from framing alone.",
+    "confidence": "HIGH for the coupling, NONE for the intent"
+   },
+   "H8": {
+    "status": "SUPPORTED",
+    "category": "Class specificity",
+    "basis": "The query is the only one of the 17 external images whose nearest class centroid is BacterialSpot, while 9 of the other 16 are nearest to Healthy. It is also the most confident of the 17 (0.8788 against a mean of 0.5899). Behavioural observation only; the other 16 carry no ground truth.",
+    "confidence": "HIGH (behavioural only)"
+   }
+  },
+  "confidence_summary": {
+   "primary_category_A": "HIGH - five independent measurement families agree and none is contradicted; competing categories D and F are excluded by direct measurement.",
+   "why_the_representation_is_where_it_is": "LOW and explicitly not claimed. The measurements locate the representation and establish that it is stable; they do not discriminate between domain shift, genuine visual similarity that the ground truth does not reflect, a training-label artefact, or an interaction. No visual cause is asserted.",
+   "secondary_framing_factor": "MODERATE - reproducible but not attributable to background rather than magnification by this design.",
+   "stage1_attention_anomaly": "MODERATE - verified on 51 and 41 images with two independent probes; reported as a checkpoint property, not a diagnosis."
+  },
+  "scope_limit": "One VERIFIED image, one deterministic CPU run, no sampling variance quantified. Nothing here generalises to the model as a whole.",
+  "artefact": {
+   "step3_findings": "verbatim F1-F12 transcribed from step3_report.txt before any Step 4 experiment ran",
+   "hypotheses_to_test": "the eight hypotheses H1-H8 tested",
+   "evidence_for_each_hypothesis": "measured evidence for, as written before the verdict",
+   "evidence_against_each_hypothesis": "measured evidence against, as written before the verdict",
+   "final_verdicts": "per-hypothesis outcome with basis and confidence"
+  }
+ }
+}

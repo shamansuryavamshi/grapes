@@ -1,0 +1,147 @@
+STEP 3 - INVESTIGATION OF THE CONFIRMED Healthy -> BacterialSpot FAILURE
+====================================================================================================
+READ-ONLY INVESTIGATION. No retraining, no fine-tuning, no modification of best_iwnet.pth,
+architecture, preprocessing, inference logic, class definitions or either dataset.
+Prediction was NOT changed and no heuristic correction was added.
+
+1. CONFIRMED FAILURE
+   image            : grape leaf.jpg
+   ground truth     : Healthy  (VERIFIED in RealWorldValidation/manifest.csv)
+   prediction      : BacterialSpot at 0.878758
+   Healthy prob     : 0.035046
+   probabilities sum: 1.000000   is_rejection: False
+   full distribution:
+       BacterialSpot   0.878758
+       Healthy         0.035046
+       Irrelavant      0.030412
+       Black_Rot       0.024897
+       DownyMildew     0.014695
+       PowderyMildew   0.010187
+       Esca            0.006004
+
+2. PREPROCESSING (unmodified production transform)
+   source 1920x1440 -> Resize(255, BILINEAR) -> 255x340 -> CenterCrop((224,224)) -> 224x224
+   tensor (3, 224, 224) torch.float32 range [-2.1179, 2.4134]
+
+3. FEATURE SPACES USED (existing IWNET internals, read with read-only forward hooks)
+   A  head[0] AdaptiveAvgPool2d output, 128-d - the tensor the classifier consumes
+   B  head[8] BatchNorm1d output, 64-d - the bottleneck feeding the final classifier
+   metric: cosine similarity on L2-normalised vectors
+   observer fidelity vs the shipped capture mechanism: max |scale-weight diff| = 4.415e-07
+
+4. TOP 20 NEAREST TRAINING IMAGES (class from dataset directory, never from model output)
+   rank cos(B)     class           split  path
+   1    0.980528   BacterialSpot   train  BacterialSpot\train_307_Bacterial Leaf Spot_85.png
+   2    0.974698   BacterialSpot   test   BacterialSpot\train_403_Bacterial Leaf Spot_24.png
+   3    0.972249   BacterialSpot   train  BacterialSpot\train_474_Bacterial Leaf Spot_68.JPG
+   4    0.972036   BacterialSpot   test   BacterialSpot\train_204_Bacterial Leaf Spot_80.jpg
+   5    0.971003   BacterialSpot   train  BacterialSpot\train_673_Bacterial Leaf Spot_3.png
+   6    0.970613   BacterialSpot   train  BacterialSpot\train_230_Bacterial Leaf Spot_23.jpg
+   7    0.970593   BacterialSpot   train  BacterialSpot\train_159_Bacterial Leaf Spot_77.jpg
+   8    0.968419   BacterialSpot   train  BacterialSpot\train_430_Bacterial Leaf Spot_23.jpg
+   9    0.968187   BacterialSpot   train  BacterialSpot\train_203_Bacterial Leaf Spot_24.png
+   10   0.968011   BacterialSpot   train  BacterialSpot\train_104_Bacterial Leaf Spot_80.jpg
+   11   0.967934   BacterialSpot   train  BacterialSpot\train_321_Bacterial Leaf Spot_36.jpg
+   12   0.967162   BacterialSpot   test   BacterialSpot\train_603_Bacterial Leaf Spot_24.png
+   13   0.966692   BacterialSpot   train  BacterialSpot\train_273_Bacterial Leaf Spot_3.png
+   14   0.966392   BacterialSpot   train  BacterialSpot\train_6_Bacterial Leaf Spot_16.jpg
+   15   0.966260   BacterialSpot   test   BacterialSpot\train_503_Bacterial Leaf Spot_24.png
+   16   0.965410   BacterialSpot   train  BacterialSpot\train_506_Bacterial Leaf Spot_16.jpg
+   17   0.964198   BacterialSpot   train  BacterialSpot\train_406_Bacterial Leaf Spot_16.jpg
+   18   0.963185   BacterialSpot   train  BacterialSpot\train_30_Bacterial Leaf Spot_23.jpg
+   19   0.963054   BacterialSpot   test   BacterialSpot\train_604_Bacterial Leaf Spot_80.jpg
+   20   0.962764   BacterialSpot   train  BacterialSpot\train_630_Bacterial Leaf Spot_23.jpg
+   class composition of the top 20: {np.str_('BacterialSpot'): 20}
+
+5. CLASS-WISE NEAREST-NEIGHBOUR STATISTICS
+   class                 n        max     median       top5      top10        p95
+   BacterialSpot       700   0.980528   0.895694   0.974103   0.971634   0.956668
+   Black_Rot           900   0.473915   0.317033   0.459933   0.450205   0.397274
+   DownyMildew         853   0.762949   0.280693   0.709146   0.647836   0.410085
+   Esca                876   0.402897   0.214699   0.361391   0.330851   0.244834
+   Healthy             831   0.915473   0.410659   0.750706   0.680445   0.520565
+   Irrelavant          933   0.845189   0.443599   0.730133   0.655180   0.461408
+   PowderyMildew       836   0.938420   0.175684   0.830394   0.746515   0.361217
+
+6. WHERE THE QUERY SITS
+   cosine to class centroid:
+       BacterialSpot    +0.936431
+       Irrelavant       +0.447695
+       Healthy          +0.444106
+       Black_Rot        +0.329726
+       DownyMildew      +0.320779
+       PowderyMildew    +0.220901
+       Esca             +0.220330
+   best Healthy 0.915473  vs  best BacterialSpot 0.980528  ->  gap -0.065055
+   0.0% of the 831 Healthy training images score higher than the best BacterialSpot image
+   k-NN majority: {1: (np.str_('BacterialSpot'), 1), 3: (np.str_('BacterialSpot'), 3), 5: (np.str_('BacterialSpot'), 5), 10: (np.str_('BacterialSpot'), 10), 20: (np.str_('BacterialSpot'), 20), 50: (np.str_('BacterialSpot'), 50), 100: (np.str_('BacterialSpot'), 100)}
+   VERDICT: B - the query sits closer to BacterialSpot than to Healthy
+
+7. ADAPTIVE SCALE WEIGHTS
+   query: stage1 0.057653  stage2 0.005524  stage3 0.936823
+   corpus stage1: min 0.0000 p05 0.0000 median 0.0067 mean 0.1675 p95 0.9999 max 1.0000
+   corpus stage2: min 0.0000 p05 0.0000 median 0.0109 mean 0.1760 p95 0.9996 max 1.0000
+   corpus stage3: min 0.0000 p05 0.0000 median 0.9377 mean 0.6565 p95 0.9962 max 0.9994
+   2972 of 5929 training images (50.13%) have stage-3 weight >= the query's -> the query is at the 49.87 percentile
+   by training class (median / p90 / max / count >= query):
+       BacterialSpot    median 0.9776  p90 0.9938  max 0.9992  601 at/above
+       Black_Rot        median 0.8571  p90 0.9414  max 0.9827  105 at/above
+       DownyMildew      median 0.9789  p90 0.9945  max 0.9986  754 at/above
+       Esca             median 0.0014  p90 0.0556  max 0.7908  0 at/above
+       Healthy          median 0.9803  p90 0.9963  max 0.9994  715 at/above
+       Irrelavant       median 0.0004  p90 0.0266  max 0.9696  1 at/above
+       PowderyMildew    median 0.9903  p90 0.9973  max 0.9994  796 at/above
+
+8. CAPTURED INTERMEDIATES - QUERY vs REPRESENTATIVE HEALTHY / BACTERIALSPOT IMAGES
+   (shipped capture mechanism, unmodified, single images)
+   image                                      w1/w2/w3          s3CAmean   s3CAmax   s3SAmax   s3SAent     s3IW
+   grape leaf.jpg  [EXTERNAL QUERY]           0.058/0.006/0.937   0.49540   0.82339   0.99374    4.9160   0.4109
+   Healthy / train_190_30ef1555-5cbf-4516-a2e 0.017/0.008/0.975   0.52215   0.99958   0.99961    4.7547   0.2835
+   Healthy / train_486_c03ffb41-c3a8-437f-9ee 0.005/0.006/0.988   0.52033   0.99079   0.99998    4.8746   0.2143
+   Healthy / train_180_40802018-54d4-4be9-8dd 0.037/0.009/0.954   0.51978   0.99958   0.99978    4.7467   0.3714
+   Healthy / train_735_Healthy Leaves_450.jpg 0.000/0.002/0.998   0.51632   0.97955   0.99977    4.8431   0.3406
+   Healthy / train_49_17572261-c800-42b7-8baf 0.079/0.025/0.896   0.52553   0.99996   0.99994    4.6710   0.3556
+   Healthy / train_567_a889fb1b-e7cb-4026-a42 0.110/0.026/0.864   0.52174   0.99905   0.99989    4.8797   0.3503
+   BacterialSpot / train_71_Bacterial Leaf Sp 0.013/0.002/0.985   0.50337   0.99172   0.99977    4.2716   0.3553
+   BacterialSpot / train_436_Bacterial Leaf S 0.002/0.001/0.997   0.50043   0.98149   0.99939    3.9770   0.3673
+   BacterialSpot / train_405_Bacterial Leaf S 0.024/0.003/0.973   0.50050   0.97472   0.99954    4.4489   0.2920
+   BacterialSpot / train_381_Bacterial Leaf S 0.056/0.029/0.916   0.49601   0.62222   0.99562    4.9331   0.1497
+   BacterialSpot / train_519_Bacterial Leaf S 0.033/0.021/0.946   0.49506   0.70220   0.99895    4.8906   0.3103
+   BacterialSpot / train_612_Bacterial Leaf S 0.041/0.008/0.951   0.49806   0.93960   0.99835    4.4635   0.2889
+   Healthy group mean: CA mean 0.52097  CA max 0.99475  CA ent 4.6542 | SA mean 0.50143  SA max 0.99983  SA ent 4.7950 | IW 0.3193 | proj mean 0.0238 std 1.2411
+   BacterialSpot group mean: CA mean 0.49890  CA max 0.86866  CA ent 4.7423 | SA mean 0.31425  SA max 0.99860  SA ent 4.4974 | IW 0.2939 | proj mean -0.0254 std 0.8682
+   QUERY          : CA mean 0.49540  CA max 0.82339  CA ent 4.8442 | SA mean 0.47914  SA max 0.99374  SA ent 4.9160 | IW 0.4109 | proj mean 0.0016 std 1.3115
+
+9. MEASURABLE IMAGE STATISTICS (no model involved)
+   statistic        query Healthy med        z BactSpot med        z
+   meanR           0.3798     0.5120    -1.30     0.6085    -1.74
+   meanG           0.5396     0.5676    -0.31     0.6328    -0.70
+   meanB           0.2470     0.4614    -2.86     0.5050    -1.50
+   meanSat         0.6227     0.2713    +4.16     0.2997    +1.40
+   meanLum         0.4584     0.5409    -0.91     0.6061    -1.16
+   lumStd          0.2095     0.1697    +0.58     0.1602    +1.15
+   greenFrac       0.9862     0.5370    +4.42     0.4898    +0.94
+   darkFrac        0.0509     0.0063    +1.40     0.0003   +11.39
+   brightFrac      0.1159     0.0703    +0.16     0.2801    -0.54
+   lowSatFrac      0.0388     0.4900    -3.70     0.6357    -2.17
+   sharpness       0.0792     0.0441    +1.73     0.0261    +3.08
+   aspect          1.3333     1.0000     n/a     1.0000     n/a
+   longSide     1920.0000   256.0000     n/a   256.0000     n/a
+   shortSide    1440.0000   256.0000     n/a   256.0000     n/a
+   (n/a = the class IQR is 0, so a z-score is undefined. Every training image is 256x256,
+    so size and aspect ratio carry no distributional information.)
+
+10. WHAT THIS DOES AND DOES NOT ESTABLISH
+   MEASURED: the representation of grape leaf.jpg is more similar to BacterialSpot training
+   examples than to Healthy ones, by every measure used here.
+   NOT ESTABLISHED: why. Cosine similarity in the bottleneck space does not identify a
+   visual cause. No statement is made about what the attention maps 'detected'.
+   The 16 UNKNOWN external images were not used as evidence of accuracy anywhere above.
+
+11. OUTPUT FILES
+   attention_analysis.json             26795 bytes
+   class_similarity_summary.csv          524 bytes
+   contact_sheet.png                  746584 bytes
+   feature_analysis.json               43615 bytes
+   nearest_neighbors.csv                2502 bytes
+   step3_report.txt                    10291 bytes

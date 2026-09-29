@@ -1,0 +1,100 @@
+﻿========================================================================================================
+STEP 4 TASK 14 - INTEGRITY VERIFICATION (read-only confirmation)
+========================================================================================================
+
+1. best_iwnet.pth  (must not be modified)
+  [PASS] checkpoint sha256 identical to the pre-analysis baseline       c1fae27c83d68b613034ca089a27e8fa629f9478bec307ae5e0ff74e75a27c0b
+  [PASS] checkpoint file size unchanged                                 41213897 bytes
+  [PASS] checkpoint mtime predates the Step 4 analysis                  mtime 2026-09-28 20:50:46
+
+2. datasets  (must not be modified)
+  [PASS] Balanced_From_Sources: 5947 files / 5940 images unchanged      
+  [PASS] Balanced_From_Sources: aggregate content hash unchanged        b74ddb7ea35db11e72c6e8a93d8ce520c092a4e1...
+  [PASS] Balanced_Final_Split: 7200 files / 7200 images unchanged       
+  [PASS] Balanced_Final_Split: aggregate content hash unchanged         5d54ca81808a754a593e5b190b4c06f9d64ee234...
+
+3. external images  (17, read-only, never resized or replaced)
+  [PASS] file count still 17                                            17 files
+  [PASS] no external file added or removed                              
+  [PASS] no external image content changed                              all 17 hashes identical
+  [PASS] no external image byte size changed                            
+  [PASS] grape leaf.jpg still 429238 bytes                              429238 bytes
+
+4. manifest.csv  (must not be overwritten)
+  [PASS] manifest.csv present and readable                              9713 bytes
+  [PASS] manifest.csv still has 17 rows                                 17 rows
+  [PASS] manifest.csv still has exactly 1 VERIFIED row                  grape leaf.jpg
+  [PASS] every manifest sha256 still matches its image on disk          0 mismatches
+  [PASS] manifest still records grape leaf.jpg as Healthy               {"filename": "grape leaf.jpg", "ground_truth": "Healthy", "ground_truth_status": "VERIFIED"}
+
+5. predictions.csv + predictions_detail.json  (must not be overwritten)
+  [PASS] predictions.csv present                                        2282 bytes
+  [PASS] predictions.csv still has 17 rows                              17 rows
+  [PASS] predictions.csv still has 13 columns                           13 columns
+  [PASS] every row's 7 probabilities still sum to 1                     min 0.99999900 max 1.00000100
+  [PASS] predictions.csv still records BacterialSpot for grape leaf.jpg BacterialSpot
+  [PASS] predictions.csv confidence still 0.878758                      0.878758
+  [PASS] predictions_detail.json present and parseable                  8718 bytes
+  [PASS] predictions_detail.json still describes 17 images              17 entries
+  [PASS] predictions_detail.json still records 0.878758 for grape leaf.jpg {"BacterialSpot": 0.878758, "Black_Rot": 0.024897, "DownyMildew": 0.014695, "Esca": 0.006004, "Healthy": 0.035046, "Irrelavant": 0.030412, "PowderyMildew": 0.010187}
+
+6. code surface  (Step 4 must not have modified any project source)
+  [----] iwnet/model/architecture.py                                    5554c993f7fc6d2a162db45e...
+  [----] iwnet/model/checkpoint.py                                      34d1ffcfabfc4295636ad782...
+  [----] iwnet/inference/predictor.py                                   8b678a8052b77e463c82beec...
+  [----] iwnet/inference/capture.py                                     a874e4dd47421a1a231ba30e...
+  [----] iwnet/inference/visualize.py                                   6db23f933e118ec64e9c2c83...
+  [----] iwnet/api/app.py                                               8be2b027ed25afab432f113a...
+  [----] iwnet/config.py                                                c94bbf03e157d04b3dab6edf...
+  (no prior code snapshot found - hashes recorded now for reference)
+
+7. live behaviour: architecture, preprocessing, class list, inference
+  [PASS] parameter count unchanged (10,161,307)                         10,161,307
+  [PASS] backbone / architecture still efficientnet_b3 with out_indices (1,2,3) efficientnet_b3
+  [PASS] head layer count and types unchanged (11 modules)              AdaptiveAvgPool2d | Flatten | Dropout | Linear | BatchNorm1d | ReLU | Dropout | Linear | BatchNorm1d | ReLU | Linear
+  [PASS] class list unchanged, order preserved, spelling 'Irrelavant' intact ['BacterialSpot', 'Black_Rot', 'DownyMildew', 'Esca', 'Healthy', 'Irrelavant', 'PowderyMildew']
+  [PASS] preprocessing unchanged: Resize present                        Compose(     Resize(size=255, interpolation=bilinear, max_size=None, antialias=True)     CenterC
+  [PASS] preprocessing unchanged: bilinear interpolation                Compose(     Resize(size=255, interpolation=bilinear, max_size=None, antialias=True)     CenterC
+  [PASS] preprocessing unchanged: CenterCrop present                    Compose(     Resize(size=255, interpolation=bilinear, max_size=None, antialias=True)     CenterC
+  [PASS] preprocessing unchanged: 224x224 centre crop                   Compose(     Resize(size=255, interpolation=bilinear, max_size=None, antialias=True)     CenterC
+  [PASS] preprocessing unchanged: ToTensor present                      Compose(     Resize(size=255, interpolation=bilinear, max_size=None, antialias=True)     CenterC
+  [PASS] preprocessing unchanged: Normalize present                     Compose(     Resize(size=255, interpolation=bilinear, max_size=None, antialias=True)     CenterC
+  [PASS] grape leaf.jpg STILL predicts BacterialSpot                    BacterialSpot
+  [PASS] confidence STILL 0.878758 (prediction not changed)             0.878758
+  [PASS] Healthy probability STILL 0.035046                             0.035046
+  [PASS] all 7 probabilities STILL match the Step 1/2 record            {"BacterialSpot": 0.878758, "Black_Rot": 0.024897, "DownyMildew": 0.014695, "Esca": 0.006004, "Healthy": 0.035046, "Irrelavant": 0.030412, "PowderyMildew": 0.010187}
+  [PASS] probabilities STILL sum to 1                                   1.00000008
+  [PASS] is_rejection STILL False (thresholds unchanged)                False
+
+8. Step 4 outputs are confined to RealWorldValidation\step4_analysis\
+      RealWorldValidation\step4_analysis\STEP4_ROOT_CAUSE_REPORT.md     50799 bytes
+      RealWorldValidation\step4_analysis\attention_anomaly_stage1.json      3874 bytes
+      RealWorldValidation\step4_analysis\feature_and_class_analysis.json     67159 bytes
+      RealWorldValidation\step4_analysis\feature_separability.csv       629 bytes
+      RealWorldValidation\step4_analysis\feature_separability.json      6927 bytes
+      RealWorldValidation\step4_analysis\step4_hypotheses.json       16116 bytes
+      RealWorldValidation\step4_analysis\task11_rejection.json        5050 bytes
+      RealWorldValidation\step4_analysis\variant_measurements.json     22039 bytes
+      RealWorldValidation\step4_analysis\variant_predictions.csv      9192 bytes
+      RealWorldValidation\step4_analysis\variants\B_centre_square.png   2933920 bytes
+      RealWorldValidation\step4_analysis\variants\C_tight_0.60.png   1679181 bytes
+      RealWorldValidation\step4_analysis\variants\D_wide_squarepad.png   3679399 bytes
+      RealWorldValidation\step4_analysis\variants\E_resize_only.png   1100474 bytes
+      RealWorldValidation\step4_analysis\variants\F_background_reduced.png   2276375 bytes
+      RealWorldValidation\step4_analysis\variants\G_leaf_centered.png   2933920 bytes
+      RealWorldValidation\step4_analysis\variants\H_hflip.png      3672241 bytes
+      RealWorldValidation\step4_analysis\variants\I_vflip.png      3672309 bytes
+      RealWorldValidation\step4_analysis\variants\J_rot90.png      3685608 bytes
+      RealWorldValidation\step4_analysis\variants\K_rot180.png     3665234 bytes
+      RealWorldValidation\step4_analysis\verification_log.txt         7849 bytes
+  [PASS] every Step 4 file is inside step4_analysis/                    20 files total
+  [PASS] manifest/predictions were NOT overwritten by Step 4            
+  [PASS] original image was NOT copied/modified into the project as a replacement variants are new PNG files under step4_analysis\variants\
+
+========================================================================================================
+RESULT: ALL CHECKS PASSED
+  best_iwnet.pth, both datasets, all 17 external images, manifest.csv, predictions.csv and
+  predictions_detail.json are byte-identical to the pre-analysis baseline. Architecture,
+  preprocessing, class list and production inference behaviour are unchanged, and the
+  confirmed failure still reproduces at exactly 0.878758.
+========================================================================================================

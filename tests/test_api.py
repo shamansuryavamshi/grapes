@@ -147,3 +147,72 @@ def test_openapi_schema_is_valid(api_with_model):
     for route in ("/api/health", "/api/predict", "/api/classes", "/api/model"):
         assert route in body["paths"], f"{route} missing from the OpenAPI schema"
 
+
+# ── image_path prediction (real dataset) ─────────────────────────────────────
+# Third of the three supported prediction inputs, alongside multipart upload and
+# a raw image body. It is the one the UI's example gallery uses, so it runs
+# against genuine dataset images rather than the synthetic ``api_with_model``
+# fixture. These assert API *behaviour* only: the specific disease a model
+# predicts for one photograph is model correctness, not API correctness, and
+# must not be asserted here.
+
+
+def test_sample_gallery_lists_real_dataset_images(real_api_with_model):
+    response = real_api_with_model.get("/api/samples", params={"per_class": 1})
+    assert response.status_code == 200
+    entries = response.json()
+    assert entries, "the sample gallery returned no dataset images"
+    for entry in entries:
+        assert entry["class"] in FINAL_CLASSES
+        assert entry["filename"] and entry["url"] and entry["path"]
+        assert entry["url"] == f"/api/samples/{entry['class']}/{entry['filename']}"
+
+
+def test_predict_via_image_path_returns_a_class_for_every_class(real_api_with_model):
+    """One real dataset image per class, sent through POST ?image_path=."""
+    entries = real_api_with_model.get(
+        "/api/samples", params={"per_class": 1}
+    ).json()
+    assert entries, "no dataset images to test with"
+
+    for entry in entries:
+        response = real_api_with_model.post(
+            "/api/predict", params={"image_path": entry["path"]}
+        )
+        assert response.status_code == 200, (
+            f"image_path={entry['path']} returned {response.status_code}"
+        )
+        body = response.json()
+        assert body["prediction"] in FINAL_CLASSES
+        assert isinstance(body["confidence"], (int, float))
+        assert not isinstance(body["confidence"], bool)
+        assert 0.0 <= body["confidence"] <= 1.0
+        assert [row["name"] for row in body["probabilities"]] == list(FINAL_CLASSES)
+        assert body["timing_ms"]["inference"] > 0
+
+
+def test_image_path_prediction_rejects_traversal(real_api_with_model):
+    """The guard must answer 4xx, never the 500 a NameError used to produce."""
+    for attempt in (
+        "../secrets",
+        "..%2F..%2Fsecrets",
+        "..\\..\\config.yaml",
+        "/etc/passwd",
+        "C:\\Windows\\System32\\drivers\\etc\\hosts",
+    ):
+        response = real_api_with_model.post(
+            "/api/predict", params={"image_path": attempt}
+        )
+        assert response.status_code in {400, 403, 404}, (
+            f"image_path={attempt!r} returned {response.status_code}; "
+            "expected a controlled 4xx, not a 500"
+        )
+
+
+def test_image_path_prediction_rejects_a_missing_file(real_api_with_model):
+    response = real_api_with_model.post(
+        "/api/predict", params={"image_path": "test/Healthy/definitely_not_here.jpg"}
+    )
+    assert response.status_code == 404
+
+

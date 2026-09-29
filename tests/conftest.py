@@ -146,6 +146,45 @@ def api_with_model(cfg, monkeypatch):
 
 
 @pytest.fixture
+def real_config():
+    """The project's real, unmodified config: real dataset root and checkpoint.
+
+    Both the dataset and the ``.pth`` files are gitignored, so this fixture
+    skips on a clean clone or in CI rather than failing. Tests that need real
+    data must depend on this instead of ``cfg``, whose dataset is synthetic.
+    """
+    config = load_config(None)
+    root = Path(config.paths.dataset_root)
+    if not root.is_dir():
+        pytest.skip(f"real dataset not present at {root}")
+    if not Path(config.paths.best_checkpoint).is_file():
+        pytest.skip(f"real checkpoint not present at {config.paths.best_checkpoint}")
+    return config
+
+
+@pytest.fixture
+def real_api_with_model(real_config, monkeypatch):
+    """The real app wired to the real config, checkpoint and dataset tree.
+
+    Used to exercise the ``image_path`` prediction path end to end against
+    genuine grape-leaf images. CPU-only so it runs anywhere; the checkpoint is
+    loaded, never retrained.
+    """
+    from fastapi.testclient import TestClient
+
+    from iwnet.inference.predictor import reset_predictor
+    import iwnet.api.app as app_module
+
+    real_config.train.device = "cpu"
+
+    monkeypatch.setattr(app_module, "load_config", lambda *a, **k: real_config)
+    reset_predictor()
+    with TestClient(app_module.app) as client:
+        yield client
+    reset_predictor()
+
+
+@pytest.fixture
 def api_without_model(monkeypatch, tmp_path):
     """The real app with a config pointing at a checkpoint-free dataset."""
     from fastapi.testclient import TestClient

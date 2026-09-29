@@ -1,0 +1,1781 @@
+{
+ "query": {
+  "file": "grape leaf.jpg",
+  "source_size": [
+   1920,
+   1440
+  ],
+  "transform": "Resize(255,BILINEAR) -> CenterCrop((224,224)) -> ToTensor -> Normalize",
+  "tensor_shape": [
+   3,
+   224,
+   224
+  ],
+  "tensor_min": -2.1179039478302,
+  "tensor_max": 2.4134206771850586,
+  "tensor_mean": 0.09014888852834702,
+  "predicted_class": "BacterialSpot",
+  "confidence": 0.8787577152252197,
+  "probabilities": {
+   "BacterialSpot": 0.8787577152252197,
+   "Black_Rot": 0.02489737793803215,
+   "DownyMildew": 0.01469523087143898,
+   "Esca": 0.006004213355481625,
+   "Healthy": 0.035046033561229706,
+   "Irrelavant": 0.03041236102581024,
+   "PowderyMildew": 0.01018714439123869
+  },
+  "prob_sum": 1.0000000763684511,
+  "is_rejection": false,
+  "inference_ms": 134.83159999668715,
+  "preprocessing_ms": 39.000900000246475,
+  "pooled128_shape": [
+   128
+  ],
+  "bottleneck64_shape": [
+   64
+  ],
+  "scale_weights": [
+   0.05765288101237123,
+   0.005523677487466803,
+   0.9368234415001621
+  ]
+ },
+ "corpus": {
+  "n_training_images": 5929,
+  "dataset": "Balanced_From_Sources/train + /test",
+  "class_counts": {
+   "BacterialSpot": 700,
+   "Black_Rot": 900,
+   "DownyMildew": 853,
+   "Esca": 876,
+   "Healthy": 831,
+   "Irrelavant": 933,
+   "PowderyMildew": 836
+  },
+  "split_counts": {
+   "test": 1189,
+   "train": 4740
+  }
+ },
+ "feature_spaces": {
+  "A": "head[0] AdaptiveAvgPool2d output, 128-d, the tensor the classifier consumes",
+  "B": "head[8] BatchNorm1d output, 64-d - the bottleneck immediately before the final ReLU, feeding the 64->7 classifier",
+  "metric": "cosine similarity on L2-normalised vectors"
+ },
+ "neighbours": [
+  {
+   "rank": 1,
+   "path": "Balanced_From_Sources/train\\BacterialSpot\\train_307_Bacterial Leaf Spot_85.png",
+   "training_class": "BacterialSpot",
+   "split": "train",
+   "cos_bottleneck64": 0.9805282354354858,
+   "cos_pooled128": 0.8948673605918884
+  },
+  {
+   "rank": 2,
+   "path": "Balanced_From_Sources/test\\BacterialSpot\\train_403_Bacterial Leaf Spot_24.png",
+   "training_class": "BacterialSpot",
+   "split": "test",
+   "cos_bottleneck64": 0.9746980667114258,
+   "cos_pooled128": 0.8589186072349548
+  },
+  {
+   "rank": 3,
+   "path": "Balanced_From_Sources/train\\BacterialSpot\\train_474_Bacterial Leaf Spot_68.JPG",
+   "training_class": "BacterialSpot",
+   "split": "train",
+   "cos_bottleneck64": 0.9722488522529602,
+   "cos_pooled128": 0.8316640853881836
+  },
+  {
+   "rank": 4,
+   "path": "Balanced_From_Sources/test\\BacterialSpot\\train_204_Bacterial Leaf Spot_80.jpg",
+   "training_class": "BacterialSpot",
+   "split": "test",
+   "cos_bottleneck64": 0.9720361828804016,
+   "cos_pooled128": 0.8281431198120117
+  },
+  {
+   "rank": 5,
+   "path": "Balanced_From_Sources/train\\BacterialSpot\\train_673_Bacterial Leaf Spot_3.png",
+   "training_class": "BacterialSpot",
+   "split": "train",
+   "cos_bottleneck64": 0.9710032343864441,
+   "cos_pooled128": 0.8973991870880127
+  },
+  {
+   "rank": 6,
+   "path": "Balanced_From_Sources/train\\BacterialSpot\\train_230_Bacterial Leaf Spot_23.jpg",
+   "training_class": "BacterialSpot",
+   "split": "train",
+   "cos_bottleneck64": 0.9706125855445862,
+   "cos_pooled128": 0.8495786786079407
+  },
+  {
+   "rank": 7,
+   "path": "Balanced_From_Sources/train\\BacterialSpot\\train_159_Bacterial Leaf Spot_77.jpg",
+   "training_class": "BacterialSpot",
+   "split": "train",
+   "cos_bottleneck64": 0.9705928564071655,
+   "cos_pooled128": 0.8455240726470947
+  },
+  {
+   "rank": 8,
+   "path": "Balanced_From_Sources/train\\BacterialSpot\\train_430_Bacterial Leaf Spot_23.jpg",
+   "training_class": "BacterialSpot",
+   "split": "train",
+   "cos_bottleneck64": 0.9684187173843384,
+   "cos_pooled128": 0.8626760244369507
+  },
+  {
+   "rank": 9,
+   "path": "Balanced_From_Sources/train\\BacterialSpot\\train_203_Bacterial Leaf Spot_24.png",
+   "training_class": "BacterialSpot",
+   "split": "train",
+   "cos_bottleneck64": 0.968186616897583,
+   "cos_pooled128": 0.8423866033554077
+  },
+  {
+   "rank": 10,
+   "path": "Balanced_From_Sources/train\\BacterialSpot\\train_104_Bacterial Leaf Spot_80.jpg",
+   "training_class": "BacterialSpot",
+   "split": "train",
+   "cos_bottleneck64": 0.9680114984512329,
+   "cos_pooled128": 0.8088314533233643
+  },
+  {
+   "rank": 11,
+   "path": "Balanced_From_Sources/train\\BacterialSpot\\train_321_Bacterial Leaf Spot_36.jpg",
+   "training_class": "BacterialSpot",
+   "split": "train",
+   "cos_bottleneck64": 0.9679341316223145,
+   "cos_pooled128": 0.8251728415489197
+  },
+  {
+   "rank": 12,
+   "path": "Balanced_From_Sources/test\\BacterialSpot\\train_603_Bacterial Leaf Spot_24.png",
+   "training_class": "BacterialSpot",
+   "split": "test",
+   "cos_bottleneck64": 0.967162013053894,
+   "cos_pooled128": 0.8682185411453247
+  },
+  {
+   "rank": 13,
+   "path": "Balanced_From_Sources/train\\BacterialSpot\\train_273_Bacterial Leaf Spot_3.png",
+   "training_class": "BacterialSpot",
+   "split": "train",
+   "cos_bottleneck64": 0.9666916131973267,
+   "cos_pooled128": 0.9052504301071167
+  },
+  {
+   "rank": 14,
+   "path": "Balanced_From_Sources/train\\BacterialSpot\\train_6_Bacterial Leaf Spot_16.jpg",
+   "training_class": "BacterialSpot",
+   "split": "train",
+   "cos_bottleneck64": 0.9663922786712646,
+   "cos_pooled128": 0.812682569026947
+  },
+  {
+   "rank": 15,
+   "path": "Balanced_From_Sources/test\\BacterialSpot\\train_503_Bacterial Leaf Spot_24.png",
+   "training_class": "BacterialSpot",
+   "split": "test",
+   "cos_bottleneck64": 0.9662603139877319,
+   "cos_pooled128": 0.8448668718338013
+  },
+  {
+   "rank": 16,
+   "path": "Balanced_From_Sources/train\\BacterialSpot\\train_506_Bacterial Leaf Spot_16.jpg",
+   "training_class": "BacterialSpot",
+   "split": "train",
+   "cos_bottleneck64": 0.9654102325439453,
+   "cos_pooled128": 0.7969632148742676
+  },
+  {
+   "rank": 17,
+   "path": "Balanced_From_Sources/train\\BacterialSpot\\train_406_Bacterial Leaf Spot_16.jpg",
+   "training_class": "BacterialSpot",
+   "split": "train",
+   "cos_bottleneck64": 0.9641976356506348,
+   "cos_pooled128": 0.8095849752426147
+  },
+  {
+   "rank": 18,
+   "path": "Balanced_From_Sources/train\\BacterialSpot\\train_30_Bacterial Leaf Spot_23.jpg",
+   "training_class": "BacterialSpot",
+   "split": "train",
+   "cos_bottleneck64": 0.96318519115448,
+   "cos_pooled128": 0.8526965379714966
+  },
+  {
+   "rank": 19,
+   "path": "Balanced_From_Sources/test\\BacterialSpot\\train_604_Bacterial Leaf Spot_80.jpg",
+   "training_class": "BacterialSpot",
+   "split": "test",
+   "cos_bottleneck64": 0.9630542397499084,
+   "cos_pooled128": 0.8315717577934265
+  },
+  {
+   "rank": 20,
+   "path": "Balanced_From_Sources/train\\BacterialSpot\\train_630_Bacterial Leaf Spot_23.jpg",
+   "training_class": "BacterialSpot",
+   "split": "train",
+   "cos_bottleneck64": 0.9627635478973389,
+   "cos_pooled128": 0.8375382423400879
+  }
+ ],
+ "top20_class_composition": {
+  "BacterialSpot": 20
+ },
+ "class_stats": {
+  "BacterialSpot": {
+   "cls": "BacterialSpot",
+   "n": 700,
+   "max": 0.9805282354354858,
+   "median": 0.8956942558288574,
+   "top5": 0.9741028547286987,
+   "top10": 0.9716337323188782,
+   "p95": 0.9566676616668701,
+   "p99": 0.9684404730796814
+  },
+  "Black_Rot": {
+   "cls": "Black_Rot",
+   "n": 900,
+   "max": 0.47391465306282043,
+   "median": 0.31703346967697144,
+   "top5": 0.45993295311927795,
+   "top10": 0.45020538568496704,
+   "p95": 0.39727362990379333,
+   "p99": 0.43708422780036926
+  },
+  "DownyMildew": {
+   "cls": "DownyMildew",
+   "n": 853,
+   "max": 0.7629492282867432,
+   "median": 0.2806934714317322,
+   "top5": 0.7091457843780518,
+   "top10": 0.6478357911109924,
+   "p95": 0.41008463501930237,
+   "p99": 0.5735742449760437
+  },
+  "Esca": {
+   "cls": "Esca",
+   "n": 876,
+   "max": 0.4028969407081604,
+   "median": 0.21469908952713013,
+   "top5": 0.361390620470047,
+   "top10": 0.3308512568473816,
+   "p95": 0.2448340207338333,
+   "p99": 0.2893140912055969
+  },
+  "Healthy": {
+   "cls": "Healthy",
+   "n": 831,
+   "max": 0.9154730439186096,
+   "median": 0.4106593132019043,
+   "top5": 0.7507060170173645,
+   "top10": 0.6804452538490295,
+   "p95": 0.520564615726471,
+   "p99": 0.6014654636383057
+  },
+  "Irrelavant": {
+   "cls": "Irrelavant",
+   "n": 933,
+   "max": 0.8451892137527466,
+   "median": 0.44359922409057617,
+   "top5": 0.7301332950592041,
+   "top10": 0.6551803946495056,
+   "p95": 0.4614081084728241,
+   "p99": 0.5507127642631531
+  },
+  "PowderyMildew": {
+   "cls": "PowderyMildew",
+   "n": 836,
+   "max": 0.938420295715332,
+   "median": 0.17568403482437134,
+   "top5": 0.8303936123847961,
+   "top10": 0.7465147972106934,
+   "p95": 0.3612171411514282,
+   "p99": 0.6292172074317932
+  }
+ },
+ "class_centroid_cosine": {
+  "BacterialSpot": 0.9364309310913086,
+  "Black_Rot": 0.3297263979911804,
+  "DownyMildew": 0.3207787275314331,
+  "Esca": 0.22033008933067322,
+  "Healthy": 0.4441062808036804,
+  "Irrelavant": 0.44769471883773804,
+  "PowderyMildew": 0.220900759100914
+ },
+ "overlap_pct_healthy_above_bacterialspot_max": 0.0,
+ "knn_votes": {
+  "1": {
+   "winner": "BacterialSpot",
+   "count": 1,
+   "frac": 1.0,
+   "tally": {
+    "BacterialSpot": 1
+   }
+  },
+  "3": {
+   "winner": "BacterialSpot",
+   "count": 3,
+   "frac": 1.0,
+   "tally": {
+    "BacterialSpot": 3
+   }
+  },
+  "5": {
+   "winner": "BacterialSpot",
+   "count": 5,
+   "frac": 1.0,
+   "tally": {
+    "BacterialSpot": 5
+   }
+  },
+  "10": {
+   "winner": "BacterialSpot",
+   "count": 10,
+   "frac": 1.0,
+   "tally": {
+    "BacterialSpot": 10
+   }
+  },
+  "20": {
+   "winner": "BacterialSpot",
+   "count": 20,
+   "frac": 1.0,
+   "tally": {
+    "BacterialSpot": 20
+   }
+  },
+  "50": {
+   "winner": "BacterialSpot",
+   "count": 50,
+   "frac": 1.0,
+   "tally": {
+    "BacterialSpot": 50
+   }
+  },
+  "100": {
+   "winner": "BacterialSpot",
+   "count": 100,
+   "frac": 1.0,
+   "tally": {
+    "BacterialSpot": 100
+   }
+  }
+ },
+ "verdict_task4": "B - the query sits closer to BacterialSpot than to Healthy",
+ "scale_weights": {
+  "query": [
+   0.05765288101237123,
+   0.005523677487466803,
+   0.9368234415001621
+  ],
+  "corpus": {
+   "stage1": {
+    "min": 1.2308699473547697e-11,
+    "p05": 9.522543043385227e-07,
+    "median": 0.006674580973225973,
+    "mean": 0.16745120593221224,
+    "p95": 0.999912450332189,
+    "max": 0.999999999983346
+   },
+   "stage2": {
+    "min": 1.0167017988275914e-16,
+    "p05": 4.8611951664648404e-06,
+    "median": 0.010895649867539674,
+    "mean": 0.176027311721801,
+    "p95": 0.999558033598937,
+    "max": 0.9999998895689455
+   },
+   "stage3": {
+    "min": 1.665392436207971e-11,
+    "p05": 2.003767837725484e-05,
+    "median": 0.9376870327198796,
+    "mean": 0.6565214823459867,
+    "p95": 0.996236285739953,
+    "max": 0.9994412375104974
+   }
+  },
+  "query_stage3_n_training_images_at_or_above": 2972,
+  "corpus_size": 5929,
+  "by_class": {
+   "BacterialSpot": {
+    "n": 700,
+    "median": 0.9775743401573354,
+    "p90": 0.9938284538202754,
+    "p99": 0.9982261040459003,
+    "max": 0.9991566086073874,
+    "n_at_or_above": 601
+   },
+   "Black_Rot": {
+    "n": 900,
+    "median": 0.8570965309098082,
+    "p90": 0.9414058976821066,
+    "p99": 0.9688530090396108,
+    "max": 0.9826754172284243,
+    "n_at_or_above": 105
+   },
+   "DownyMildew": {
+    "n": 853,
+    "median": 0.9789056295131752,
+    "p90": 0.9944613384412847,
+    "p99": 0.9978328261642985,
+    "max": 0.998613899183504,
+    "n_at_or_above": 754
+   },
+   "Esca": {
+    "n": 876,
+    "median": 0.0014420966509602908,
+    "p90": 0.05564321072239308,
+    "p99": 0.5650129575968487,
+    "max": 0.7907783348488304,
+    "n_at_or_above": 0
+   },
+   "Healthy": {
+    "n": 831,
+    "median": 0.9803018588898472,
+    "p90": 0.996309600822238,
+    "p99": 0.9989547505030072,
+    "max": 0.9994412375104974,
+    "n_at_or_above": 715
+   },
+   "Irrelavant": {
+    "n": 933,
+    "median": 0.0003882680699358377,
+    "p90": 0.02658749056155537,
+    "p99": 0.5779668511275771,
+    "max": 0.9696020754389152,
+    "n_at_or_above": 1
+   },
+   "PowderyMildew": {
+    "n": 836,
+    "median": 0.9902587962560927,
+    "p90": 0.9972813960957007,
+    "p99": 0.9988634500725756,
+    "max": 0.9994399018588809,
+    "n_at_or_above": 796
+   }
+  }
+ },
+ "representative_traces": {
+  "grape leaf.jpg  [EXTERNAL QUERY]": {
+   "scale_weights": [
+    0.057653,
+    0.005524,
+    0.936823
+   ],
+   "stage": [
+    {
+     "channel_attention": {
+      "n_channels": 32,
+      "mean": 0.46648,
+      "std": 0.056168,
+      "max": 0.570571,
+      "entropy_nats": 3.45854,
+      "top5_mean": 0.556482
+     },
+     "spatial_attention": {
+      "grid": "56x56",
+      "mean": 0.999995,
+      "max": 1.0,
+      "std": 9.1e-05,
+      "entropy_nats": 8.0507,
+      "frac_above_half": 1.0
+     },
+     "iw_gate": 0.014716,
+     "projected": {
+      "channels": 128,
+      "mean": -0.003666,
+      "std": 0.098352,
+      "max": 0.432647
+     }
+    },
+    {
+     "channel_attention": {
+      "n_channels": 48,
+      "mean": 0.411549,
+      "std": 0.219911,
+      "max": 0.839567,
+      "entropy_nats": 3.72022,
+      "top5_mean": 0.766128
+     },
+     "spatial_attention": {
+      "grid": "28x28",
+      "mean": 0.848812,
+      "max": 1.0,
+      "std": 0.347123,
+      "entropy_nats": 6.51466,
+      "frac_above_half": 0.84949
+     },
+     "iw_gate": 0.091832,
+     "projected": {
+      "channels": 128,
+      "mean": -0.008035,
+      "std": 0.428743,
+      "max": 2.420177
+     }
+    },
+    {
+     "channel_attention": {
+      "n_channels": 136,
+      "mean": 0.495402,
+      "std": 0.175416,
+      "max": 0.82339,
+      "entropy_nats": 4.84421,
+      "top5_mean": 0.812683
+     },
+     "spatial_attention": {
+      "grid": "14x14",
+      "mean": 0.479137,
+      "max": 0.993745,
+      "std": 0.367519,
+      "entropy_nats": 4.91596,
+      "frac_above_half": 0.484694
+     },
+     "iw_gate": 0.410864,
+     "projected": {
+      "channels": 128,
+      "mean": 0.001615,
+      "std": 1.311543,
+      "max": 7.812283
+     }
+    }
+   ]
+  },
+  "Healthy / train_190_30ef1555-5cbf-4516-a2ee-aa2f43343810___Mt.N.V_HL 9120_new30degFlipLR.JPG": {
+   "scale_weights": [
+    0.016996,
+    0.007623,
+    0.975381
+   ],
+   "stage": [
+    {
+     "channel_attention": {
+      "n_channels": 32,
+      "mean": 0.46648,
+      "std": 0.056168,
+      "max": 0.570571,
+      "entropy_nats": 3.45854,
+      "top5_mean": 0.556482
+     },
+     "spatial_attention": {
+      "grid": "56x56",
+      "mean": 0.999972,
+      "max": 1.0,
+      "std": 0.000577,
+      "entropy_nats": 8.0507,
+      "frac_above_half": 1.0
+     },
+     "iw_gate": 0.018386,
+     "projected": {
+      "channels": 128,
+      "mean": -0.005114,
+      "std": 0.122452,
+      "max": 0.506485
+     }
+    },
+    {
+     "channel_attention": {
+      "n_channels": 48,
+      "mean": 0.393347,
+      "std": 0.273772,
+      "max": 0.895321,
+      "entropy_nats": 3.61005,
+      "top5_mean": 0.828727
+     },
+     "spatial_attention": {
+      "grid": "28x28",
+      "mean": 0.849009,
+      "max": 1.0,
+      "std": 0.349009,
+      "entropy_nats": 6.51275,
+      "frac_above_half": 0.850765
+     },
+     "iw_gate": 0.16977,
+     "projected": {
+      "channels": 128,
+      "mean": 0.012414,
+      "std": 0.685662,
+      "max": 5.413637
+     }
+    },
+    {
+     "channel_attention": {
+      "n_channels": 136,
+      "mean": 0.52215,
+      "std": 0.34841,
+      "max": 0.999578,
+      "entropy_nats": 4.63216,
+      "top5_mean": 0.990266
+     },
+     "spatial_attention": {
+      "grid": "14x14",
+      "mean": 0.500813,
+      "max": 0.999612,
+      "std": 0.446766,
+      "entropy_nats": 4.7547,
+      "frac_above_half": 0.505102
+     },
+     "iw_gate": 0.283494,
+     "projected": {
+      "channels": 128,
+      "mean": 0.019015,
+      "std": 1.176674,
+      "max": 6.234879
+     }
+    }
+   ]
+  },
+  "Healthy / train_486_c03ffb41-c3a8-437f-9ee4-023d2d795500___Mt.N.V_HL 6212_new30degFlipLR.JPG": {
+   "scale_weights": [
+    0.005204,
+    0.00638,
+    0.988416
+   ],
+   "stage": [
+    {
+     "channel_attention": {
+      "n_channels": 32,
+      "mean": 0.46648,
+      "std": 0.056168,
+      "max": 0.570571,
+      "entropy_nats": 3.45854,
+      "top5_mean": 0.556482
+     },
+     "spatial_attention": {
+      "grid": "56x56",
+      "mean": 0.999971,
+      "max": 1.0,
+      "std": 0.000666,
+      "entropy_nats": 8.0507,
+      "frac_above_half": 1.0
+     },
+     "iw_gate": 0.020465,
+     "projected": {
+      "channels": 128,
+      "mean": -0.005964,
+      "std": 0.131956,
+      "max": 0.619898
+     }
+    },
+    {
+     "channel_attention": {
+      "n_channels": 48,
+      "mean": 0.390884,
+      "std": 0.282302,
+      "max": 0.9037,
+      "entropy_nats": 3.58908,
+      "top5_mean": 0.839118
+     },
+     "spatial_attention": {
+      "grid": "28x28",
+      "mean": 0.829616,
+      "max": 1.0,
+      "std": 0.36039,
+      "entropy_nats": 6.49765,
+      "frac_above_half": 0.831633
+     },
+     "iw_gate": 0.1834,
+     "projected": {
+      "channels": 128,
+      "mean": 0.008932,
+      "std": 0.752999,
+      "max": 6.080732
+     }
+    },
+    {
+     "channel_attention": {
+      "n_channels": 136,
+      "mean": 0.520331,
+      "std": 0.315537,
+      "max": 0.990793,
+      "entropy_nats": 4.69145,
+      "top5_mean": 0.984342
+     },
+     "spatial_attention": {
+      "grid": "14x14",
+      "mean": 0.561935,
+      "max": 0.999983,
+      "std": 0.43085,
+      "entropy_nats": 4.87465,
+      "frac_above_half": 0.571429
+     },
+     "iw_gate": 0.214298,
+     "projected": {
+      "channels": 128,
+      "mean": 0.012462,
+      "std": 0.889822,
+      "max": 4.950953
+     }
+    }
+   ]
+  },
+  "Healthy / train_180_40802018-54d4-4be9-8dd3-0856e6dac368___Mt.N.V_HL 9050_180deg.JPG": {
+   "scale_weights": [
+    0.036736,
+    0.009178,
+    0.954086
+   ],
+   "stage": [
+    {
+     "channel_attention": {
+      "n_channels": 32,
+      "mean": 0.46648,
+      "std": 0.056168,
+      "max": 0.570571,
+      "entropy_nats": 3.45854,
+      "top5_mean": 0.556482
+     },
+     "spatial_attention": {
+      "grid": "56x56",
+      "mean": 0.999977,
+      "max": 1.0,
+      "std": 0.000411,
+      "entropy_nats": 8.0507,
+      "frac_above_half": 1.0
+     },
+     "iw_gate": 0.02051,
+     "projected": {
+      "channels": 128,
+      "mean": -0.006155,
+      "std": 0.131541,
+      "max": 0.608723
+     }
+    },
+    {
+     "channel_attention": {
+      "n_channels": 48,
+      "mean": 0.387397,
+      "std": 0.295187,
+      "max": 0.916056,
+      "entropy_nats": 3.55558,
+      "top5_mean": 0.855418
+     },
+     "spatial_attention": {
+      "grid": "28x28",
+      "mean": 0.851344,
+      "max": 1.0,
+      "std": 0.344349,
+      "entropy_nats": 6.5186,
+      "frac_above_half": 0.84949
+     },
+     "iw_gate": 0.149399,
+     "projected": {
+      "channels": 128,
+      "mean": 0.004261,
+      "std": 0.599089,
+      "max": 4.434994
+     }
+    },
+    {
+     "channel_attention": {
+      "n_channels": 136,
+      "mean": 0.519777,
+      "std": 0.343536,
+      "max": 0.999584,
+      "entropy_nats": 4.63747,
+      "top5_mean": 0.987597
+     },
+     "spatial_attention": {
+      "grid": "14x14",
+      "mean": 0.47317,
+      "max": 0.999781,
+      "std": 0.426731,
+      "entropy_nats": 4.74667,
+      "frac_above_half": 0.5
+     },
+     "iw_gate": 0.371438,
+     "projected": {
+      "channels": 128,
+      "mean": 0.019614,
+      "std": 1.403538,
+      "max": 10.553739
+     }
+    }
+   ]
+  },
+  "Healthy / train_735_Healthy Leaves_450.jpg": {
+   "scale_weights": [
+    0.000257,
+    0.001629,
+    0.998113
+   ],
+   "stage": [
+    {
+     "channel_attention": {
+      "n_channels": 32,
+      "mean": 0.46648,
+      "std": 0.056168,
+      "max": 0.570571,
+      "entropy_nats": 3.45854,
+      "top5_mean": 0.556482
+     },
+     "spatial_attention": {
+      "grid": "56x56",
+      "mean": 0.999871,
+      "max": 1.0,
+      "std": 0.001275,
+      "entropy_nats": 8.0507,
+      "frac_above_half": 1.0
+     },
+     "iw_gate": 0.024095,
+     "projected": {
+      "channels": 128,
+      "mean": -0.005469,
+      "std": 0.149827,
+      "max": 0.710267
+     }
+    },
+    {
+     "channel_attention": {
+      "n_channels": 48,
+      "mean": 0.397099,
+      "std": 0.261498,
+      "max": 0.883023,
+      "entropy_nats": 3.63851,
+      "top5_mean": 0.814403
+     },
+     "spatial_attention": {
+      "grid": "28x28",
+      "mean": 0.821467,
+      "max": 1.0,
+      "std": 0.361037,
+      "entropy_nats": 6.49779,
+      "frac_above_half": 0.822704
+     },
+     "iw_gate": 0.169049,
+     "projected": {
+      "channels": 128,
+      "mean": 9e-06,
+      "std": 0.691674,
+      "max": 5.793588
+     }
+    },
+    {
+     "channel_attention": {
+      "n_channels": 136,
+      "mean": 0.516318,
+      "std": 0.286932,
+      "max": 0.979549,
+      "entropy_nats": 4.73443,
+      "top5_mean": 0.972594
+     },
+     "spatial_attention": {
+      "grid": "14x14",
+      "mean": 0.508746,
+      "max": 0.99977,
+      "std": 0.422431,
+      "entropy_nats": 4.84312,
+      "frac_above_half": 0.5
+     },
+     "iw_gate": 0.340641,
+     "projected": {
+      "channels": 128,
+      "mean": 0.029731,
+      "std": 1.291391,
+      "max": 10.572553
+     }
+    }
+   ]
+  },
+  "Healthy / train_49_17572261-c800-42b7-8baf-2f73f7657578___Mt.N.V_HL 9009_new30degFlipLR.JPG": {
+   "scale_weights": [
+    0.079345,
+    0.024834,
+    0.895822
+   ],
+   "stage": [
+    {
+     "channel_attention": {
+      "n_channels": 32,
+      "mean": 0.46648,
+      "std": 0.056168,
+      "max": 0.570571,
+      "entropy_nats": 3.45854,
+      "top5_mean": 0.556482
+     },
+     "spatial_attention": {
+      "grid": "56x56",
+      "mean": 0.999967,
+      "max": 1.0,
+      "std": 0.000693,
+      "entropy_nats": 8.0507,
+      "frac_above_half": 1.0
+     },
+     "iw_gate": 0.014264,
+     "projected": {
+      "channels": 128,
+      "mean": -0.003618,
+      "std": 0.094226,
+      "max": 0.428219
+     }
+    },
+    {
+     "channel_attention": {
+      "n_channels": 48,
+      "mean": 0.391273,
+      "std": 0.280927,
+      "max": 0.90236,
+      "entropy_nats": 3.59253,
+      "top5_mean": 0.837378
+     },
+     "spatial_attention": {
+      "grid": "28x28",
+      "mean": 0.855518,
+      "max": 1.0,
+      "std": 0.339243,
+      "entropy_nats": 6.52406,
+      "frac_above_half": 0.859694
+     },
+     "iw_gate": 0.152861,
+     "projected": {
+      "channels": 128,
+      "mean": 0.01201,
+      "std": 0.595075,
+      "max": 4.14271
+     }
+    },
+    {
+     "channel_attention": {
+      "n_channels": 136,
+      "mean": 0.525531,
+      "std": 0.376985,
+      "max": 0.999956,
+      "entropy_nats": 4.57987,
+      "top5_mean": 0.996538
+     },
+     "spatial_attention": {
+      "grid": "14x14",
+      "mean": 0.435521,
+      "max": 0.999936,
+      "std": 0.43183,
+      "entropy_nats": 4.67095,
+      "frac_above_half": 0.443878
+     },
+     "iw_gate": 0.355591,
+     "projected": {
+      "channels": 128,
+      "mean": 0.046516,
+      "std": 1.242227,
+      "max": 7.622351
+     }
+    }
+   ]
+  },
+  "Healthy / train_567_a889fb1b-e7cb-4026-a42e-a09558e00ca8___Mt.N.V_HL 9020_180deg.JPG": {
+   "scale_weights": [
+    0.109591,
+    0.026278,
+    0.864132
+   ],
+   "stage": [
+    {
+     "channel_attention": {
+      "n_channels": 32,
+      "mean": 0.46648,
+      "std": 0.056168,
+      "max": 0.570571,
+      "entropy_nats": 3.45854,
+      "top5_mean": 0.556482
+     },
+     "spatial_attention": {
+      "grid": "56x56",
+      "mean": 0.999976,
+      "max": 1.0,
+      "std": 0.000287,
+      "entropy_nats": 8.0507,
+      "frac_above_half": 1.0
+     },
+     "iw_gate": 0.014581,
+     "projected": {
+      "channels": 128,
+      "mean": -0.00362,
+      "std": 0.0963,
+      "max": 0.423244
+     }
+    },
+    {
+     "channel_attention": {
+      "n_channels": 48,
+      "mean": 0.396755,
+      "std": 0.262593,
+      "max": 0.88413,
+      "entropy_nats": 3.63605,
+      "top5_mean": 0.81568
+     },
+     "spatial_attention": {
+      "grid": "28x28",
+      "mean": 0.863461,
+      "max": 1.0,
+      "std": 0.333545,
+      "entropy_nats": 6.5306,
+      "frac_above_half": 0.864796
+     },
+     "iw_gate": 0.139742,
+     "projected": {
+      "channels": 128,
+      "mean": 0.012399,
+      "std": 0.554213,
+      "max": 3.367833
+     }
+    },
+    {
+     "channel_attention": {
+      "n_channels": 136,
+      "mean": 0.521741,
+      "std": 0.338804,
+      "max": 0.999051,
+      "entropy_nats": 4.64986,
+      "top5_mean": 0.988006
+     },
+     "spatial_attention": {
+      "grid": "14x14",
+      "mean": 0.528371,
+      "max": 0.999887,
+      "std": 0.41061,
+      "entropy_nats": 4.8797,
+      "frac_above_half": 0.535714
+     },
+     "iw_gate": 0.350273,
+     "projected": {
+      "channels": 128,
+      "mean": 0.015356,
+      "std": 1.442921,
+      "max": 9.814534
+     }
+    }
+   ]
+  },
+  "BacterialSpot / train_71_Bacterial Leaf Spot_5.jpg": {
+   "scale_weights": [
+    0.012606,
+    0.002148,
+    0.985247
+   ],
+   "stage": [
+    {
+     "channel_attention": {
+      "n_channels": 32,
+      "mean": 0.46648,
+      "std": 0.056168,
+      "max": 0.570571,
+      "entropy_nats": 3.45854,
+      "top5_mean": 0.556482
+     },
+     "spatial_attention": {
+      "grid": "56x56",
+      "mean": 0.999965,
+      "max": 1.0,
+      "std": 0.000334,
+      "entropy_nats": 8.0507,
+      "frac_above_half": 1.0
+     },
+     "iw_gate": 0.031803,
+     "projected": {
+      "channels": 128,
+      "mean": -0.007899,
+      "std": 0.185849,
+      "max": 0.931768
+     }
+    },
+    {
+     "channel_attention": {
+      "n_channels": 48,
+      "mean": 0.395977,
+      "std": 0.265088,
+      "max": 0.886647,
+      "entropy_nats": 3.6304,
+      "top5_mean": 0.818591
+     },
+     "spatial_attention": {
+      "grid": "28x28",
+      "mean": 0.847279,
+      "max": 1.0,
+      "std": 0.340506,
+      "entropy_nats": 6.52323,
+      "frac_above_half": 0.854592
+     },
+     "iw_gate": 0.188459,
+     "projected": {
+      "channels": 128,
+      "mean": -0.021095,
+      "std": 0.664594,
+      "max": 4.365901
+     }
+    },
+    {
+     "channel_attention": {
+      "n_channels": 136,
+      "mean": 0.503367,
+      "std": 0.352958,
+      "max": 0.991716,
+      "entropy_nats": 4.60969,
+      "top5_mean": 0.984987
+     },
+     "spatial_attention": {
+      "grid": "14x14",
+      "mean": 0.185508,
+      "max": 0.999775,
+      "std": 0.294393,
+      "entropy_nats": 4.27158,
+      "frac_above_half": 0.153061
+     },
+     "iw_gate": 0.355331,
+     "projected": {
+      "channels": 128,
+      "mean": -0.032529,
+      "std": 0.944109,
+      "max": 9.134715
+     }
+    }
+   ]
+  },
+  "BacterialSpot / train_436_Bacterial Leaf Spot_8.jpg": {
+   "scale_weights": [
+    0.001733,
+    0.000896,
+    0.99737
+   ],
+   "stage": [
+    {
+     "channel_attention": {
+      "n_channels": 32,
+      "mean": 0.46648,
+      "std": 0.056168,
+      "max": 0.570571,
+      "entropy_nats": 3.45854,
+      "top5_mean": 0.556482
+     },
+     "spatial_attention": {
+      "grid": "56x56",
+      "mean": 0.999955,
+      "max": 1.0,
+      "std": 0.000741,
+      "entropy_nats": 8.0507,
+      "frac_above_half": 1.0
+     },
+     "iw_gate": 0.060765,
+     "projected": {
+      "channels": 128,
+      "mean": -0.012766,
+      "std": 0.366838,
+      "max": 1.673243
+     }
+    },
+    {
+     "channel_attention": {
+      "n_channels": 48,
+      "mean": 0.38638,
+      "std": 0.299156,
+      "max": 0.91978,
+      "entropy_nats": 3.54482,
+      "top5_mean": 0.86043
+     },
+     "spatial_attention": {
+      "grid": "28x28",
+      "mean": 0.851193,
+      "max": 1.0,
+      "std": 0.339363,
+      "entropy_nats": 6.52406,
+      "frac_above_half": 0.854592
+     },
+     "iw_gate": 0.196215,
+     "projected": {
+      "channels": 128,
+      "mean": -0.023164,
+      "std": 0.739733,
+      "max": 5.080688
+     }
+    },
+    {
+     "channel_attention": {
+      "n_channels": 136,
+      "mean": 0.500425,
+      "std": 0.331235,
+      "max": 0.981486,
+      "entropy_nats": 4.64748,
+      "top5_mean": 0.968213
+     },
+     "spatial_attention": {
+      "grid": "14x14",
+      "mean": 0.147868,
+      "max": 0.99939,
+      "std": 0.286907,
+      "entropy_nats": 3.97704,
+      "frac_above_half": 0.137755
+     },
+     "iw_gate": 0.367333,
+     "projected": {
+      "channels": 128,
+      "mean": -0.025081,
+      "std": 1.004582,
+      "max": 10.049078
+     }
+    }
+   ]
+  },
+  "BacterialSpot / train_405_Bacterial Leaf Spot_65.jpg": {
+   "scale_weights": [
+    0.024113,
+    0.002835,
+    0.973052
+   ],
+   "stage": [
+    {
+     "channel_attention": {
+      "n_channels": 32,
+      "mean": 0.46648,
+      "std": 0.056168,
+      "max": 0.570571,
+      "entropy_nats": 3.45854,
+      "top5_mean": 0.556482
+     },
+     "spatial_attention": {
+      "grid": "56x56",
+      "mean": 0.999955,
+      "max": 1.0,
+      "std": 0.000567,
+      "entropy_nats": 8.0507,
+      "frac_above_half": 1.0
+     },
+     "iw_gate": 0.027499,
+     "projected": {
+      "channels": 128,
+      "mean": -0.008512,
+      "std": 0.159153,
+      "max": 0.767917
+     }
+    },
+    {
+     "channel_attention": {
+      "n_channels": 48,
+      "mean": 0.39242,
+      "std": 0.276932,
+      "max": 0.898443,
+      "entropy_nats": 3.60239,
+      "top5_mean": 0.832418
+     },
+     "spatial_attention": {
+      "grid": "28x28",
+      "mean": 0.833583,
+      "max": 1.0,
+      "std": 0.35237,
+      "entropy_nats": 6.51015,
+      "frac_above_half": 0.836735
+     },
+     "iw_gate": 0.200868,
+     "projected": {
+      "channels": 128,
+      "mean": -0.018841,
+      "std": 0.766615,
+      "max": 6.101913
+     }
+    },
+    {
+     "channel_attention": {
+      "n_channels": 136,
+      "mean": 0.500505,
+      "std": 0.324728,
+      "max": 0.974724,
+      "entropy_nats": 4.65927,
+      "top5_mean": 0.965928
+     },
+     "spatial_attention": {
+      "grid": "14x14",
+      "mean": 0.242611,
+      "max": 0.999539,
+      "std": 0.332451,
+      "entropy_nats": 4.44891,
+      "frac_above_half": 0.214286
+     },
+     "iw_gate": 0.291955,
+     "projected": {
+      "channels": 128,
+      "mean": -0.027778,
+      "std": 0.943701,
+      "max": 8.358808
+     }
+    }
+   ]
+  },
+  "BacterialSpot / train_381_Bacterial Leaf Spot_44.jpg": {
+   "scale_weights": [
+    0.055711,
+    0.028663,
+    0.915626
+   ],
+   "stage": [
+    {
+     "channel_attention": {
+      "n_channels": 32,
+      "mean": 0.46648,
+      "std": 0.056168,
+      "max": 0.570571,
+      "entropy_nats": 3.45854,
+      "top5_mean": 0.556482
+     },
+     "spatial_attention": {
+      "grid": "56x56",
+      "mean": 0.999956,
+      "max": 1.0,
+      "std": 0.000523,
+      "entropy_nats": 8.0507,
+      "frac_above_half": 1.0
+     },
+     "iw_gate": 0.033293,
+     "projected": {
+      "channels": 128,
+      "mean": -0.00628,
+      "std": 0.208678,
+      "max": 1.084717
+     }
+    },
+    {
+     "channel_attention": {
+      "n_channels": 48,
+      "mean": 0.401379,
+      "std": 0.248369,
+      "max": 0.869582,
+      "entropy_nats": 3.66674,
+      "top5_mean": 0.79911
+     },
+     "spatial_attention": {
+      "grid": "28x28",
+      "mean": 0.841404,
+      "max": 1.0,
+      "std": 0.352504,
+      "entropy_nats": 6.51036,
+      "frac_above_half": 0.839286
+     },
+     "iw_gate": 0.167294,
+     "projected": {
+      "channels": 128,
+      "mean": -0.022583,
+      "std": 0.700539,
+      "max": 4.458055
+     }
+    },
+    {
+     "channel_attention": {
+      "n_channels": 136,
+      "mean": 0.496007,
+      "std": 0.064194,
+      "max": 0.622217,
+      "entropy_nats": 4.90413,
+      "top5_mean": 0.613491
+     },
+     "spatial_attention": {
+      "grid": "14x14",
+      "mean": 0.551462,
+      "max": 0.995621,
+      "std": 0.401673,
+      "entropy_nats": 4.93307,
+      "frac_above_half": 0.55102
+     },
+     "iw_gate": 0.149709,
+     "projected": {
+      "channels": 128,
+      "mean": -0.015134,
+      "std": 0.496799,
+      "max": 2.82025
+     }
+    }
+   ]
+  },
+  "BacterialSpot / train_519_Bacterial Leaf Spot_52.jpg": {
+   "scale_weights": [
+    0.032992,
+    0.021329,
+    0.945679
+   ],
+   "stage": [
+    {
+     "channel_attention": {
+      "n_channels": 32,
+      "mean": 0.46648,
+      "std": 0.056168,
+      "max": 0.570571,
+      "entropy_nats": 3.45854,
+      "top5_mean": 0.556482
+     },
+     "spatial_attention": {
+      "grid": "56x56",
+      "mean": 0.999967,
+      "max": 1.0,
+      "std": 0.000561,
+      "entropy_nats": 8.0507,
+      "frac_above_half": 1.0
+     },
+     "iw_gate": 0.028833,
+     "projected": {
+      "channels": 128,
+      "mean": -0.00498,
+      "std": 0.182996,
+      "max": 0.758578
+     }
+    },
+    {
+     "channel_attention": {
+      "n_channels": 48,
+      "mean": 0.403579,
+      "std": 0.241919,
+      "max": 0.862882,
+      "entropy_nats": 3.67977,
+      "top5_mean": 0.791614
+     },
+     "spatial_attention": {
+      "grid": "28x28",
+      "mean": 0.832846,
+      "max": 1.0,
+      "std": 0.358932,
+      "entropy_nats": 6.5021,
+      "frac_above_half": 0.829082
+     },
+     "iw_gate": 0.163854,
+     "projected": {
+      "channels": 128,
+      "mean": -0.01684,
+      "std": 0.667764,
+      "max": 3.925553
+     }
+    },
+    {
+     "channel_attention": {
+      "n_channels": 136,
+      "mean": 0.495065,
+      "std": 0.075266,
+      "max": 0.7022,
+      "entropy_nats": 4.9008,
+      "top5_mean": 0.643321
+     },
+     "spatial_attention": {
+      "grid": "14x14",
+      "mean": 0.505573,
+      "max": 0.998952,
+      "std": 0.401415,
+      "entropy_nats": 4.89057,
+      "frac_above_half": 0.505102
+     },
+     "iw_gate": 0.310291,
+     "projected": {
+      "channels": 128,
+      "mean": -0.022026,
+      "std": 1.006673,
+      "max": 6.883925
+     }
+    }
+   ]
+  },
+  "BacterialSpot / train_612_Bacterial Leaf Spot_70.jpg": {
+   "scale_weights": [
+    0.04139,
+    0.007804,
+    0.950805
+   ],
+   "stage": [
+    {
+     "channel_attention": {
+      "n_channels": 32,
+      "mean": 0.46648,
+      "std": 0.056168,
+      "max": 0.570571,
+      "entropy_nats": 3.45854,
+      "top5_mean": 0.556482
+     },
+     "spatial_attention": {
+      "grid": "56x56",
+      "mean": 0.999916,
+      "max": 1.0,
+      "std": 0.000763,
+      "entropy_nats": 8.0507,
+      "frac_above_half": 1.0
+     },
+     "iw_gate": 0.023767,
+     "projected": {
+      "channels": 128,
+      "mean": -0.005922,
+      "std": 0.142958,
+      "max": 0.726939
+     }
+    },
+    {
+     "channel_attention": {
+      "n_channels": 48,
+      "mean": 0.385753,
+      "std": 0.301656,
+      "max": 0.922105,
+      "entropy_nats": 3.53794,
+      "top5_mean": 0.863828
+     },
+     "spatial_attention": {
+      "grid": "28x28",
+      "mean": 0.8383,
+      "max": 1.0,
+      "std": 0.353055,
+      "entropy_nats": 6.508,
+      "frac_above_half": 0.843112
+     },
+     "iw_gate": 0.182269,
+     "projected": {
+      "channels": 128,
+      "mean": -0.02455,
+      "std": 0.707974,
+      "max": 4.667323
+     }
+    },
+    {
+     "channel_attention": {
+      "n_channels": 136,
+      "mean": 0.498056,
+      "std": 0.278784,
+      "max": 0.939596,
+      "entropy_nats": 4.73229,
+      "top5_mean": 0.925615
+     },
+     "spatial_attention": {
+      "grid": "14x14",
+      "mean": 0.252485,
+      "max": 0.998349,
+      "std": 0.337361,
+      "entropy_nats": 4.46346,
+      "frac_above_half": 0.209184
+     },
+     "iw_gate": 0.28886,
+     "projected": {
+      "channels": 128,
+      "mean": -0.02977,
+      "std": 0.813604,
+      "max": 6.793602
+     }
+    }
+   ]
+  }
+ },
+ "representative_group_summary": {
+  "Healthy": {
+   "n": 6,
+   "s3w": [
+    0.975381,
+    0.988416,
+    0.954086,
+    0.998113,
+    0.895822,
+    0.864132
+   ],
+   "ca_mean": 0.520975,
+   "ca_max": 0.994752,
+   "ca_ent": 4.654207,
+   "sa_mean": 0.501426,
+   "sa_max": 0.999828,
+   "sa_ent": 4.794965,
+   "iw": 0.319289,
+   "pj_mean": 0.023782,
+   "pj_std": 1.241095
+  },
+  "BacterialSpot": {
+   "n": 6,
+   "s3w": [
+    0.985247,
+    0.99737,
+    0.973052,
+    0.915626,
+    0.945679,
+    0.950805
+   ],
+   "ca_mean": 0.498904,
+   "ca_max": 0.868657,
+   "ca_ent": 4.742277,
+   "sa_mean": 0.314251,
+   "sa_max": 0.998604,
+   "sa_ent": 4.497438,
+   "iw": 0.293913,
+   "pj_mean": -0.025386,
+   "pj_std": 0.868245
+  }
+ },
+ "query_trace_summary": {
+  "s3w": 0.936823,
+  "ca_mean": 0.495402,
+  "ca_max": 0.82339,
+  "ca_ent": 4.84421,
+  "sa_mean": 0.479137,
+  "sa_max": 0.993745,
+  "sa_ent": 4.91596,
+  "iw": 0.410864,
+  "pj_mean": 0.001615,
+  "pj_std": 1.311543
+ },
+ "representative_images": {
+  "Healthy": [
+   "Balanced_From_Sources/train\\Healthy\\train_190_30ef1555-5cbf-4516-a2ee-aa2f43343810___Mt.N.V_HL 9120_new30degFlipLR.JPG",
+   "Balanced_From_Sources/train\\Healthy\\train_486_c03ffb41-c3a8-437f-9ee4-023d2d795500___Mt.N.V_HL 6212_new30degFlipLR.JPG",
+   "Balanced_From_Sources/test\\Healthy\\train_180_40802018-54d4-4be9-8dd3-0856e6dac368___Mt.N.V_HL 9050_180deg.JPG",
+   "Balanced_From_Sources/test\\Healthy\\train_735_Healthy Leaves_450.jpg",
+   "Balanced_From_Sources/train\\Healthy\\train_49_17572261-c800-42b7-8baf-2f73f7657578___Mt.N.V_HL 9009_new30degFlipLR.JPG",
+   "Balanced_From_Sources/test\\Healthy\\train_567_a889fb1b-e7cb-4026-a42e-a09558e00ca8___Mt.N.V_HL 9020_180deg.JPG"
+  ],
+  "BacterialSpot": [
+   "Balanced_From_Sources/train\\BacterialSpot\\train_71_Bacterial Leaf Spot_5.jpg",
+   "Balanced_From_Sources/train\\BacterialSpot\\train_436_Bacterial Leaf Spot_8.jpg",
+   "Balanced_From_Sources/train\\BacterialSpot\\train_405_Bacterial Leaf Spot_65.jpg",
+   "Balanced_From_Sources/train\\BacterialSpot\\train_381_Bacterial Leaf Spot_44.jpg",
+   "Balanced_From_Sources/train\\BacterialSpot\\train_519_Bacterial Leaf Spot_52.jpg",
+   "Balanced_From_Sources/train\\BacterialSpot\\train_612_Bacterial Leaf Spot_70.jpg"
+  ]
+ },
+ "image_statistics": {
+  "query": {
+   "meanR": 0.37977,
+   "meanG": 0.53957,
+   "meanB": 0.24698,
+   "meanSat": 0.62265,
+   "meanLum": 0.45843,
+   "lumStd": 0.20946,
+   "greenFrac": 0.98617,
+   "darkFrac": 0.05094,
+   "brightFrac": 0.11586,
+   "lowSatFrac": 0.03879,
+   "sharpness": 0.07922,
+   "aspect": 1.33333,
+   "longSide": 1920,
+   "shortSide": 1440
+  },
+  "zscore_table": {
+   "meanR": {
+    "query": 0.37977,
+    "healthy_median": 0.51196,
+    "bacterialspot_median": 0.60846,
+    "healthy_iqr": 0.10151500000000002,
+    "bacterialspot_iqr": 0.1311825000000001,
+    "z_healthy": -1.3021720927941678,
+    "z_bacterialspot": -1.7432965525127198
+   },
+   "meanG": {
+    "query": 0.53957,
+    "healthy_median": 0.56758,
+    "bacterialspot_median": 0.63276,
+    "healthy_iqr": 0.08979000000000004,
+    "bacterialspot_iqr": 0.13402749999999997,
+    "z_healthy": -0.31195010580242755,
+    "z_bacterialspot": -0.6953050679897783
+   },
+   "meanB": {
+    "query": 0.24698,
+    "healthy_median": 0.46138,
+    "bacterialspot_median": 0.505,
+    "healthy_iqr": 0.07496999999999998,
+    "bacterialspot_iqr": 0.172255,
+    "z_healthy": -2.8598105909030287,
+    "z_bacterialspot": -1.4978955618124294
+   },
+   "meanSat": {
+    "query": 0.62265,
+    "healthy_median": 0.27133,
+    "bacterialspot_median": 0.29969,
+    "healthy_iqr": 0.08449499999999996,
+    "bacterialspot_iqr": 0.230445,
+    "z_healthy": 4.1578791644476025,
+    "z_bacterialspot": 1.4014623879884571
+   },
+   "meanLum": {
+    "query": 0.45843,
+    "healthy_median": 0.54093,
+    "bacterialspot_median": 0.606055,
+    "healthy_iqr": 0.09093499999999999,
+    "bacterialspot_iqr": 0.12674750000000012,
+    "z_healthy": -0.907241436190686,
+    "z_bacterialspot": -1.164717252805774
+   },
+   "lumStd": {
+    "query": 0.20946,
+    "healthy_median": 0.16969,
+    "bacterialspot_median": 0.160175,
+    "healthy_iqr": 0.068695,
+    "bacterialspot_iqr": 0.04298250000000001,
+    "z_healthy": 0.578935875973506,
+    "z_bacterialspot": 1.1466294422148546
+   },
+   "greenFrac": {
+    "query": 0.98617,
+    "healthy_median": 0.53699,
+    "bacterialspot_median": 0.489785,
+    "healthy_iqr": 0.10159999999999991,
+    "bacterialspot_iqr": 0.5300750000000001,
+    "z_healthy": 4.4210629921259885,
+    "z_bacterialspot": 0.9364429561854453
+   },
+   "darkFrac": {
+    "query": 0.05094,
+    "healthy_median": 0.00625,
+    "bacterialspot_median": 0.00027,
+    "healthy_iqr": 0.03203,
+    "bacterialspot_iqr": 0.00445,
+    "z_healthy": 1.3952544489541054,
+    "z_bacterialspot": 11.386516853932584
+   },
+   "brightFrac": {
+    "query": 0.11586,
+    "healthy_median": 0.07031,
+    "bacterialspot_median": 0.2801,
+    "healthy_iqr": 0.29231999999999997,
+    "bacterialspot_iqr": 0.30587250000000005,
+    "z_healthy": 0.15582238642583474,
+    "z_bacterialspot": -0.5369557577095031
+   },
+   "lowSatFrac": {
+    "query": 0.03879,
+    "healthy_median": 0.49004,
+    "bacterialspot_median": 0.63574,
+    "healthy_iqr": 0.12200000000000005,
+    "bacterialspot_iqr": 0.27459750000000005,
+    "z_healthy": -3.698770491803277,
+    "z_bacterialspot": -2.1739090851154868
+   },
+   "sharpness": {
+    "query": 0.07922,
+    "healthy_median": 0.04411,
+    "bacterialspot_median": 0.02606,
+    "healthy_iqr": 0.020275,
+    "bacterialspot_iqr": 0.01725,
+    "z_healthy": 1.7316892725030824,
+    "z_bacterialspot": 3.0817391304347823
+   },
+   "aspect": {
+    "query": 1.33333,
+    "healthy_median": 1.0,
+    "bacterialspot_median": 1.0,
+    "healthy_iqr": 0.0,
+    "bacterialspot_iqr": 0.0,
+    "z_healthy": null,
+    "z_bacterialspot": null
+   },
+   "longSide": {
+    "query": 1920,
+    "healthy_median": 256.0,
+    "bacterialspot_median": 256.0,
+    "healthy_iqr": 0.0,
+    "bacterialspot_iqr": 0.0,
+    "z_healthy": null,
+    "z_bacterialspot": null
+   },
+   "shortSide": {
+    "query": 1440,
+    "healthy_median": 256.0,
+    "bacterialspot_median": 256.0,
+    "healthy_iqr": 0.0,
+    "bacterialspot_iqr": 0.0,
+    "z_healthy": null,
+    "z_bacterialspot": null
+   }
+  },
+  "n_healthy": 831,
+  "n_bacterialspot": 700
+ },
+ "observer_fidelity_max_abs_scale_weight_diff": 4.415001620960979e-07,
+ "notes": "Feature spaces are existing IWNET internals read with read-only forward hooks. Nothing was constructed, replaced, deep-copied or re-run; no parameter, buffer or training flag was touched. All images used the identical production transform via the production predictor singleton. Training class labels come from dataset directory names only, never from model output."
+}

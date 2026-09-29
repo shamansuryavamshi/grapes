@@ -34,7 +34,6 @@ __all__ = [
     "reset_predictor",
     "predict_image_path",
 ]
-
 log = get_logger("inference.predictor")
 
 
@@ -206,7 +205,29 @@ class Predictor:
     # ── prediction ─────────────────────────────────────────────────────────
     def predict_pil(self, image) -> Prediction:
         """Run inference on an already-opened RGB PIL image."""
+        prediction, _, _ = self._predict_pil(image, capture=False)
+        return prediction
+
+    def predict_pil_traced(self, image):
+        """Predict and, in the *same* forward pass, capture intermediate tensors.
+
+        Returns ``(prediction, trace, normalized_tensor)``. ``trace`` is an
+        :class:`~iwnet.inference.capture.IntermediateTrace` or ``None`` when the
+        model does not expose the expected internals.
+
+        The logits this returns are produced by the same arithmetic as
+        :meth:`predict_pil` - read-only hooks cannot change a forward pass - so
+        the prediction and every probability are identical either way. No second
+        model is built and no second forward pass is run.
+        """
+        return self._predict_pil(image, capture=True)
+
+    def _predict_pil(self, image, *, capture: bool):
+        from contextlib import ExitStack
+
         import torch
+
+        from iwnet.inference.capture import IntermediateTrace, capture_intermediates
 
         self._require_loaded()
         if image is None:
@@ -219,12 +240,22 @@ class Predictor:
             raise InferenceError(f"Preprocessing failed: {exc}") from exc
         preprocessing_ms = (time.perf_counter() - preprocess_started) * 1000
 
+        cpu_tensor = tensor
         tensor = tensor.to(self._device)
         started = time.perf_counter()
+        trace = None
         try:
-            with torch.inference_mode():
-                logits = self._model(tensor)
-                probabilities = torch.softmax(logits.float(), dim=1)[0]
+            with ExitStack() as stack:
+                store = (
+                    stack.enter_context(capture_intermediates(self._model))
+                    if capture
+                    else None
+                )
+                with torch.inference_mode():
+                    logits = self._model(tensor)
+                    probabilities = torch.softmax(logits.float(), dim=1)[0]
+                    if store is not None:
+                        trace = IntermediateTrace(store, self._model)
         except torch.cuda.OutOfMemoryError as exc:
             if self._device is not None and self._device.type == "cuda":
                 torch.cuda.empty_cache()
@@ -239,7 +270,7 @@ class Predictor:
         scores = probabilities.detach().cpu().numpy()
         best = int(scores.argmax())
 
-        return Prediction(
+        prediction = Prediction(
             predicted_class=self._classes[best],
             confidence=float(scores[best]),
             probabilities={name: float(scores[i]) for i, name in enumerate(self._classes)},
@@ -251,6 +282,9 @@ class Predictor:
             model_trained_at=self._meta.get("trained_at_utc"),
             dataset_fingerprint=self._meta.get("dataset_fingerprint_sha256"),
         )
+        if trace is not None:
+            return prediction, trace, cpu_tensor
+        return prediction, None, cpu_tensor
 
     def predict_path(self, image_path: str | Path) -> Prediction:
         from PIL import Image, UnidentifiedImageError

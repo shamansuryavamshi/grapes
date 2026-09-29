@@ -8,6 +8,7 @@ __pycache__/
 .venv/
 venv/
 env/
+.venv_old_pavan/
 
 # ── Source data (read-only inputs, ~1.3 GB) ────────────────────────────────
 # These are the original, read-only source collections the dataset is built

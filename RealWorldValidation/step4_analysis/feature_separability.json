@@ -1,0 +1,230 @@
+{
+ "feature_space": "64-d bottleneck (head[8] BatchNorm1d output), cosine similarity",
+ "corpus": {
+  "n": 5929,
+  "dataset": "Balanced_From_Sources train+test"
+ },
+ "per_class_intra": {
+  "BacterialSpot": {
+   "n": 700,
+   "intra_class_mean_euclid_to_centroid": 0.28792130947113037,
+   "intra_class_mean_cos_to_centroid": 0.9490097761154175,
+   "intra_class_median_cos_to_centroid": 0.9668790102005005,
+   "intra_class_spread_cos_to_centroid": 0.05535287410020828
+  },
+  "Black_Rot": {
+   "n": 900,
+   "intra_class_mean_euclid_to_centroid": 0.23261001706123352,
+   "intra_class_mean_cos_to_centroid": 0.9671061635017395,
+   "intra_class_median_cos_to_centroid": 0.9772224426269531,
+   "intra_class_spread_cos_to_centroid": 0.04416804388165474
+  },
+  "DownyMildew": {
+   "n": 853,
+   "intra_class_mean_euclid_to_centroid": 0.399139940738678,
+   "intra_class_mean_cos_to_centroid": 0.8979998230934143,
+   "intra_class_median_cos_to_centroid": 0.9419094324111938,
+   "intra_class_spread_cos_to_centroid": 0.11799594014883041
+  },
+  "Esca": {
+   "n": 876,
+   "intra_class_mean_euclid_to_centroid": 0.10059002786874771,
+   "intra_class_mean_cos_to_centroid": 0.988333523273468,
+   "intra_class_median_cos_to_centroid": 0.9971962571144104,
+   "intra_class_spread_cos_to_centroid": 0.04919106885790825
+  },
+  "Healthy": {
+   "n": 831,
+   "intra_class_mean_euclid_to_centroid": 0.34301847219467163,
+   "intra_class_mean_cos_to_centroid": 0.9310542941093445,
+   "intra_class_median_cos_to_centroid": 0.9444895386695862,
+   "intra_class_spread_cos_to_centroid": 0.05977046862244606
+  },
+  "Irrelavant": {
+   "n": 933,
+   "intra_class_mean_euclid_to_centroid": 0.07260239869356155,
+   "intra_class_mean_cos_to_centroid": 0.9928258657455444,
+   "intra_class_median_cos_to_centroid": 0.9988405108451843,
+   "intra_class_spread_cos_to_centroid": 0.03620266914367676
+  },
+  "PowderyMildew": {
+   "n": 836,
+   "intra_class_mean_euclid_to_centroid": 0.37104249000549316,
+   "intra_class_mean_cos_to_centroid": 0.9158907532691956,
+   "intra_class_median_cos_to_centroid": 0.9400964975357056,
+   "intra_class_spread_cos_to_centroid": 0.09189590066671371
+  }
+ },
+ "inter_class_centroid_cosine": {
+  "BacterialSpot": {
+   "BacterialSpot": 1.0000001192092896,
+   "Black_Rot": 0.35111209750175476,
+   "DownyMildew": 0.33643215894699097,
+   "Esca": 0.3481796681880951,
+   "Healthy": 0.3565272092819214,
+   "Irrelavant": 0.46456295251846313,
+   "PowderyMildew": 0.32652318477630615
+  },
+  "Black_Rot": {
+   "BacterialSpot": 0.35111209750175476,
+   "Black_Rot": 0.9999998807907104,
+   "DownyMildew": 0.324726939201355,
+   "Esca": 0.5095708966255188,
+   "Healthy": 0.45327433943748474,
+   "Irrelavant": 0.3714781403541565,
+   "PowderyMildew": 0.3282691240310669
+  },
+  "DownyMildew": {
+   "BacterialSpot": 0.33643215894699097,
+   "Black_Rot": 0.324726939201355,
+   "DownyMildew": 1.0,
+   "Esca": 0.24379411339759827,
+   "Healthy": 0.3221224248409271,
+   "Irrelavant": 0.41122111678123474,
+   "PowderyMildew": 0.4564920961856842
+  },
+  "Esca": {
+   "BacterialSpot": 0.3481796681880951,
+   "Black_Rot": 0.5095708966255188,
+   "DownyMildew": 0.24379411339759827,
+   "Esca": 1.0,
+   "Healthy": 0.33344483375549316,
+   "Irrelavant": 0.39285415410995483,
+   "PowderyMildew": 0.3400363624095917
+  },
+  "Healthy": {
+   "BacterialSpot": 0.3565272092819214,
+   "Black_Rot": 0.45327433943748474,
+   "DownyMildew": 0.3221224248409271,
+   "Esca": 0.33344483375549316,
+   "Healthy": 1.000000238418579,
+   "Irrelavant": 0.4089309275150299,
+   "PowderyMildew": 0.5035690069198608
+  },
+  "Irrelavant": {
+   "BacterialSpot": 0.46456295251846313,
+   "Black_Rot": 0.3714781403541565,
+   "DownyMildew": 0.41122111678123474,
+   "Esca": 0.39285415410995483,
+   "Healthy": 0.4089309275150299,
+   "Irrelavant": 1.0,
+   "PowderyMildew": 0.3230818212032318
+  },
+  "PowderyMildew": {
+   "BacterialSpot": 0.32652318477630615,
+   "Black_Rot": 0.3282691240310669,
+   "DownyMildew": 0.4564920961856842,
+   "Esca": 0.3400363624095917,
+   "Healthy": 0.5035690069198608,
+   "Irrelavant": 0.3230818212032318,
+   "PowderyMildew": 1.0
+  }
+ },
+ "inter_class_summary": {
+  "on_diagonal_mean": 1.000000034059797,
+  "off_diagonal_mean": 0.3764858841896057,
+  "off_diagonal_max": 0.5095708966255188,
+  "most_confusable_pairs": [
+   {
+    "a": "Black_Rot",
+    "b": "Esca",
+    "cosine": 0.5095708966255188
+   },
+   {
+    "a": "Healthy",
+    "b": "PowderyMildew",
+    "cosine": 0.5035690069198608
+   },
+   {
+    "a": "BacterialSpot",
+    "b": "Irrelavant",
+    "cosine": 0.46456295251846313
+   },
+   {
+    "a": "DownyMildew",
+    "b": "PowderyMildew",
+    "cosine": 0.4564920961856842
+   },
+   {
+    "a": "Black_Rot",
+    "b": "Healthy",
+    "cosine": 0.45327433943748474
+   }
+  ]
+ },
+ "query_cosine_to_centroid": {
+  "BacterialSpot": 0.9364309310913086,
+  "Black_Rot": 0.3297263979911804,
+  "DownyMildew": 0.3207787275314331,
+  "Esca": 0.22033008933067322,
+  "Healthy": 0.4441062808036804,
+  "Irrelavant": 0.44769471883773804,
+  "PowderyMildew": 0.220900759100914
+ },
+ "query_nearest_class": "BacterialSpot",
+ "query_runner_up": "Irrelavant",
+ "query_margin": 0.48873621225357056,
+ "query_rank_order": [
+  "BacterialSpot",
+  "Irrelavant",
+  "Healthy",
+  "Black_Rot",
+  "DownyMildew",
+  "PowderyMildew",
+  "Esca"
+ ],
+ "gallery_1nn_self_retrieval": {
+  "overall": 0.9649181986844324,
+  "per_class": {
+   "BacterialSpot": 0.9985714285714286,
+   "Black_Rot": 0.9811111111111112,
+   "DownyMildew": 0.9109026963657679,
+   "Esca": 0.9771689497716894,
+   "Healthy": 0.9759326113116726,
+   "Irrelavant": 0.9914255091103966,
+   "PowderyMildew": 0.9210526315789473
+  },
+  "of_query_top20_neighbours": {
+   "BacterialSpot": 20
+  }
+ },
+ "neighbour_groups": {
+  "top20_overall": {
+   "n": 20,
+   "mean": 0.9684693217277527,
+   "median": 0.9679728150367737,
+   "max": 0.9805282354354858,
+   "min": 0.9627635478973389,
+   "p25": 0.9660477638244629,
+   "p75": 0.970710277557373,
+   "composition": {
+    "BacterialSpot": 20
+   }
+  },
+  "top20_Healthy": {
+   "n": 20,
+   "mean": 0.6267760992050171,
+   "median": 0.5917474031448364,
+   "max": 0.9154730439186096,
+   "min": 0.5562173128128052,
+   "p25": 0.5747792720794678,
+   "p75": 0.6254584789276123,
+   "composition": {
+    "Healthy": 20
+   }
+  },
+  "top20_BacterialSpot": {
+   "n": 20,
+   "mean": 0.9684693217277527,
+   "median": 0.9679728150367737,
+   "max": 0.9805282354354858,
+   "min": 0.9627635478973389,
+   "p25": 0.9660477638244629,
+   "p75": 0.970710277557373,
+   "composition": {
+    "BacterialSpot": 20
+   }
+  }
+ },
+ "verdict": "The 64-d representation of grape leaf.jpg is closer to BacterialSpot training examples than to Healthy ones: nearest class BacterialSpot at +0.936431 versus runner-up Irrelavant at +0.447695."
+}

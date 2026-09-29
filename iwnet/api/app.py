@@ -130,6 +130,9 @@ class PredictResponse(BaseModel):
     model_trained_at_utc: str | None = None
     dataset_fingerprint_sha256: str | None = None
     confidence_note: str
+    #: Present only when the request asked for ``?visualize=true``. ``None``
+    #: keeps the existing lightweight response shape identical.
+    visualization: dict[str, Any] | None = None
 
 
 class HealthResponse(BaseModel):
@@ -253,18 +256,38 @@ async def predict(
     predictor: Annotated[Predictor, Depends(get_ready_predictor)],
     file: Annotated[UploadFile | None, File(description="Image file")] = None,
     image_path: Annotated[str | None, Query(description="Server-side dataset path")] = None,
+    visualize: Annotated[
+        bool,
+        Query(
+            description=(
+                "Attach an interpretability payload describing how the image was "
+                "processed. Off by default: it adds response time and payload size. "
+                "Never changes the prediction."
+            )
+        ),
+    ] = False,
 ) -> PredictResponse:
     """Classify a grape leaf image.
 
     Accepts a multipart ``file`` upload, or a raw image body, or an
     ``image_path`` pointing at a server-side dataset image.
+
+    Pass ``?visualize=true`` to additionally receive compact, display-only
+    renderings of the preprocessing and attention stages. The prediction fields
+    are identical either way, and a visualization failure never fails the
+    prediction.
     """
     image: Image.Image | None = None
+    include_original = True
 
     if file is not None:
         image = _decode_image(await file.read())
     elif image_path:
         resolved = _safe_dataset_path(image_path, predictor)
+        # The caller addressed a server-side dataset image and has already shown
+        # that thumbnail; echoing the bytes back would only bloat the response,
+        # so the original-image stage reports itself unavailable instead.
+        include_original = False
         try:
             with Image.open(resolved) as handle:
                 image = handle.convert("RGB")
@@ -283,11 +306,42 @@ async def predict(
     if image is None:
         raise HTTPException(status_code=400, detail="No image received.")
 
+    if not visualize:
+        try:
+            return _to_response(predictor.predict_pil(image))
+        except InferenceError as exc:
+            log.warning("Prediction failed: %s", exc)
+            raise HTTPException(status_code=500, detail=str(exc)) from exc
+
     try:
-        return _to_response(predictor.predict_pil(image))
+        prediction, trace, tensor = predictor.predict_pil_traced(image)
     except InferenceError as exc:
         log.warning("Prediction failed: %s", exc)
         raise HTTPException(status_code=500, detail=str(exc)) from exc
+
+    response = _to_response(prediction)
+    try:
+        from iwnet.inference.visualize import build_visualization
+
+        response.visualization = build_visualization(
+            image=image,
+            transform=predictor._transform,
+            normalized_tensor=tensor,
+            trace=trace,
+            prediction=prediction,
+            include_original=include_original,
+        )
+    except Exception as exc:  # noqa: BLE001 - a visualization must never fail a prediction
+        log.warning("Visualization unavailable: %s: %s", type(exc).__name__, exc)
+        response.visualization = {
+            "available": False,
+            "message": "Some processing visualizations are unavailable.",
+            "detail": type(exc).__name__,
+        }
+    finally:
+        if trace is not None:
+            trace.release()
+    return response
 
 
 def _safe_dataset_path(image_path: str, predictor: Predictor) -> str:
@@ -295,11 +349,11 @@ def _safe_dataset_path(image_path: str, predictor: Predictor) -> str:
     cfg = get_config()
     root = os.path.realpath(str(cfg.paths.dataset_root))
     candidate = os.path.realpath(os.path.join(root, image_path))
-    if not (candidate == root or candidate.startswith(root + _os.sep)):
+    if not (candidate == root or candidate.startswith(root + os.sep)):
         raise HTTPException(
             status_code=403, detail="image_path must point inside the dataset directory."
         )
-    if not _os.path.isfile(candidate):
+    if not os.path.isfile(candidate):
         raise HTTPException(status_code=404, detail=f"No such dataset image: {image_path}")
     return candidate
 
@@ -339,8 +393,6 @@ def samples(
 @app.get("/api/samples/{class_name}/{filename}", tags=["inference"])
 def sample_image(class_name: str, filename: str) -> FileResponse:
     """Serve one dataset image. Path traversal is blocked."""
-    import os as _os
-
     cfg = get_config()
     root = os.path.realpath(str(cfg.paths.dataset_root))
     candidate = os.path.realpath(os.path.join(root, "test", class_name, filename))
