@@ -1,0 +1,24 @@
+{
+  "test": "one-sided permutation test, 200000 draws, seed=42",
+  "caveat": "the trailing filename index is an arbitrary ordering within a source folder and carries no established semantic meaning; a significant result would still not be causal evidence",
+  "results": {
+    "BacterialSpot": {
+      "population_mean": 50.5,
+      "population_median": 50.5,
+      "top1pct_mean": 72.42857142857143,
+      "n_top1pct": 7,
+      "one_sided_permutation_p": 0.021629891850540747,
+      "significant_at_0.05": true,
+      "significant_at_0.01": false
+    },
+    "Healthy": {
+      "population_mean": 563.6014492753624,
+      "population_median": 478.5,
+      "top1pct_mean": 332.1111111111111,
+      "n_top1pct": 9,
+      "one_sided_permutation_p": 0.9756151219243904,
+      "significant_at_0.05": false,
+      "significant_at_0.01": false
+    }
+  }
+}

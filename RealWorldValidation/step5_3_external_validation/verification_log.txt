@@ -1,0 +1,223 @@
+
+==============================================================================
+STEP 5.3 VERIFICATION LOG
+==============================================================================
+generated: 2026-10-02T03:16:11Z
+baseline commit: e101607c78a3c61dda4e3e0d91dfe1ae9a3901a4
+checks are re-derived from artefacts, not taken from the analysis scripts
+
+-- 1. FROZEN BASELINE
+  [PASS] checkpoint exists
+  [PASS] checkpoint SHA-256 unchanged (live == before)  -- c1fae27c83d68b613034ca089a27e8fa629f9478bec307ae5e0ff74e75a27c0b
+  [PASS] checkpoint SHA-256 is the mandated value
+  [PASS] checkpoint size unchanged and == 41213897  -- 41213897
+  [PASS] class list unchanged
+  [PASS] parameter count unchanged == 10,161,307  -- 10161307
+  [PASS] production preprocessing unchanged
+  [PASS] baseline prediction reproduced before AND after
+  [PASS] P(BacterialSpot) identical before/after  -- 0.8787577152252197
+  [PASS] P(BacterialSpot) == 0.878758 (to 6 dp)  -- 0.878758
+  [PASS] P(Healthy) == 0.035046 (to 6 dp)  -- 0.035046
+
+-- 2. DATASETS
+  [PASS] Balanced_From_Sources fingerprint unchanged  -- 35c72a0ae283f7e8
+  [PASS] Balanced_Final_Split fingerprint unchanged  -- 389b24a8beac8ad5
+  [PASS] dataset class counts unchanged
+  [PASS] total dataset images == 5929
+  [PASS] split_manifest.csv unchanged
+
+-- 3. EXTERNAL IMAGES (all 17, read-only)
+  [PASS] 17 external images recorded before
+  [PASS] 17 external images recorded after
+  [PASS] external digest map identical before/after
+  [PASS] all 17 external digests distinct
+  [PASS] external directory still holds exactly 17 images
+  [PASS] every external image still byte-identical on disk
+  [PASS] every external image size unchanged
+  [PASS] every external image dimension unchanged
+
+-- 4. STEP 1-5.2 ARTEFACTS UNTOUCHED
+  [PASS] 72 Step 1-5.2 artefacts recorded
+  [PASS] every Step 1-5.2 artefact digest unchanged
+  [PASS] every Step 1-5.2 artefact still present
+  [PASS] Step 1-5.2 directory step3_analysis not overwritten by Step 5.3
+  [PASS] Step 1-5.2 directory step4_analysis not overwritten by Step 5.3
+  [PASS] Step 1-5.2 directory step5_1_hard_examples not overwritten by Step 5.3
+  [PASS] Step 1-5.2 directory step5_2_illumination_diagnostic not overwritten by Step 5.3
+
+-- 5. NO TRAINING, NO MODEL CHANGE
+  [PASS] no checkpoint file created or modified after integrity_before (3 found)
+  [PASS] frozen checkpoint is among the inspected weight files
+  [PASS] split manifest row count unchanged == 5929
+  [PASS] no label was auto-relabelled in manifest.csv
+  [PASS] pre-existing manifest still has exactly 1 VERIFIED and 16 unverified images
+  [PASS] prior manifest status was carried through into the Step 5.3 CSV
+
+-- 6. GROUND-TRUTH ADJUDICATION CONSISTENCY
+  [PASS] ground-truth CSV has exactly 17 rows
+  [PASS] status values sum to 17  -- {'VERIFIED': 1, 'UNKNOWN': 16}
+  [PASS] status values are only VERIFIED/SUPPORTED/DISPUTED/UNKNOWN
+  [PASS] counts match the summary  -- csv={'VERIFIED': 1, 'UNKNOWN': 16} summary={'VERIFIED': 1, 'SUPPORTED': 0, 'DISPUTED': 0, 'UNKNOWN': 16}
+  [PASS] VERIFIED == 1
+  [PASS] SUPPORTED == 0
+  [PASS] DISPUTED == 0
+  [PASS] UNKNOWN == 16
+  [PASS] only VERIFIED/SUPPORTED images carry a proposed label  -- 1
+  [PASS] no UNKNOWN or DISPUTED image carries a label
+  [PASS] every UNKNOWN image states the no-source declaration
+  [PASS] every UNKNOWN image has evidence_level NONE
+  [PASS] model prediction kept in a column that cannot be mistaken for a label
+  [PASS] no vague label wording used as ground truth
+  [PASS] ground-truth CSV digests match integrity_before
+  [PASS] the single labelled image is the pre-existing verified one
+  [PASS] the VERIFIED image's recorded source URL is the one in its own XMP block  -- https://torange.biz/grape-leaf-39537
+  [PASS] verifier type recorded honestly (not claimed as a pathology expert)
+
+-- 7. NO CIRCULAR VALIDATION
+  [PASS] evidence log records the model-prediction exclusion
+  [PASS] evidence log records the nearest-neighbour exclusion
+  [PASS] evidence log records the reverse-image-search gap
+  [PASS] evidence log records the visual-inspection gap
+  [PASS] evidence log records failures, not only successes
+  [PASS] all 10 evidence attempts logged
+  [PASS] summary records no accuracy over UNKNOWN images
+  [PASS] only 1 image has any provenance metadata
+
+-- 8. PREDICTIONS AND METRICS
+  [PASS] predictions CSV has 17 rows
+  [PASS] prediction digests match integrity_before
+  [PASS] only VERIFIED rows have a ground_truth value
+  [PASS] only VERIFIED rows have a correctness value
+  [PASS] VERIFIED n == 1
+  [PASS] VERIFIED n_correct == 0
+  [PASS] VERIFIED accuracy == 0.0
+  [PASS] confusion matrix contains exactly one counted cell
+  [PASS] that cell is Healthy -> BacterialSpot
+  [PASS] macro precision reported as undefined (not 0.0)
+  [PASS] macro recall == 0.0
+  [PASS] confusion_matrix.csv written
+  [PASS] verified_errors.csv has exactly 1 row
+  [PASS] the single verified error is grape leaf.jpg Healthy -> BacterialSpot
+  [PASS] Healthy -> BacterialSpot verified errors == 1
+  [PASS] BacterialSpot -> Healthy verified errors == 0
+  [PASS] recurrence declared NOT assessable
+  [PASS] no verified BacterialSpot images exist
+  [PASS] no other class has a labelled external image
+  [PASS] read-only hook proof recorded: max prob delta 0.0
+
+-- 9. FEATURE-SPACE DIAGNOSTIC
+  [PASS] Healthy centroid n == 831
+  [PASS] BacterialSpot centroid n == 700
+  [PASS] inter-centroid cosine == 0.356527 (Step 5.1 value)  -- 0.356527
+  [PASS] exactly 2 external images have positive centroid margin  -- ['grape leaf.jpg', 'images (9).jfif']
+  [PASS] only grape leaf.jpg exceeds the max Healthy training margin
+  [PASS] feature-space caveat recorded as diagnostic only
+
+-- 10. DECISION RULE
+  [PASS] decision rule declared before inspection
+  [PASS] decision rule evaluation is recorded
+  [PASS] category A criterion 'labelled below 5' fired
+  [PASS] category A criterion 'recurrence not assessable' fired
+  [PASS] category C did not fire
+  [PASS] category D did not fire
+  [PASS] decision category == CATEGORY_A
+  [PASS] summary decision category matches evaluation trace result
+  [PASS] category A action is 'Do NOT retrain'
+
+-- 11. REPORT COMPLETENESS
+  [PASS] report contains section ## 1. Objective
+  [PASS] report contains section ## 2. Frozen Baseline
+  [PASS] report contains section ## 3. External Dataset
+  [PASS] report contains section ## 4. Ground-Truth Method
+  [PASS] report contains section ## 5. Evidence Classification
+  [PASS] report contains section ## 6. External Prediction Results
+  [PASS] report contains section ## 7. Verified External Performance
+  [PASS] report contains section ## 8. Healthy <-> BacterialSpot Analysis
+  [PASS] report contains section ## 9. Other Class Errors
+  [PASS] report contains section ## 10. Confidence Analysis
+  [PASS] report contains section ## 11. Feature-Space Analysis
+  [PASS] report contains section ## 12. Sample-Size Limitations
+  [PASS] report contains section ## 13. Findings
+  [PASS] report contains section ## 14. Decision Category
+  [PASS] report contains section ## 15. Whether Training Is Justified
+  [PASS] report contains section ## 16. What Should NOT Change
+  [PASS] report contains section ## 17. Integrity Verification
+  [PASS] report contains section ## 18. Test Results
+  [PASS] report contains section ## 19. Reproducibility
+  [PASS] report title is correct
+  [PASS] mandated question A answered
+  [PASS] mandated question B answered
+  [PASS] mandated question C answered
+  [PASS] mandated question D answered
+  [PASS] mandated question E answered
+  [PASS] mandated question F answered
+  [PASS] mandated question G answered
+  [PASS] mandated question H answered
+  [PASS] mandated question I answered
+  [PASS] mandated question J answered
+  [PASS] mandated question K answered
+  [PASS] mandated question L answered
+  [PASS] mandated question M answered
+  [PASS] mandated question N answered
+  [PASS] report contains the terminal summary block
+  [PASS] report contains an explicit non-claims section
+  [PASS] report never uses the word 'proven' as an evidence level
+  [PASS] all 17 external filenames appear in the report
+  [PASS] no unresolved placeholder left in the report
+
+-- 12. INDEPENDENT RE-DERIVATION OF REPORT NUMERIC CLAIMS
+  [PASS] claim present and correct: verified accuracy stated as 0/1  -- derived='0/1'  report_has=True
+  [PASS] claim present and correct: VERIFIED accuracy value 0.0000  -- derived='0.0000'  report_has=True
+  [PASS] claim present and correct: P(BacterialSpot) 6dp  -- derived='0.878758'  report_has=True
+  [PASS] claim present and correct: P(Healthy) 6dp  -- derived='0.035046'  report_has=True
+  [PASS] claim present and correct: checkpoint SHA-256  -- derived='c1fae27c83d68b613034ca089a27e8fa629f9478bec307ae5e0ff74e75a27c0b'  report_has=True
+  [PASS] claim present and correct: checkpoint size  -- derived='41,213,897'  report_has=True
+  [PASS] claim present and correct: parameter count  -- derived='10,161,307'  report_has=True
+  [PASS] claim present and correct: dataset image total  -- derived='5,929'  report_has=True
+  [PASS] claim present and correct: UNKNOWN count  -- derived='16'  report_has=True
+  [PASS] claim present and correct: VERIFIED count  -- derived='1'  report_has=True
+  [PASS] claim present and correct: verified margin 4dp  -- derived='+0.4923'  report_has=True
+  [PASS] claim present and correct: max Healthy training margin 4dp  -- derived='0.3441'  report_has=True
+  [PASS] claim present and correct: inter-centroid cosine 6dp  -- derived='0.356527'  report_has=True
+  [PASS] claim present and correct: Healthy centroid n  -- derived='831'  report_has=True
+  [PASS] claim present and correct: BacterialSpot centroid n  -- derived='700'  report_has=True
+  [PASS] claim present and correct: evidence attempts  -- derived='10'  report_has=True
+  [PASS] claim present and correct: external image count  -- derived='17'  report_has=True
+  [PASS] status counts re-add to 17
+  [PASS] verified accuracy re-derives from correct/1
+  [PASS] report states training is NOT justified
+  [PASS] report states category A
+  [PASS] report records 0 verified BacterialSpot images
+
+-- 13. FIGURES
+  [PASS] figure artefact present: external_predictions.png
+  [PASS] figure artefact present: confusion_matrix.png
+  [PASS] figure artefact present: verified_error_contact_sheet.png
+  [PASS] figure artefact present: README.md
+  [PASS] valid PNG, decodable: external_predictions.png  -- PNG 2375x1937
+  [PASS] valid PNG, decodable: confusion_matrix.png  -- PNG 1835x1034
+  [PASS] valid PNG, decodable: verified_error_contact_sheet.png  -- PNG 875x1437
+  [PASS] figures README records no visual judgement is made
+
+-- 14. GIT HYGIENE
+  [PASS] HEAD is still the frozen baseline commit  -- e101607c78a3c61dda4e3e0d91dfe1ae9a3901a4
+  [PASS] commit count unchanged == 3  -- 3
+  [PASS] no tracked file modified
+  [PASS] only the two expected untracked step directories exist  -- ?? RealWorldValidation/step5_1_hard_examples/; ?? RealWorldValidation/step5_2_illumination_diagnostic/; ?? RealWorldValidation/step5_3_external_validation/
+  [PASS] nothing staged
+
+-- 15. TEST SUITE
+  [PASS] junit xml present
+  [PASS] 161 passed  -- 161
+  [PASS] 0 failed  -- 0
+  [PASS] 0 errors  -- 0
+  [PASS] 0 skipped  -- 0
+  [PASS] no test was deleted/weakened: suite still collects 161
+
+==============================================================================
+RESULT
+==============================================================================
+  checks run : 178
+  failures   : 0
+
+  ALL CHECKS PASSED

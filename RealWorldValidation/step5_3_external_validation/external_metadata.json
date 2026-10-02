@@ -1,0 +1,1698 @@
+[
+  {
+    "filename": "grape leaf.jpg",
+    "bytes": 429238,
+    "sha256": "d5e62c4d30660bdeb7b818b8b6154a7b375a462d0b231e6ce642eea9e33be026",
+    "has_xmp_packet": true,
+    "has_iptc_photoshop_irb": true,
+    "has_exif_marker": true,
+    "has_gps_text": false,
+    "container": "jpeg",
+    "jpeg_markers": [
+      {
+        "marker": "APP0",
+        "kind": "APP0",
+        "length": 16,
+        "payload_bytes": 14
+      },
+      {
+        "marker": "APP13",
+        "kind": "APP13",
+        "length": 520,
+        "payload_bytes": 518
+      },
+      {
+        "marker": "APP1",
+        "kind": "APP1",
+        "length": 8767,
+        "payload_bytes": 8765
+      },
+      {
+        "marker": "APP2",
+        "kind": "APP2",
+        "length": 3160,
+        "payload_bytes": 3158
+      },
+      {
+        "marker": "APP1",
+        "kind": "APP1",
+        "length": 3674,
+        "payload_bytes": 3672
+      },
+      {
+        "marker": "0xFFDB",
+        "kind": "0xFFDB",
+        "length": 67,
+        "payload_bytes": 65
+      },
+      {
+        "marker": "0xFFDB",
+        "kind": "0xFFDB",
+        "length": 67,
+        "payload_bytes": 65
+      },
+      {
+        "marker": "0xFFC0",
+        "kind": "0xFFC0",
+        "length": 17,
+        "payload_bytes": 15
+      },
+      {
+        "marker": "0xFFC4",
+        "kind": "0xFFC4",
+        "length": 27,
+        "payload_bytes": 25
+      },
+      {
+        "marker": "0xFFC4",
+        "kind": "0xFFC4",
+        "length": 67,
+        "payload_bytes": 65
+      },
+      {
+        "marker": "0xFFC4",
+        "kind": "0xFFC4",
+        "length": 27,
+        "payload_bytes": 25
+      },
+      {
+        "marker": "0xFFC4",
+        "kind": "0xFFC4",
+        "length": 54,
+        "payload_bytes": 52
+      },
+      {
+        "marker": "0xFFDA",
+        "kind": "SOS",
+        "note": "entropy-coded data follows; metadata after this is not searchable"
+      }
+    ],
+    "marker_kinds": [
+      "0xFFC0",
+      "0xFFC4",
+      "0xFFDA",
+      "0xFFDB",
+      "APP0",
+      "APP1",
+      "APP13",
+      "APP2"
+    ],
+    "format": "JPEG",
+    "mode": "RGB",
+    "width": 1920,
+    "height": 1440,
+    "pil_info_keys": [
+      "dpi",
+      "exif",
+      "icc_profile",
+      "jfif",
+      "jfif_density",
+      "jfif_unit",
+      "jfif_version",
+      "photoshop",
+      "xmp"
+    ],
+    "pil_info.xmp": "<3643 bytes: b'<?xpacket begin=\"\\xef\\xbb\\xbf\" id=\"W5M0MpCehiHzreSzNTczkc9d\"?> <x:xmpmeta xmlns:x=\"adobe:ns:meta/\" x:xmptk=\"Adobe XMP Core 5.3-c011 66.145661, 2012/02/06-14:56:27        \"> <rdf:RDF xmlns:rdf=\"http://www.w3.org/1999/02/22-rdf-syntax-ns#\"> <rdf:Description rdf:about=\"\" xmlns:xmp=\"http://ns.adobe.com/xap/1.0/\" xmlns:dc=\"http://purl.org/dc/elements/1.1/\" xmlns:aux=\"http://ns.adobe.com/exif/1.0/aux/\" xmlns:pho'>",
+    "pil_info.photoshop": {
+      "1028": "b'\\x1c\\x02\\x0f\\x006Free picture (Grape leaf) from image stock tOrange.biz\\x1c\\x02x\\x00CFree picture (Grape leaf) from https://torange.biz/grape-leaf-39537\\x1c\\x02\\x19\\x00)Free picture from image stock tOrange.biz\\x1c\\x02(\\x00\\x93For internet website must be the hyperlink on tOrange.biz  Rights beyond the scope of this license are available at: https://torange.biz/Rules.html\\x1c\\x02P\\x00\\x1cFree image stock torange.biz\\x1c\\x02z\\x00\\x0btOrange.biz\\x1c\\x02t\\x00lCopyright tOrange.biz This work is licensed under a Creative Commons Attribution 4.0 International License. '"
+    },
+    "pil_info.dpi": [
+      180,
+      180
+    ],
+    "pil_info.jfif": 257,
+    "pil_info.jfif_version": [
+      1,
+      1
+    ],
+    "pil_info.jfif_unit": 1,
+    "pil_info.jfif_density": [
+      180,
+      180
+    ],
+    "pil_info.icc_profile": "<3144 bytes: b'\\x00\\x00\\x0cHLino\\x02\\x10\\x00\\x00mntrRGB XYZ \\x07\\xce\\x00\\x02\\x00\\t\\x00\\x06\\x001\\x00\\x00acspMSFT\\x00\\x00\\x00\\x00IEC sRGB\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\xf6\\xd6\\x00\\x01\\x00\\x00\\x00\\x00\\xd3-HP  \\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x11cprt\\x00\\x00\\x01P\\x00\\x00\\x003desc\\x00\\x00\\x01\\x84\\x00\\x00\\x00lwtpt\\x00\\x00\\x01\\xf0\\x00\\x00\\x00\\x14bkpt\\x00\\x00\\x02\\x04\\x00\\x00\\x00\\x14rXYZ\\x00\\x00\\x02\\x18\\x00\\x00\\x00\\x14gXYZ\\x00\\x00\\x02,\\x00\\x00\\x00\\x14bXYZ\\x00\\x00\\x02@\\x00\\x00\\x00\\x14dmnd\\x00\\x00\\x02T\\x00\\x00\\x00pdmdd\\x00\\x00\\x02\\xc4\\x00\\x00\\x00\\x88vued\\x00\\x00\\x03L\\x00\\x00\\x00\\x86view\\x00\\x00\\x03\\xd4\\x00\\x00\\x00$lumi\\x00\\x00\\x03\\xf8\\x00\\x00\\x00\\x14meas\\x00\\x00\\x04\\x0c\\x00\\x00\\x00$tech\\x00\\x00\\x040\\x00\\x00\\x00\\x0crTRC\\x00\\x00\\x04<\\x00\\x00\\x08\\x0cgTRC\\x00\\x00\\x04<\\x00\\x00\\x08\\x0cbTRC\\x00\\x00\\x04<\\x00\\x00\\x08\\x0ctext\\x00\\x00\\x00\\x00Copyright (c) 1998 Hewlett-Packard Company\\x00\\x00desc\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x12'>",
+    "pil_info.exif": "<8765 bytes: b\"Exif\\x00\\x00II*\\x00\\x08\\x00\\x00\\x00\\x11\\x00\\x00\\x01\\x03\\x00\\x01\\x00\\x00\\x00\\xa0\\x0f\\x00\\x00\\x01\\x01\\x03\\x00\\x01\\x00\\x00\\x00\\xb8\\x0b\\x00\\x00\\x02\\x01\\x03\\x00\\x03\\x00\\x00\\x00\\xda\\x00\\x00\\x00\\x06\\x01\\x03\\x00\\x01\\x00\\x00\\x00\\x02\\x00\\x00\\x00\\x0f\\x01\\x02\\x00\\x06\\x00\\x00\\x00\\xe0\\x00\\x00\\x00\\x10\\x01\\x02\\x00\\x18\\x00\\x00\\x00\\xe6\\x00\\x00\\x00\\x12\\x01\\x03\\x00\\x01\\x00\\x00\\x00\\x01\\x00\\x00\\x00\\x15\\x01\\x03\\x00\\x01\\x00\\x00\\x00\\x03\\x00\\x00\\x00\\x1a\\x01\\x05\\x00\\x01\\x00\\x00\\x00\\xfe\\x00\\x00\\x00\\x1b\\x01\\x05\\x00\\x01\\x00\\x00\\x00\\x06\\x01\\x00\\x00(\\x01\\x03\\x00\\x01\\x00\\x00\\x00\\x02\\x00\\x00\\x001\\x01\\x02\\x00\\x1e\\x00\\x00\\x00\\x0e\\x01\\x00\\x002\\x01\\x02\\x00\\x14\\x00\\x00\\x00,\\x01\\x00\\x00;\\x01\\x02\\x00\\x10\\x00\\x00\\x00@\\x01\\x00\\x00\\x13\\x02\\x03\\x00\\x01\\x00\\x00\\x00\\x02\\x00\\x00\\x00i\\x87\\x04\\x00\\x01\\x00\\x00\\x00P\\x01\\x00\\x00%\\x88\\x04\\x00\\x01\\x00\\x00\\x00\\xa4\\x04\\x00\\x00\\xb8\\x04\\x00\\x00\\x08\\x00\\x08\\x00\\x08\\x00Canon\\x00Canon PowerShot SX50 HS\\x00\\xb4\\x00\\x00\\x00\\x01\\x00\\x00\\x00\\xb4\\x00\\x00\\x00\\x01\\x00\\x00\\x00Adobe Photoshop CS6 (Windows)\\x002015:09:10 12:56:21\\x00www.torange.biz\\x00!\\x00\\x9a\\x82\\x05\\x00\\x01\\x00\\x00\\x00\\xe2\\x02\\x00\\x00\\x9d\\x82\\x05\\x00\\x01\\x00\\x00\\x00\\xea\\x02\\x00\\x00'\\x88\\x03\\x00\\x01\\x00\\x00\\x00\\xfa\\x00\\x00\\x000\\x88\\x03\\x00\\x01\\x00\\x00\\x00\\x04\\x00\\x00\\x00\\x00\\x90\\x07\\x00\\x04\\x00\\x00\\x00\">",
+    "exif": {
+      "ImageWidth": 4000,
+      "ImageLength": 3000,
+      "BitsPerSample": "(8, 8, 8)",
+      "GPSInfo": 1188,
+      "PhotometricInterpretation": 2,
+      "ResolutionUnit": 2,
+      "ExifOffset": 336,
+      "Make": "Canon",
+      "Model": "Canon PowerShot SX50 HS",
+      "Software": "Adobe Photoshop CS6 (Windows)",
+      "Orientation": 1,
+      "YCbCrPositioning": 2,
+      "DateTime": "2015:09:10 12:56:21",
+      "SamplesPerPixel": 3,
+      "Artist": "www.torange.biz",
+      "XResolution": "180.0",
+      "YResolution": "180.0",
+      "Exif.TAG_0": "\u0002\u0003\u0000\u0000"
+    },
+    "gps": {},
+    "exif_walk_error": null,
+    "provenance_text_candidates": [
+      {
+        "carrier": "XMP_PACKET",
+        "text": "<x:xmpmeta xmlns:x=\"adobe:ns:meta/\" x:xmptk=\"Adobe XMP Core 5.3-c011 66.145661, 2012/02/06-14:56:27 \"> <rdf:RDF xmlns:rdf=\"http://www.w3.org/1999/02/22-rdf-syntax-ns#\"> <rdf:Description rdf:about=\"\" xmlns:xmp=\"http://ns.adobe.com/xap/1.0/\" xmlns:dc=\"http://purl.org/dc/elements/1.1/\" xmlns:aux=\"http://ns.adobe.com/exif/1.0/aux/\" xmlns:photoshop=\"http://ns.adobe.com/photoshop/1.0/\" xmlns:xmpMM=\"http://ns.adobe.com/xap/1.0/mm/\" xmlns:stEvt=\"http://ns.adobe.com/xap/1.0/sType/ResourceEvent#\" xmp:Rating=\"0\" xmp:ModifyDate=\"2015-09-10T12:56:21+03:00\" xmp:CreateDate=\"2015-07-09T10:34:52\" xmp:MetadataD"
+      },
+      {
+        "carrier": "XMP_PROP:rdf:li",
+        "text": "www.torange.biz"
+      },
+      {
+        "carrier": "RAW_URL",
+        "text": "https://torange.biz/grape-leaf-39537 \u0002\u0019"
+      },
+      {
+        "carrier": "RAW_URL",
+        "text": "https://torange.biz/Rules.html \u0002P"
+      },
+      {
+        "carrier": "RAW_URL",
+        "text": "http://www.iec.ch"
+      },
+      {
+        "carrier": "RAW_URL",
+        "text": "http://www.iec.ch"
+      },
+      {
+        "carrier": "RAW_URL",
+        "text": "http://ns.adobe.com/xap/1.0/"
+      },
+      {
+        "carrier": "RAW_URL",
+        "text": "http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+      },
+      {
+        "carrier": "RAW_URL",
+        "text": "http://ns.adobe.com/xap/1.0/"
+      },
+      {
+        "carrier": "RAW_URL",
+        "text": "http://purl.org/dc/elements/1.1/"
+      },
+      {
+        "carrier": "RAW_URL",
+        "text": "http://ns.adobe.com/exif/1.0/aux/"
+      },
+      {
+        "carrier": "RAW_URL",
+        "text": "http://ns.adobe.com/photoshop/1.0/"
+      },
+      {
+        "carrier": "RAW_URL",
+        "text": "http://ns.adobe.com/xap/1.0/mm/"
+      },
+      {
+        "carrier": "RAW_URL",
+        "text": "http://ns.adobe.com/xap/1.0/sType/ResourceEvent#"
+      },
+      {
+        "carrier": "APP13_IRB",
+        "text": "Photoshop IRB segment present"
+      },
+      {
+        "carrier": "IPTC_2:0F",
+        "text": "6Free picture (Grape leaf) from image stock tOrange.biz \u0002x CFree picture (Grape leaf) from https://torange.biz/grape-leaf-39537 \u0002\u0019 )Free picture from image stock tOrange.biz \u0002( \ufffdFor internet website must be the hyperlink on tOrange.biz Rights beyond the scope of this license are available at: http"
+      },
+      {
+        "carrier": "IPTC_2:1C",
+        "text": "* R { \ufffd \ufffd \ufffd G p \ufffd \ufffd \ufffd \u0016 @ j \ufffd \ufffd \ufffd \u0013 > i \ufffd \ufffd \ufffd \u0015 A l \ufffd \ufffd \ufffd! !H!u!\ufffd!\ufffd!\ufffd\"'\"U\"\ufffd\"\ufffd\"\ufffd# #8#f#\ufffd#\ufffd#\ufffd$ $M$|$\ufffd$\ufffd% %8%h%\ufffd%\ufffd%\ufffd&'&W&\ufffd&\ufffd&\ufffd'\u0018'I'z'\ufffd'\ufffd( (?(q(\ufffd(\ufffd)\u0006)8)k)\ufffd)\ufffd*\u0002*5*h*\ufffd*\ufffd+\u0002+6+i+\ufffd+\ufffd,\u0005,9,n,\ufffd,\ufffd- -A-v-\ufffd-\ufffd.\u0016.L.\ufffd.\ufffd.\ufffd/$/Z/\ufffd/\ufffd/\ufffd050l0\ufffd0\ufffd1\u00121J1\ufffd1\ufffd1\ufffd2*2c2\ufffd2\ufffd3 3F3\u007f3\ufffd3\ufffd4+4e4\ufffd4\ufffd5\u00135M5\ufffd5\ufffd5\ufffd676r6\ufffd6\ufffd7$7`7\ufffd7\ufffd8\u00148P8\ufffd8\ufffd9\u00059B9\u007f9"
+      }
+    ],
+    "n_provenance_text_candidates": 17,
+    "has_any_provenance_text": true
+  },
+  {
+    "filename": "green-leaf-of-grapes-in-the-garden-free-photo.jpg",
+    "bytes": 82790,
+    "sha256": "6d1dd8c348d6791751b7521b951f787623bedfa6e61af850502df275833f9c41",
+    "has_xmp_packet": false,
+    "has_iptc_photoshop_irb": false,
+    "has_exif_marker": false,
+    "has_gps_text": false,
+    "container": "jpeg",
+    "jpeg_markers": [
+      {
+        "marker": "APP0",
+        "kind": "APP0",
+        "length": 16,
+        "payload_bytes": 14
+      },
+      {
+        "marker": "APP1",
+        "kind": "APP1",
+        "length": 2,
+        "payload_bytes": 0
+      },
+      {
+        "marker": "0xFFDB",
+        "kind": "0xFFDB",
+        "length": 132,
+        "payload_bytes": 130
+      },
+      {
+        "marker": "0xFFC2",
+        "kind": "0xFFC2",
+        "length": 17,
+        "payload_bytes": 15
+      },
+      {
+        "marker": "0xFFC4",
+        "kind": "0xFFC4",
+        "length": 52,
+        "payload_bytes": 50
+      },
+      {
+        "marker": "0xFFDA",
+        "kind": "SOS",
+        "note": "entropy-coded data follows; metadata after this is not searchable"
+      }
+    ],
+    "marker_kinds": [
+      "0xFFC2",
+      "0xFFC4",
+      "0xFFDA",
+      "0xFFDB",
+      "APP0",
+      "APP1"
+    ],
+    "format": "JPEG",
+    "mode": "RGB",
+    "width": 933,
+    "height": 700,
+    "pil_info_keys": [
+      "dpi",
+      "jfif",
+      "jfif_density",
+      "jfif_unit",
+      "jfif_version",
+      "progression",
+      "progressive"
+    ],
+    "pil_info.dpi": [
+      180,
+      180
+    ],
+    "pil_info.jfif": 257,
+    "pil_info.jfif_version": [
+      1,
+      1
+    ],
+    "pil_info.jfif_unit": 1,
+    "pil_info.jfif_density": [
+      180,
+      180
+    ],
+    "exif": {},
+    "gps": {},
+    "exif_walk_error": null,
+    "provenance_text_candidates": [],
+    "n_provenance_text_candidates": 0,
+    "has_any_provenance_text": false
+  },
+  {
+    "filename": "images (1).jfif",
+    "bytes": 24757,
+    "sha256": "d1a95b65ef38dc41135a18822f5b9289b900c34d107701e29fc9ce2e0bdd4c22",
+    "has_xmp_packet": false,
+    "has_iptc_photoshop_irb": false,
+    "has_exif_marker": false,
+    "has_gps_text": false,
+    "container": "jpeg",
+    "jpeg_markers": [
+      {
+        "marker": "APP0",
+        "kind": "APP0",
+        "length": 16,
+        "payload_bytes": 14
+      },
+      {
+        "marker": "0xFFDB",
+        "kind": "0xFFDB",
+        "length": 132,
+        "payload_bytes": 130
+      },
+      {
+        "marker": "0xFFC0",
+        "kind": "0xFFC0",
+        "length": 17,
+        "payload_bytes": 15
+      },
+      {
+        "marker": "0xFFC4",
+        "kind": "0xFFC4",
+        "length": 28,
+        "payload_bytes": 26
+      },
+      {
+        "marker": "0xFFC4",
+        "kind": "0xFFC4",
+        "length": 64,
+        "payload_bytes": 62
+      },
+      {
+        "marker": "0xFFC4",
+        "kind": "0xFFC4",
+        "length": 26,
+        "payload_bytes": 24
+      },
+      {
+        "marker": "0xFFC4",
+        "kind": "0xFFC4",
+        "length": 42,
+        "payload_bytes": 40
+      },
+      {
+        "marker": "0xFFDA",
+        "kind": "SOS",
+        "note": "entropy-coded data follows; metadata after this is not searchable"
+      }
+    ],
+    "marker_kinds": [
+      "0xFFC0",
+      "0xFFC4",
+      "0xFFDA",
+      "0xFFDB",
+      "APP0"
+    ],
+    "format": "JPEG",
+    "mode": "RGB",
+    "width": 533,
+    "height": 375,
+    "pil_info_keys": [
+      "jfif",
+      "jfif_density",
+      "jfif_unit",
+      "jfif_version"
+    ],
+    "pil_info.jfif": 257,
+    "pil_info.jfif_version": [
+      1,
+      1
+    ],
+    "pil_info.jfif_unit": 0,
+    "pil_info.jfif_density": [
+      1,
+      1
+    ],
+    "exif": {},
+    "gps": {},
+    "exif_walk_error": null,
+    "provenance_text_candidates": [],
+    "n_provenance_text_candidates": 0,
+    "has_any_provenance_text": false
+  },
+  {
+    "filename": "images (10).jfif",
+    "bytes": 42151,
+    "sha256": "38ac45742f2b800b1e5e20f39ea9535bc8304a60c03a6d7da1a7f461e356c1ca",
+    "has_xmp_packet": false,
+    "has_iptc_photoshop_irb": false,
+    "has_exif_marker": false,
+    "has_gps_text": false,
+    "container": "jpeg",
+    "jpeg_markers": [
+      {
+        "marker": "APP0",
+        "kind": "APP0",
+        "length": 16,
+        "payload_bytes": 14
+      },
+      {
+        "marker": "0xFFDB",
+        "kind": "0xFFDB",
+        "length": 132,
+        "payload_bytes": 130
+      },
+      {
+        "marker": "0xFFC0",
+        "kind": "0xFFC0",
+        "length": 17,
+        "payload_bytes": 15
+      },
+      {
+        "marker": "0xFFC4",
+        "kind": "0xFFC4",
+        "length": 28,
+        "payload_bytes": 26
+      },
+      {
+        "marker": "0xFFC4",
+        "kind": "0xFFC4",
+        "length": 63,
+        "payload_bytes": 61
+      },
+      {
+        "marker": "0xFFC4",
+        "kind": "0xFFC4",
+        "length": 26,
+        "payload_bytes": 24
+      },
+      {
+        "marker": "0xFFC4",
+        "kind": "0xFFC4",
+        "length": 38,
+        "payload_bytes": 36
+      },
+      {
+        "marker": "0xFFDA",
+        "kind": "SOS",
+        "note": "entropy-coded data follows; metadata after this is not searchable"
+      }
+    ],
+    "marker_kinds": [
+      "0xFFC0",
+      "0xFFC4",
+      "0xFFDA",
+      "0xFFDB",
+      "APP0"
+    ],
+    "format": "JPEG",
+    "mode": "RGB",
+    "width": 547,
+    "height": 365,
+    "pil_info_keys": [
+      "jfif",
+      "jfif_density",
+      "jfif_unit",
+      "jfif_version"
+    ],
+    "pil_info.jfif": 257,
+    "pil_info.jfif_version": [
+      1,
+      1
+    ],
+    "pil_info.jfif_unit": 0,
+    "pil_info.jfif_density": [
+      1,
+      1
+    ],
+    "exif": {},
+    "gps": {},
+    "exif_walk_error": null,
+    "provenance_text_candidates": [],
+    "n_provenance_text_candidates": 0,
+    "has_any_provenance_text": false
+  },
+  {
+    "filename": "images (11).jfif",
+    "bytes": 24257,
+    "sha256": "cdcb50419baa50c76269f35075f834ff97cf0dfacaa211d9f477268590fef0e6",
+    "has_xmp_packet": false,
+    "has_iptc_photoshop_irb": false,
+    "has_exif_marker": false,
+    "has_gps_text": false,
+    "container": "jpeg",
+    "jpeg_markers": [
+      {
+        "marker": "APP0",
+        "kind": "APP0",
+        "length": 16,
+        "payload_bytes": 14
+      },
+      {
+        "marker": "0xFFDB",
+        "kind": "0xFFDB",
+        "length": 132,
+        "payload_bytes": 130
+      },
+      {
+        "marker": "0xFFC0",
+        "kind": "0xFFC0",
+        "length": 17,
+        "payload_bytes": 15
+      },
+      {
+        "marker": "0xFFC4",
+        "kind": "0xFFC4",
+        "length": 27,
+        "payload_bytes": 25
+      },
+      {
+        "marker": "0xFFC4",
+        "kind": "0xFFC4",
+        "length": 61,
+        "payload_bytes": 59
+      },
+      {
+        "marker": "0xFFC4",
+        "kind": "0xFFC4",
+        "length": 25,
+        "payload_bytes": 23
+      },
+      {
+        "marker": "0xFFC4",
+        "kind": "0xFFC4",
+        "length": 36,
+        "payload_bytes": 34
+      },
+      {
+        "marker": "0xFFDA",
+        "kind": "SOS",
+        "note": "entropy-coded data follows; metadata after this is not searchable"
+      }
+    ],
+    "marker_kinds": [
+      "0xFFC0",
+      "0xFFC4",
+      "0xFFDA",
+      "0xFFDB",
+      "APP0"
+    ],
+    "format": "JPEG",
+    "mode": "RGB",
+    "width": 597,
+    "height": 335,
+    "pil_info_keys": [
+      "jfif",
+      "jfif_density",
+      "jfif_unit",
+      "jfif_version"
+    ],
+    "pil_info.jfif": 257,
+    "pil_info.jfif_version": [
+      1,
+      1
+    ],
+    "pil_info.jfif_unit": 0,
+    "pil_info.jfif_density": [
+      1,
+      1
+    ],
+    "exif": {},
+    "gps": {},
+    "exif_walk_error": null,
+    "provenance_text_candidates": [],
+    "n_provenance_text_candidates": 0,
+    "has_any_provenance_text": false
+  },
+  {
+    "filename": "images (12).jfif",
+    "bytes": 47497,
+    "sha256": "4c7d2d4c839af023538aac745f8863d11b79fc691e5286ad7f0fd5e85b327c7a",
+    "has_xmp_packet": false,
+    "has_iptc_photoshop_irb": false,
+    "has_exif_marker": false,
+    "has_gps_text": false,
+    "container": "jpeg",
+    "jpeg_markers": [
+      {
+        "marker": "APP0",
+        "kind": "APP0",
+        "length": 16,
+        "payload_bytes": 14
+      },
+      {
+        "marker": "0xFFDB",
+        "kind": "0xFFDB",
+        "length": 132,
+        "payload_bytes": 130
+      },
+      {
+        "marker": "0xFFC0",
+        "kind": "0xFFC0",
+        "length": 17,
+        "payload_bytes": 15
+      },
+      {
+        "marker": "0xFFC4",
+        "kind": "0xFFC4",
+        "length": 28,
+        "payload_bytes": 26
+      },
+      {
+        "marker": "0xFFC4",
+        "kind": "0xFFC4",
+        "length": 64,
+        "payload_bytes": 62
+      },
+      {
+        "marker": "0xFFC4",
+        "kind": "0xFFC4",
+        "length": 25,
+        "payload_bytes": 23
+      },
+      {
+        "marker": "0xFFC4",
+        "kind": "0xFFC4",
+        "length": 37,
+        "payload_bytes": 35
+      },
+      {
+        "marker": "0xFFDA",
+        "kind": "SOS",
+        "note": "entropy-coded data follows; metadata after this is not searchable"
+      }
+    ],
+    "marker_kinds": [
+      "0xFFC0",
+      "0xFFC4",
+      "0xFFDA",
+      "0xFFDB",
+      "APP0"
+    ],
+    "format": "JPEG",
+    "mode": "RGB",
+    "width": 400,
+    "height": 400,
+    "pil_info_keys": [
+      "jfif",
+      "jfif_density",
+      "jfif_unit",
+      "jfif_version"
+    ],
+    "pil_info.jfif": 257,
+    "pil_info.jfif_version": [
+      1,
+      1
+    ],
+    "pil_info.jfif_unit": 0,
+    "pil_info.jfif_density": [
+      1,
+      1
+    ],
+    "exif": {},
+    "gps": {},
+    "exif_walk_error": null,
+    "provenance_text_candidates": [],
+    "n_provenance_text_candidates": 0,
+    "has_any_provenance_text": false
+  },
+  {
+    "filename": "images (13).jfif",
+    "bytes": 38077,
+    "sha256": "3b5901d4fa651793d4d5082e77de1c8fabdfaae86648a8a7504bb9b81a941e32",
+    "has_xmp_packet": false,
+    "has_iptc_photoshop_irb": false,
+    "has_exif_marker": false,
+    "has_gps_text": false,
+    "container": "jpeg",
+    "jpeg_markers": [
+      {
+        "marker": "APP0",
+        "kind": "APP0",
+        "length": 16,
+        "payload_bytes": 14
+      },
+      {
+        "marker": "0xFFDB",
+        "kind": "0xFFDB",
+        "length": 132,
+        "payload_bytes": 130
+      },
+      {
+        "marker": "0xFFC0",
+        "kind": "0xFFC0",
+        "length": 17,
+        "payload_bytes": 15
+      },
+      {
+        "marker": "0xFFC4",
+        "kind": "0xFFC4",
+        "length": 28,
+        "payload_bytes": 26
+      },
+      {
+        "marker": "0xFFC4",
+        "kind": "0xFFC4",
+        "length": 61,
+        "payload_bytes": 59
+      },
+      {
+        "marker": "0xFFC4",
+        "kind": "0xFFC4",
+        "length": 25,
+        "payload_bytes": 23
+      },
+      {
+        "marker": "0xFFC4",
+        "kind": "0xFFC4",
+        "length": 35,
+        "payload_bytes": 33
+      },
+      {
+        "marker": "0xFFDA",
+        "kind": "SOS",
+        "note": "entropy-coded data follows; metadata after this is not searchable"
+      }
+    ],
+    "marker_kinds": [
+      "0xFFC0",
+      "0xFFC4",
+      "0xFFDA",
+      "0xFFDB",
+      "APP0"
+    ],
+    "format": "JPEG",
+    "mode": "RGB",
+    "width": 666,
+    "height": 460,
+    "pil_info_keys": [
+      "jfif",
+      "jfif_density",
+      "jfif_unit",
+      "jfif_version"
+    ],
+    "pil_info.jfif": 257,
+    "pil_info.jfif_version": [
+      1,
+      1
+    ],
+    "pil_info.jfif_unit": 0,
+    "pil_info.jfif_density": [
+      1,
+      1
+    ],
+    "exif": {},
+    "gps": {},
+    "exif_walk_error": null,
+    "provenance_text_candidates": [],
+    "n_provenance_text_candidates": 0,
+    "has_any_provenance_text": false
+  },
+  {
+    "filename": "images (2).jfif",
+    "bytes": 11473,
+    "sha256": "5a459dfde9feccda7ce04f849a2d5b7d3453f823298e40259ffd100e0cdc0c55",
+    "has_xmp_packet": false,
+    "has_iptc_photoshop_irb": false,
+    "has_exif_marker": false,
+    "has_gps_text": false,
+    "container": "jpeg",
+    "jpeg_markers": [
+      {
+        "marker": "APP0",
+        "kind": "APP0",
+        "length": 16,
+        "payload_bytes": 14
+      },
+      {
+        "marker": "0xFFDB",
+        "kind": "0xFFDB",
+        "length": 132,
+        "payload_bytes": 130
+      },
+      {
+        "marker": "0xFFC0",
+        "kind": "0xFFC0",
+        "length": 17,
+        "payload_bytes": 15
+      },
+      {
+        "marker": "0xFFC4",
+        "kind": "0xFFC4",
+        "length": 27,
+        "payload_bytes": 25
+      },
+      {
+        "marker": "0xFFC4",
+        "kind": "0xFFC4",
+        "length": 64,
+        "payload_bytes": 62
+      },
+      {
+        "marker": "0xFFC4",
+        "kind": "0xFFC4",
+        "length": 26,
+        "payload_bytes": 24
+      },
+      {
+        "marker": "0xFFC4",
+        "kind": "0xFFC4",
+        "length": 41,
+        "payload_bytes": 39
+      },
+      {
+        "marker": "0xFFDA",
+        "kind": "SOS",
+        "note": "entropy-coded data follows; metadata after this is not searchable"
+      }
+    ],
+    "marker_kinds": [
+      "0xFFC0",
+      "0xFFC4",
+      "0xFFDA",
+      "0xFFDB",
+      "APP0"
+    ],
+    "format": "JPEG",
+    "mode": "RGB",
+    "width": 300,
+    "height": 396,
+    "pil_info_keys": [
+      "jfif",
+      "jfif_density",
+      "jfif_unit",
+      "jfif_version"
+    ],
+    "pil_info.jfif": 257,
+    "pil_info.jfif_version": [
+      1,
+      1
+    ],
+    "pil_info.jfif_unit": 0,
+    "pil_info.jfif_density": [
+      1,
+      1
+    ],
+    "exif": {},
+    "gps": {},
+    "exif_walk_error": null,
+    "provenance_text_candidates": [],
+    "n_provenance_text_candidates": 0,
+    "has_any_provenance_text": false
+  },
+  {
+    "filename": "images (3).jfif",
+    "bytes": 37308,
+    "sha256": "0ce299c5bfd7f1473d015d7fa218450b6aefbe9abf864e6bce31c5db617267f3",
+    "has_xmp_packet": false,
+    "has_iptc_photoshop_irb": false,
+    "has_exif_marker": false,
+    "has_gps_text": false,
+    "container": "jpeg",
+    "jpeg_markers": [
+      {
+        "marker": "APP0",
+        "kind": "APP0",
+        "length": 16,
+        "payload_bytes": 14
+      },
+      {
+        "marker": "0xFFDB",
+        "kind": "0xFFDB",
+        "length": 132,
+        "payload_bytes": 130
+      },
+      {
+        "marker": "0xFFC0",
+        "kind": "0xFFC0",
+        "length": 17,
+        "payload_bytes": 15
+      },
+      {
+        "marker": "0xFFC4",
+        "kind": "0xFFC4",
+        "length": 28,
+        "payload_bytes": 26
+      },
+      {
+        "marker": "0xFFC4",
+        "kind": "0xFFC4",
+        "length": 65,
+        "payload_bytes": 63
+      },
+      {
+        "marker": "0xFFC4",
+        "kind": "0xFFC4",
+        "length": 26,
+        "payload_bytes": 24
+      },
+      {
+        "marker": "0xFFC4",
+        "kind": "0xFFC4",
+        "length": 43,
+        "payload_bytes": 41
+      },
+      {
+        "marker": "0xFFDA",
+        "kind": "SOS",
+        "note": "entropy-coded data follows; metadata after this is not searchable"
+      }
+    ],
+    "marker_kinds": [
+      "0xFFC0",
+      "0xFFC4",
+      "0xFFDA",
+      "0xFFDB",
+      "APP0"
+    ],
+    "format": "JPEG",
+    "mode": "RGB",
+    "width": 576,
+    "height": 347,
+    "pil_info_keys": [
+      "jfif",
+      "jfif_density",
+      "jfif_unit",
+      "jfif_version"
+    ],
+    "pil_info.jfif": 257,
+    "pil_info.jfif_version": [
+      1,
+      1
+    ],
+    "pil_info.jfif_unit": 0,
+    "pil_info.jfif_density": [
+      1,
+      1
+    ],
+    "exif": {},
+    "gps": {},
+    "exif_walk_error": null,
+    "provenance_text_candidates": [],
+    "n_provenance_text_candidates": 0,
+    "has_any_provenance_text": false
+  },
+  {
+    "filename": "images (4).jfif",
+    "bytes": 41329,
+    "sha256": "33a07a196f71799290fc7ab1ea83ed70c802ef090107e0bcb186fc72bc4aa115",
+    "has_xmp_packet": false,
+    "has_iptc_photoshop_irb": false,
+    "has_exif_marker": false,
+    "has_gps_text": false,
+    "container": "jpeg",
+    "jpeg_markers": [
+      {
+        "marker": "APP0",
+        "kind": "APP0",
+        "length": 16,
+        "payload_bytes": 14
+      },
+      {
+        "marker": "0xFFDB",
+        "kind": "0xFFDB",
+        "length": 132,
+        "payload_bytes": 130
+      },
+      {
+        "marker": "0xFFC0",
+        "kind": "0xFFC0",
+        "length": 17,
+        "payload_bytes": 15
+      },
+      {
+        "marker": "0xFFC4",
+        "kind": "0xFFC4",
+        "length": 28,
+        "payload_bytes": 26
+      },
+      {
+        "marker": "0xFFC4",
+        "kind": "0xFFC4",
+        "length": 75,
+        "payload_bytes": 73
+      },
+      {
+        "marker": "0xFFC4",
+        "kind": "0xFFC4",
+        "length": 25,
+        "payload_bytes": 23
+      },
+      {
+        "marker": "0xFFC4",
+        "kind": "0xFFC4",
+        "length": 44,
+        "payload_bytes": 42
+      },
+      {
+        "marker": "0xFFDA",
+        "kind": "SOS",
+        "note": "entropy-coded data follows; metadata after this is not searchable"
+      }
+    ],
+    "marker_kinds": [
+      "0xFFC0",
+      "0xFFC4",
+      "0xFFDA",
+      "0xFFDB",
+      "APP0"
+    ],
+    "format": "JPEG",
+    "mode": "RGB",
+    "width": 499,
+    "height": 375,
+    "pil_info_keys": [
+      "jfif",
+      "jfif_density",
+      "jfif_unit",
+      "jfif_version"
+    ],
+    "pil_info.jfif": 257,
+    "pil_info.jfif_version": [
+      1,
+      1
+    ],
+    "pil_info.jfif_unit": 0,
+    "pil_info.jfif_density": [
+      1,
+      1
+    ],
+    "exif": {},
+    "gps": {},
+    "exif_walk_error": null,
+    "provenance_text_candidates": [],
+    "n_provenance_text_candidates": 0,
+    "has_any_provenance_text": false
+  },
+  {
+    "filename": "images (5).jfif",
+    "bytes": 41337,
+    "sha256": "7a4111f817ee776c4f7d667f193455dd048c7f66e88ab46c5aab96344fb39efc",
+    "has_xmp_packet": false,
+    "has_iptc_photoshop_irb": false,
+    "has_exif_marker": false,
+    "has_gps_text": false,
+    "container": "jpeg",
+    "jpeg_markers": [
+      {
+        "marker": "APP0",
+        "kind": "APP0",
+        "length": 16,
+        "payload_bytes": 14
+      },
+      {
+        "marker": "0xFFDB",
+        "kind": "0xFFDB",
+        "length": 132,
+        "payload_bytes": 130
+      },
+      {
+        "marker": "0xFFC0",
+        "kind": "0xFFC0",
+        "length": 17,
+        "payload_bytes": 15
+      },
+      {
+        "marker": "0xFFC4",
+        "kind": "0xFFC4",
+        "length": 28,
+        "payload_bytes": 26
+      },
+      {
+        "marker": "0xFFC4",
+        "kind": "0xFFC4",
+        "length": 66,
+        "payload_bytes": 64
+      },
+      {
+        "marker": "0xFFC4",
+        "kind": "0xFFC4",
+        "length": 26,
+        "payload_bytes": 24
+      },
+      {
+        "marker": "0xFFC4",
+        "kind": "0xFFC4",
+        "length": 36,
+        "payload_bytes": 34
+      },
+      {
+        "marker": "0xFFDA",
+        "kind": "SOS",
+        "note": "entropy-coded data follows; metadata after this is not searchable"
+      }
+    ],
+    "marker_kinds": [
+      "0xFFC0",
+      "0xFFC4",
+      "0xFFDA",
+      "0xFFDB",
+      "APP0"
+    ],
+    "format": "JPEG",
+    "mode": "RGB",
+    "width": 335,
+    "height": 597,
+    "pil_info_keys": [
+      "jfif",
+      "jfif_density",
+      "jfif_unit",
+      "jfif_version"
+    ],
+    "pil_info.jfif": 257,
+    "pil_info.jfif_version": [
+      1,
+      1
+    ],
+    "pil_info.jfif_unit": 0,
+    "pil_info.jfif_density": [
+      1,
+      1
+    ],
+    "exif": {},
+    "gps": {},
+    "exif_walk_error": null,
+    "provenance_text_candidates": [],
+    "n_provenance_text_candidates": 0,
+    "has_any_provenance_text": false
+  },
+  {
+    "filename": "images (6).jfif",
+    "bytes": 27839,
+    "sha256": "cf4c9a55840766e07adc193039a50074b9079c854119e4072c20be8b6f1a2487",
+    "has_xmp_packet": false,
+    "has_iptc_photoshop_irb": false,
+    "has_exif_marker": false,
+    "has_gps_text": false,
+    "container": "jpeg",
+    "jpeg_markers": [
+      {
+        "marker": "APP0",
+        "kind": "APP0",
+        "length": 16,
+        "payload_bytes": 14
+      },
+      {
+        "marker": "0xFFDB",
+        "kind": "0xFFDB",
+        "length": 132,
+        "payload_bytes": 130
+      },
+      {
+        "marker": "0xFFC0",
+        "kind": "0xFFC0",
+        "length": 17,
+        "payload_bytes": 15
+      },
+      {
+        "marker": "0xFFC4",
+        "kind": "0xFFC4",
+        "length": 28,
+        "payload_bytes": 26
+      },
+      {
+        "marker": "0xFFC4",
+        "kind": "0xFFC4",
+        "length": 65,
+        "payload_bytes": 63
+      },
+      {
+        "marker": "0xFFC4",
+        "kind": "0xFFC4",
+        "length": 27,
+        "payload_bytes": 25
+      },
+      {
+        "marker": "0xFFC4",
+        "kind": "0xFFC4",
+        "length": 45,
+        "payload_bytes": 43
+      },
+      {
+        "marker": "0xFFDA",
+        "kind": "SOS",
+        "note": "entropy-coded data follows; metadata after this is not searchable"
+      }
+    ],
+    "marker_kinds": [
+      "0xFFC0",
+      "0xFFC4",
+      "0xFFDA",
+      "0xFFDB",
+      "APP0"
+    ],
+    "format": "JPEG",
+    "mode": "RGB",
+    "width": 447,
+    "height": 447,
+    "pil_info_keys": [
+      "jfif",
+      "jfif_density",
+      "jfif_unit",
+      "jfif_version"
+    ],
+    "pil_info.jfif": 257,
+    "pil_info.jfif_version": [
+      1,
+      1
+    ],
+    "pil_info.jfif_unit": 0,
+    "pil_info.jfif_density": [
+      1,
+      1
+    ],
+    "exif": {},
+    "gps": {},
+    "exif_walk_error": null,
+    "provenance_text_candidates": [],
+    "n_provenance_text_candidates": 0,
+    "has_any_provenance_text": false
+  },
+  {
+    "filename": "images (7).jfif",
+    "bytes": 33960,
+    "sha256": "1e7834529977ef16fd0942485f607fe913c395a2ddc1a57432c26caaabb51975",
+    "has_xmp_packet": false,
+    "has_iptc_photoshop_irb": false,
+    "has_exif_marker": false,
+    "has_gps_text": false,
+    "container": "jpeg",
+    "jpeg_markers": [
+      {
+        "marker": "APP0",
+        "kind": "APP0",
+        "length": 16,
+        "payload_bytes": 14
+      },
+      {
+        "marker": "0xFFDB",
+        "kind": "0xFFDB",
+        "length": 132,
+        "payload_bytes": 130
+      },
+      {
+        "marker": "0xFFC0",
+        "kind": "0xFFC0",
+        "length": 17,
+        "payload_bytes": 15
+      },
+      {
+        "marker": "0xFFC4",
+        "kind": "0xFFC4",
+        "length": 27,
+        "payload_bytes": 25
+      },
+      {
+        "marker": "0xFFC4",
+        "kind": "0xFFC4",
+        "length": 61,
+        "payload_bytes": 59
+      },
+      {
+        "marker": "0xFFC4",
+        "kind": "0xFFC4",
+        "length": 26,
+        "payload_bytes": 24
+      },
+      {
+        "marker": "0xFFC4",
+        "kind": "0xFFC4",
+        "length": 41,
+        "payload_bytes": 39
+      },
+      {
+        "marker": "0xFFDA",
+        "kind": "SOS",
+        "note": "entropy-coded data follows; metadata after this is not searchable"
+      }
+    ],
+    "marker_kinds": [
+      "0xFFC0",
+      "0xFFC4",
+      "0xFFDA",
+      "0xFFDB",
+      "APP0"
+    ],
+    "format": "JPEG",
+    "mode": "RGB",
+    "width": 480,
+    "height": 640,
+    "pil_info_keys": [
+      "jfif",
+      "jfif_density",
+      "jfif_unit",
+      "jfif_version"
+    ],
+    "pil_info.jfif": 257,
+    "pil_info.jfif_version": [
+      1,
+      1
+    ],
+    "pil_info.jfif_unit": 0,
+    "pil_info.jfif_density": [
+      1,
+      1
+    ],
+    "exif": {},
+    "gps": {},
+    "exif_walk_error": null,
+    "provenance_text_candidates": [],
+    "n_provenance_text_candidates": 0,
+    "has_any_provenance_text": false
+  },
+  {
+    "filename": "images (8).jfif",
+    "bytes": 21730,
+    "sha256": "bda12b2a404ba8b8fc1bf1a3cf65d7b207398b98eb7ca5113b6c2cd63d3bb8e2",
+    "has_xmp_packet": false,
+    "has_iptc_photoshop_irb": false,
+    "has_exif_marker": false,
+    "has_gps_text": false,
+    "container": "jpeg",
+    "jpeg_markers": [
+      {
+        "marker": "APP0",
+        "kind": "APP0",
+        "length": 16,
+        "payload_bytes": 14
+      },
+      {
+        "marker": "0xFFDB",
+        "kind": "0xFFDB",
+        "length": 132,
+        "payload_bytes": 130
+      },
+      {
+        "marker": "0xFFC0",
+        "kind": "0xFFC0",
+        "length": 17,
+        "payload_bytes": 15
+      },
+      {
+        "marker": "0xFFC4",
+        "kind": "0xFFC4",
+        "length": 28,
+        "payload_bytes": 26
+      },
+      {
+        "marker": "0xFFC4",
+        "kind": "0xFFC4",
+        "length": 66,
+        "payload_bytes": 64
+      },
+      {
+        "marker": "0xFFC4",
+        "kind": "0xFFC4",
+        "length": 25,
+        "payload_bytes": 23
+      },
+      {
+        "marker": "0xFFC4",
+        "kind": "0xFFC4",
+        "length": 37,
+        "payload_bytes": 35
+      },
+      {
+        "marker": "0xFFDA",
+        "kind": "SOS",
+        "note": "entropy-coded data follows; metadata after this is not searchable"
+      }
+    ],
+    "marker_kinds": [
+      "0xFFC0",
+      "0xFFC4",
+      "0xFFDA",
+      "0xFFDB",
+      "APP0"
+    ],
+    "format": "JPEG",
+    "mode": "RGB",
+    "width": 439,
+    "height": 300,
+    "pil_info_keys": [
+      "jfif",
+      "jfif_density",
+      "jfif_unit",
+      "jfif_version"
+    ],
+    "pil_info.jfif": 257,
+    "pil_info.jfif_version": [
+      1,
+      1
+    ],
+    "pil_info.jfif_unit": 0,
+    "pil_info.jfif_density": [
+      1,
+      1
+    ],
+    "exif": {},
+    "gps": {},
+    "exif_walk_error": null,
+    "provenance_text_candidates": [],
+    "n_provenance_text_candidates": 0,
+    "has_any_provenance_text": false
+  },
+  {
+    "filename": "images (9).jfif",
+    "bytes": 53713,
+    "sha256": "99e4000b00c7eb1eac95c98e0c36275ed1ee1eab85e304c5da4200b1a6e43044",
+    "has_xmp_packet": false,
+    "has_iptc_photoshop_irb": false,
+    "has_exif_marker": false,
+    "has_gps_text": false,
+    "container": "jpeg",
+    "jpeg_markers": [
+      {
+        "marker": "APP0",
+        "kind": "APP0",
+        "length": 16,
+        "payload_bytes": 14
+      },
+      {
+        "marker": "0xFFDB",
+        "kind": "0xFFDB",
+        "length": 132,
+        "payload_bytes": 130
+      },
+      {
+        "marker": "0xFFC0",
+        "kind": "0xFFC0",
+        "length": 17,
+        "payload_bytes": 15
+      },
+      {
+        "marker": "0xFFC4",
+        "kind": "0xFFC4",
+        "length": 28,
+        "payload_bytes": 26
+      },
+      {
+        "marker": "0xFFC4",
+        "kind": "0xFFC4",
+        "length": 78,
+        "payload_bytes": 76
+      },
+      {
+        "marker": "0xFFC4",
+        "kind": "0xFFC4",
+        "length": 26,
+        "payload_bytes": 24
+      },
+      {
+        "marker": "0xFFC4",
+        "kind": "0xFFC4",
+        "length": 46,
+        "payload_bytes": 44
+      },
+      {
+        "marker": "0xFFDA",
+        "kind": "SOS",
+        "note": "entropy-coded data follows; metadata after this is not searchable"
+      }
+    ],
+    "marker_kinds": [
+      "0xFFC0",
+      "0xFFC4",
+      "0xFFDA",
+      "0xFFDB",
+      "APP0"
+    ],
+    "format": "JPEG",
+    "mode": "RGB",
+    "width": 612,
+    "height": 500,
+    "pil_info_keys": [
+      "jfif",
+      "jfif_density",
+      "jfif_unit",
+      "jfif_version"
+    ],
+    "pil_info.jfif": 257,
+    "pil_info.jfif_version": [
+      1,
+      1
+    ],
+    "pil_info.jfif_unit": 0,
+    "pil_info.jfif_density": [
+      1,
+      1
+    ],
+    "exif": {},
+    "gps": {},
+    "exif_walk_error": null,
+    "provenance_text_candidates": [],
+    "n_provenance_text_candidates": 0,
+    "has_any_provenance_text": false
+  },
+  {
+    "filename": "images.jfif",
+    "bytes": 42105,
+    "sha256": "3212ca515690573c1902c7215f176884fb5c70c0001117146f2dfeaa6720d1d7",
+    "has_xmp_packet": false,
+    "has_iptc_photoshop_irb": false,
+    "has_exif_marker": false,
+    "has_gps_text": false,
+    "container": "jpeg",
+    "jpeg_markers": [
+      {
+        "marker": "APP0",
+        "kind": "APP0",
+        "length": 16,
+        "payload_bytes": 14
+      },
+      {
+        "marker": "0xFFDB",
+        "kind": "0xFFDB",
+        "length": 132,
+        "payload_bytes": 130
+      },
+      {
+        "marker": "0xFFC0",
+        "kind": "0xFFC0",
+        "length": 17,
+        "payload_bytes": 15
+      },
+      {
+        "marker": "0xFFC4",
+        "kind": "0xFFC4",
+        "length": 28,
+        "payload_bytes": 26
+      },
+      {
+        "marker": "0xFFC4",
+        "kind": "0xFFC4",
+        "length": 66,
+        "payload_bytes": 64
+      },
+      {
+        "marker": "0xFFC4",
+        "kind": "0xFFC4",
+        "length": 26,
+        "payload_bytes": 24
+      },
+      {
+        "marker": "0xFFC4",
+        "kind": "0xFFC4",
+        "length": 43,
+        "payload_bytes": 41
+      },
+      {
+        "marker": "0xFFDA",
+        "kind": "SOS",
+        "note": "entropy-coded data follows; metadata after this is not searchable"
+      }
+    ],
+    "marker_kinds": [
+      "0xFFC0",
+      "0xFFC4",
+      "0xFFDA",
+      "0xFFDB",
+      "APP0"
+    ],
+    "format": "JPEG",
+    "mode": "RGB",
+    "width": 515,
+    "height": 388,
+    "pil_info_keys": [
+      "jfif",
+      "jfif_density",
+      "jfif_unit",
+      "jfif_version"
+    ],
+    "pil_info.jfif": 257,
+    "pil_info.jfif_version": [
+      1,
+      1
+    ],
+    "pil_info.jfif_unit": 0,
+    "pil_info.jfif_density": [
+      1,
+      1
+    ],
+    "exif": {},
+    "gps": {},
+    "exif_walk_error": null,
+    "provenance_text_candidates": [],
+    "n_provenance_text_candidates": 0,
+    "has_any_provenance_text": false
+  },
+  {
+    "filename": "img1.jfif",
+    "bytes": 49158,
+    "sha256": "85215998727635b476d9952f9850eb4e5d67a0d3fe959c228b367701817a6acb",
+    "has_xmp_packet": false,
+    "has_iptc_photoshop_irb": false,
+    "has_exif_marker": false,
+    "has_gps_text": false,
+    "container": "jpeg",
+    "jpeg_markers": [
+      {
+        "marker": "APP0",
+        "kind": "APP0",
+        "length": 16,
+        "payload_bytes": 14
+      },
+      {
+        "marker": "0xFFDB",
+        "kind": "0xFFDB",
+        "length": 132,
+        "payload_bytes": 130
+      },
+      {
+        "marker": "0xFFC0",
+        "kind": "0xFFC0",
+        "length": 17,
+        "payload_bytes": 15
+      },
+      {
+        "marker": "0xFFC4",
+        "kind": "0xFFC4",
+        "length": 27,
+        "payload_bytes": 25
+      },
+      {
+        "marker": "0xFFC4",
+        "kind": "0xFFC4",
+        "length": 77,
+        "payload_bytes": 75
+      },
+      {
+        "marker": "0xFFC4",
+        "kind": "0xFFC4",
+        "length": 26,
+        "payload_bytes": 24
+      },
+      {
+        "marker": "0xFFC4",
+        "kind": "0xFFC4",
+        "length": 43,
+        "payload_bytes": 41
+      },
+      {
+        "marker": "0xFFDA",
+        "kind": "SOS",
+        "note": "entropy-coded data follows; metadata after this is not searchable"
+      }
+    ],
+    "marker_kinds": [
+      "0xFFC0",
+      "0xFFC4",
+      "0xFFDA",
+      "0xFFDB",
+      "APP0"
+    ],
+    "format": "JPEG",
+    "mode": "RGB",
+    "width": 738,
+    "height": 414,
+    "pil_info_keys": [
+      "jfif",
+      "jfif_density",
+      "jfif_unit",
+      "jfif_version"
+    ],
+    "pil_info.jfif": 257,
+    "pil_info.jfif_version": [
+      1,
+      1
+    ],
+    "pil_info.jfif_unit": 0,
+    "pil_info.jfif_density": [
+      1,
+      1
+    ],
+    "exif": {},
+    "gps": {},
+    "exif_walk_error": null,
+    "provenance_text_candidates": [],
+    "n_provenance_text_candidates": 0,
+    "has_any_provenance_text": false
+  }
+]

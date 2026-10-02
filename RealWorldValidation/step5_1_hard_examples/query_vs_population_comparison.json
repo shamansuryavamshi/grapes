@@ -1,0 +1,29 @@
+{
+  "query_vs_Healthy_population": {
+    "query_cos_to_nearest_BS_image": 0.9805282388228591,
+    "max_cos_to_nearest_BS_over_all_Healthy_images": 0.9503014764231192,
+    "Healthy_p99_9_cos_to_nearest_BS": 0.9501198439598931,
+    "query_EXCEEDS_whole_Healthy_cross_reach": true,
+    "query_margin_within_Healthy_margin_range": false,
+    "Healthy_max_centroid_margin": 0.3440778221569354,
+    "Healthy_max_centroid_margin_image": "Balanced_From_Sources/test/Healthy/train_135_Healthy Leaves_1043.png",
+    "query_centroid_margin_BS_minus_H": 0.49232458931354384,
+    "query_EXCEEDS_max_Healthy_centroid_margin": true,
+    "n_Healthy_with_centroid_margin_above_query": 0,
+    "n_Healthy_with_cross_top1_above_query_reach": 0
+  },
+  "query_vs_BacterialSpot_population": {
+    "query_cos_to_nearest_H_image": 0.9154730710788362,
+    "BacterialSpot_p99_9_cos_to_nearest_H": 0.9460393552334292,
+    "BacterialSpot_max_centroid_margin": 0.08506495979739037,
+    "query_centroid_margin_vs_BS_max": 0.49232458931354384,
+    "n_BS_with_centroid_margin_above_query": 0
+  },
+  "query_nearest_Healthy_inside_own_class_separation": {
+    "note": "for reference, how tightly Healthy images sit to each other",
+    "H_to_H_mean": 0.8667016151515418,
+    "H_to_H_max": 0.9999997056741483,
+    "BS_to_BS_mean": 0.9004772053460943,
+    "BS_to_BS_max": 0.9999395487296598
+  }
+}

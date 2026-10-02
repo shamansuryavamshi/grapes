@@ -1,0 +1,14 @@
+subset,ground_truth\predicted,BacterialSpot,Black_Rot,DownyMildew,Esca,Healthy,Irrelavant,PowderyMildew
+VERIFIED,Healthy,1,0,0,0,0,0,0
+
+subset,metric,value,n
+VERIFIED,n_images,1,1
+VERIFIED,n_correct,0,1
+VERIFIED,accuracy,0.0,1
+VERIFIED,balanced_accuracy,0.0,1
+VERIFIED,macro_precision,,1
+VERIFIED,macro_recall,0.0,1
+VERIFIED,macro_f1,,1
+VERIFIED+SUPPORTED,n_images,1,1
+VERIFIED+SUPPORTED,n_correct,0,1
+VERIFIED+SUPPORTED,accuracy,0.0,1

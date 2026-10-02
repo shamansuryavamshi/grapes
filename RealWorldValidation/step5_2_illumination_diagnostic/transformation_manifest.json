@@ -1,0 +1,574 @@
+{
+  "step": "5.2 controlled illumination / appearance diagnostic",
+  "source_image": "grape leaf.jpg",
+  "source_image_sha256": "d5e62c4d30660bdeb7b818b8b6154a7b375a462d0b231e6ce642eea9e33be026",
+  "source_image_never_written": true,
+  "branching_rule": "EVERY variant is generated from a single decode of the original; no variant is derived from another variant, so no effect is cumulative",
+  "applied": "in memory, BEFORE production preprocessing",
+  "preprocessing_unchanged": true,
+  "n_variants": 43,
+  "groups": [
+    "brightness",
+    "contrast",
+    "control",
+    "correction",
+    "directional",
+    "gamma",
+    "shadow"
+  ],
+  "head_layer_note": "head[0] is AdaptiveAvgPool2d(1) with 128 channels, so its flattened output (head[1]) is a 128-D vector; head[4] is BatchNorm1d(128). Both 128-D representations are recorded. The primary representation is head[8] = BatchNorm1d(64), the same bottleneck used in Step 4 and Step 5.1.",
+  "variant_specs": [
+    {
+      "variant_id": "control__original",
+      "group": "control",
+      "parameter": "original",
+      "spec": {
+        "op": "none"
+      }
+    },
+    {
+      "variant_id": "brightness__f0.70",
+      "group": "brightness",
+      "parameter": "f0.70",
+      "spec": {
+        "op": "PIL.ImageEnhance.Brightness",
+        "factor": 0.7,
+        "definition": "out = clip(factor * in), factor>1 brightens"
+      }
+    },
+    {
+      "variant_id": "brightness__f0.85",
+      "group": "brightness",
+      "parameter": "f0.85",
+      "spec": {
+        "op": "PIL.ImageEnhance.Brightness",
+        "factor": 0.85,
+        "definition": "out = clip(factor * in), factor>1 brightens"
+      }
+    },
+    {
+      "variant_id": "brightness__f1.00",
+      "group": "brightness",
+      "parameter": "f1.00",
+      "spec": {
+        "op": "PIL.ImageEnhance.Brightness",
+        "factor": 1.0,
+        "definition": "out = clip(factor * in), factor>1 brightens"
+      }
+    },
+    {
+      "variant_id": "brightness__f1.15",
+      "group": "brightness",
+      "parameter": "f1.15",
+      "spec": {
+        "op": "PIL.ImageEnhance.Brightness",
+        "factor": 1.15,
+        "definition": "out = clip(factor * in), factor>1 brightens"
+      }
+    },
+    {
+      "variant_id": "brightness__f1.30",
+      "group": "brightness",
+      "parameter": "f1.30",
+      "spec": {
+        "op": "PIL.ImageEnhance.Brightness",
+        "factor": 1.3,
+        "definition": "out = clip(factor * in), factor>1 brightens"
+      }
+    },
+    {
+      "variant_id": "contrast__f0.70",
+      "group": "contrast",
+      "parameter": "f0.70",
+      "spec": {
+        "op": "PIL.ImageEnhance.Contrast",
+        "factor": 0.7,
+        "definition": "out = mean_gray + factor*(in - mean_gray); factor<1 flattens"
+      }
+    },
+    {
+      "variant_id": "contrast__f0.85",
+      "group": "contrast",
+      "parameter": "f0.85",
+      "spec": {
+        "op": "PIL.ImageEnhance.Contrast",
+        "factor": 0.85,
+        "definition": "out = mean_gray + factor*(in - mean_gray); factor<1 flattens"
+      }
+    },
+    {
+      "variant_id": "contrast__f1.00",
+      "group": "contrast",
+      "parameter": "f1.00",
+      "spec": {
+        "op": "PIL.ImageEnhance.Contrast",
+        "factor": 1.0,
+        "definition": "out = mean_gray + factor*(in - mean_gray); factor<1 flattens"
+      }
+    },
+    {
+      "variant_id": "contrast__f1.15",
+      "group": "contrast",
+      "parameter": "f1.15",
+      "spec": {
+        "op": "PIL.ImageEnhance.Contrast",
+        "factor": 1.15,
+        "definition": "out = mean_gray + factor*(in - mean_gray); factor<1 flattens"
+      }
+    },
+    {
+      "variant_id": "contrast__f1.30",
+      "group": "contrast",
+      "parameter": "f1.30",
+      "spec": {
+        "op": "PIL.ImageEnhance.Contrast",
+        "factor": 1.3,
+        "definition": "out = mean_gray + factor*(in - mean_gray); factor<1 flattens"
+      }
+    },
+    {
+      "variant_id": "gamma__g0.70",
+      "group": "gamma",
+      "parameter": "g0.70",
+      "spec": {
+        "op": "256-entry LUT",
+        "gamma": 0.7,
+        "definition": "out = 255*(in/255)**gamma; gamma<1 BRIGHTENS, gamma>1 DARKENS"
+      }
+    },
+    {
+      "variant_id": "gamma__g0.85",
+      "group": "gamma",
+      "parameter": "g0.85",
+      "spec": {
+        "op": "256-entry LUT",
+        "gamma": 0.85,
+        "definition": "out = 255*(in/255)**gamma; gamma<1 BRIGHTENS, gamma>1 DARKENS"
+      }
+    },
+    {
+      "variant_id": "gamma__g1.00",
+      "group": "gamma",
+      "parameter": "g1.00",
+      "spec": {
+        "op": "256-entry LUT",
+        "gamma": 1.0,
+        "definition": "out = 255*(in/255)**gamma; gamma<1 BRIGHTENS, gamma>1 DARKENS"
+      }
+    },
+    {
+      "variant_id": "gamma__g1.15",
+      "group": "gamma",
+      "parameter": "g1.15",
+      "spec": {
+        "op": "256-entry LUT",
+        "gamma": 1.15,
+        "definition": "out = 255*(in/255)**gamma; gamma<1 BRIGHTENS, gamma>1 DARKENS"
+      }
+    },
+    {
+      "variant_id": "gamma__g1.30",
+      "group": "gamma",
+      "parameter": "g1.30",
+      "spec": {
+        "op": "256-entry LUT",
+        "gamma": 1.3,
+        "definition": "out = 255*(in/255)**gamma; gamma<1 BRIGHTENS, gamma>1 DARKENS"
+      }
+    },
+    {
+      "variant_id": "directional__left_to_right_weak",
+      "group": "directional",
+      "parameter": "left_to_right_weak",
+      "spec": {
+        "op": "smooth linear illumination gradient",
+        "direction": "left_to_right",
+        "mask_type": "linear_ramp",
+        "strength": 0.1,
+        "strength_name": "weak",
+        "definition": "mask = 1 + strength*(1-2t); brighter at t=0",
+        "caveat": "controlled proxy for directional lighting, not a physical model"
+      }
+    },
+    {
+      "variant_id": "directional__left_to_right_medium",
+      "group": "directional",
+      "parameter": "left_to_right_medium",
+      "spec": {
+        "op": "smooth linear illumination gradient",
+        "direction": "left_to_right",
+        "mask_type": "linear_ramp",
+        "strength": 0.2,
+        "strength_name": "medium",
+        "definition": "mask = 1 + strength*(1-2t); brighter at t=0",
+        "caveat": "controlled proxy for directional lighting, not a physical model"
+      }
+    },
+    {
+      "variant_id": "directional__left_to_right_strong",
+      "group": "directional",
+      "parameter": "left_to_right_strong",
+      "spec": {
+        "op": "smooth linear illumination gradient",
+        "direction": "left_to_right",
+        "mask_type": "linear_ramp",
+        "strength": 0.3,
+        "strength_name": "strong",
+        "definition": "mask = 1 + strength*(1-2t); brighter at t=0",
+        "caveat": "controlled proxy for directional lighting, not a physical model"
+      }
+    },
+    {
+      "variant_id": "directional__right_to_left_weak",
+      "group": "directional",
+      "parameter": "right_to_left_weak",
+      "spec": {
+        "op": "smooth linear illumination gradient",
+        "direction": "right_to_left",
+        "mask_type": "linear_ramp",
+        "strength": 0.1,
+        "strength_name": "weak",
+        "definition": "mask = 1 + strength*(1-2t); brighter at t=0",
+        "caveat": "controlled proxy for directional lighting, not a physical model"
+      }
+    },
+    {
+      "variant_id": "directional__right_to_left_medium",
+      "group": "directional",
+      "parameter": "right_to_left_medium",
+      "spec": {
+        "op": "smooth linear illumination gradient",
+        "direction": "right_to_left",
+        "mask_type": "linear_ramp",
+        "strength": 0.2,
+        "strength_name": "medium",
+        "definition": "mask = 1 + strength*(1-2t); brighter at t=0",
+        "caveat": "controlled proxy for directional lighting, not a physical model"
+      }
+    },
+    {
+      "variant_id": "directional__right_to_left_strong",
+      "group": "directional",
+      "parameter": "right_to_left_strong",
+      "spec": {
+        "op": "smooth linear illumination gradient",
+        "direction": "right_to_left",
+        "mask_type": "linear_ramp",
+        "strength": 0.3,
+        "strength_name": "strong",
+        "definition": "mask = 1 + strength*(1-2t); brighter at t=0",
+        "caveat": "controlled proxy for directional lighting, not a physical model"
+      }
+    },
+    {
+      "variant_id": "directional__top_to_bottom_weak",
+      "group": "directional",
+      "parameter": "top_to_bottom_weak",
+      "spec": {
+        "op": "smooth linear illumination gradient",
+        "direction": "top_to_bottom",
+        "mask_type": "linear_ramp",
+        "strength": 0.1,
+        "strength_name": "weak",
+        "definition": "mask = 1 + strength*(1-2t); brighter at t=0",
+        "caveat": "controlled proxy for directional lighting, not a physical model"
+      }
+    },
+    {
+      "variant_id": "directional__top_to_bottom_medium",
+      "group": "directional",
+      "parameter": "top_to_bottom_medium",
+      "spec": {
+        "op": "smooth linear illumination gradient",
+        "direction": "top_to_bottom",
+        "mask_type": "linear_ramp",
+        "strength": 0.2,
+        "strength_name": "medium",
+        "definition": "mask = 1 + strength*(1-2t); brighter at t=0",
+        "caveat": "controlled proxy for directional lighting, not a physical model"
+      }
+    },
+    {
+      "variant_id": "directional__top_to_bottom_strong",
+      "group": "directional",
+      "parameter": "top_to_bottom_strong",
+      "spec": {
+        "op": "smooth linear illumination gradient",
+        "direction": "top_to_bottom",
+        "mask_type": "linear_ramp",
+        "strength": 0.3,
+        "strength_name": "strong",
+        "definition": "mask = 1 + strength*(1-2t); brighter at t=0",
+        "caveat": "controlled proxy for directional lighting, not a physical model"
+      }
+    },
+    {
+      "variant_id": "directional__bottom_to_top_weak",
+      "group": "directional",
+      "parameter": "bottom_to_top_weak",
+      "spec": {
+        "op": "smooth linear illumination gradient",
+        "direction": "bottom_to_top",
+        "mask_type": "linear_ramp",
+        "strength": 0.1,
+        "strength_name": "weak",
+        "definition": "mask = 1 + strength*(1-2t); brighter at t=0",
+        "caveat": "controlled proxy for directional lighting, not a physical model"
+      }
+    },
+    {
+      "variant_id": "directional__bottom_to_top_medium",
+      "group": "directional",
+      "parameter": "bottom_to_top_medium",
+      "spec": {
+        "op": "smooth linear illumination gradient",
+        "direction": "bottom_to_top",
+        "mask_type": "linear_ramp",
+        "strength": 0.2,
+        "strength_name": "medium",
+        "definition": "mask = 1 + strength*(1-2t); brighter at t=0",
+        "caveat": "controlled proxy for directional lighting, not a physical model"
+      }
+    },
+    {
+      "variant_id": "directional__bottom_to_top_strong",
+      "group": "directional",
+      "parameter": "bottom_to_top_strong",
+      "spec": {
+        "op": "smooth linear illumination gradient",
+        "direction": "bottom_to_top",
+        "mask_type": "linear_ramp",
+        "strength": 0.3,
+        "strength_name": "strong",
+        "definition": "mask = 1 + strength*(1-2t); brighter at t=0",
+        "caveat": "controlled proxy for directional lighting, not a physical model"
+      }
+    },
+    {
+      "variant_id": "shadow__upper_left_weak",
+      "group": "shadow",
+      "parameter": "upper_left_weak",
+      "spec": {
+        "op": "smooth elliptical shadow",
+        "centre_normalised": [
+          0.35,
+          0.35
+        ],
+        "radius_fraction_of_max_side": 0.45,
+        "strength": 0.1,
+        "strength_name": "weak",
+        "definition": "falloff=0.5*(1+cos(pi*d)) for d in [0,1]; mask=1-strength*falloff",
+        "caveat": "controlled proxy for a soft cast shadow, not a physical model"
+      }
+    },
+    {
+      "variant_id": "shadow__upper_left_medium",
+      "group": "shadow",
+      "parameter": "upper_left_medium",
+      "spec": {
+        "op": "smooth elliptical shadow",
+        "centre_normalised": [
+          0.35,
+          0.35
+        ],
+        "radius_fraction_of_max_side": 0.45,
+        "strength": 0.2,
+        "strength_name": "medium",
+        "definition": "falloff=0.5*(1+cos(pi*d)) for d in [0,1]; mask=1-strength*falloff",
+        "caveat": "controlled proxy for a soft cast shadow, not a physical model"
+      }
+    },
+    {
+      "variant_id": "shadow__upper_left_strong",
+      "group": "shadow",
+      "parameter": "upper_left_strong",
+      "spec": {
+        "op": "smooth elliptical shadow",
+        "centre_normalised": [
+          0.35,
+          0.35
+        ],
+        "radius_fraction_of_max_side": 0.45,
+        "strength": 0.3,
+        "strength_name": "strong",
+        "definition": "falloff=0.5*(1+cos(pi*d)) for d in [0,1]; mask=1-strength*falloff",
+        "caveat": "controlled proxy for a soft cast shadow, not a physical model"
+      }
+    },
+    {
+      "variant_id": "shadow__lower_right_weak",
+      "group": "shadow",
+      "parameter": "lower_right_weak",
+      "spec": {
+        "op": "smooth elliptical shadow",
+        "centre_normalised": [
+          0.65,
+          0.65
+        ],
+        "radius_fraction_of_max_side": 0.45,
+        "strength": 0.1,
+        "strength_name": "weak",
+        "definition": "falloff=0.5*(1+cos(pi*d)) for d in [0,1]; mask=1-strength*falloff",
+        "caveat": "controlled proxy for a soft cast shadow, not a physical model"
+      }
+    },
+    {
+      "variant_id": "shadow__lower_right_medium",
+      "group": "shadow",
+      "parameter": "lower_right_medium",
+      "spec": {
+        "op": "smooth elliptical shadow",
+        "centre_normalised": [
+          0.65,
+          0.65
+        ],
+        "radius_fraction_of_max_side": 0.45,
+        "strength": 0.2,
+        "strength_name": "medium",
+        "definition": "falloff=0.5*(1+cos(pi*d)) for d in [0,1]; mask=1-strength*falloff",
+        "caveat": "controlled proxy for a soft cast shadow, not a physical model"
+      }
+    },
+    {
+      "variant_id": "shadow__lower_right_strong",
+      "group": "shadow",
+      "parameter": "lower_right_strong",
+      "spec": {
+        "op": "smooth elliptical shadow",
+        "centre_normalised": [
+          0.65,
+          0.65
+        ],
+        "radius_fraction_of_max_side": 0.45,
+        "strength": 0.3,
+        "strength_name": "strong",
+        "definition": "falloff=0.5*(1+cos(pi*d)) for d in [0,1]; mask=1-strength*falloff",
+        "caveat": "controlled proxy for a soft cast shadow, not a physical model"
+      }
+    },
+    {
+      "variant_id": "correction__grayworld_a0.25",
+      "group": "correction",
+      "parameter": "grayworld_a0.25",
+      "spec": {
+        "op": "gray-world white balance (partial)",
+        "alpha": 0.25,
+        "definition": "gain_c=(mean_cmeans/mean_c)**alpha; out=clip(in*gain_c)",
+        "caveat": "general colour correction; not tuned to any class"
+      }
+    },
+    {
+      "variant_id": "correction__grayworld_a0.50",
+      "group": "correction",
+      "parameter": "grayworld_a0.50",
+      "spec": {
+        "op": "gray-world white balance (partial)",
+        "alpha": 0.5,
+        "definition": "gain_c=(mean_cmeans/mean_c)**alpha; out=clip(in*gain_c)",
+        "caveat": "general colour correction; not tuned to any class"
+      }
+    },
+    {
+      "variant_id": "correction__grayworld_a1.00",
+      "group": "correction",
+      "parameter": "grayworld_a1.00",
+      "spec": {
+        "op": "gray-world white balance (partial)",
+        "alpha": 1.0,
+        "definition": "gain_c=(mean_cmeans/mean_c)**alpha; out=clip(in*gain_c)",
+        "caveat": "general colour correction; not tuned to any class"
+      }
+    },
+    {
+      "variant_id": "correction__flatfield_r32_a0.50",
+      "group": "correction",
+      "parameter": "flatfield_r32_a0.50",
+      "spec": {
+        "op": "low-frequency illumination correction",
+        "blur_radius_px": 32,
+        "alpha": 0.5,
+        "definition": "I=blur(img,r); corrected=img/I*mean(I); out=(1-a)*img+a*corrected"
+      }
+    },
+    {
+      "variant_id": "correction__flatfield_r32_a1.00",
+      "group": "correction",
+      "parameter": "flatfield_r32_a1.00",
+      "spec": {
+        "op": "low-frequency illumination correction",
+        "blur_radius_px": 32,
+        "alpha": 1.0,
+        "definition": "I=blur(img,r); corrected=img/I*mean(I); out=(1-a)*img+a*corrected"
+      }
+    },
+    {
+      "variant_id": "correction__flatfield_r128_a0.50",
+      "group": "correction",
+      "parameter": "flatfield_r128_a0.50",
+      "spec": {
+        "op": "low-frequency illumination correction",
+        "blur_radius_px": 128,
+        "alpha": 0.5,
+        "definition": "I=blur(img,r); corrected=img/I*mean(I); out=(1-a)*img+a*corrected"
+      }
+    },
+    {
+      "variant_id": "correction__flatfield_r128_a1.00",
+      "group": "correction",
+      "parameter": "flatfield_r128_a1.00",
+      "spec": {
+        "op": "low-frequency illumination correction",
+        "blur_radius_px": 128,
+        "alpha": 1.0,
+        "definition": "I=blur(img,r); corrected=img/I*mean(I); out=(1-a)*img+a*corrected"
+      }
+    },
+    {
+      "variant_id": "correction__retinex_a0.50",
+      "group": "correction",
+      "parameter": "retinex_a0.50",
+      "spec": {
+        "op": "multi-scale log-subtract (retinex-style)",
+        "scales_px": [
+          8,
+          24,
+          72
+        ],
+        "alpha": 0.5,
+        "definition": "R=log(1+in)-mean_k log(1+blur_k(in)); level-matched then blended"
+      }
+    },
+    {
+      "variant_id": "correction__retinex_a1.00",
+      "group": "correction",
+      "parameter": "retinex_a1.00",
+      "spec": {
+        "op": "multi-scale log-subtract (retinex-style)",
+        "scales_px": [
+          8,
+          24,
+          72
+        ],
+        "alpha": 1.0,
+        "definition": "R=log(1+in)-mean_k log(1+blur_k(in)); level-matched then blended"
+      }
+    }
+  ],
+  "identity_variant_max_BS_prob_delta_vs_control": 0.0,
+  "identity_variants_checked": [
+    "brightness__f1.00",
+    "contrast__f1.00",
+    "gamma__g1.00"
+  ],
+  "hook_max_prob_delta_vs_production": 0.0,
+  "centroids": {
+    "source": "reused from the Step 5.1 feature cache so they are identical",
+    "Healthy_n": 831,
+    "BacterialSpot_n": 700,
+    "cos_Healthy_centroid_to_BacterialSpot_centroid": 0.35652713506378053
+  },
+  "reference_training_images": {
+    "nearest_BS": "Balanced_From_Sources/train/BacterialSpot/train_307_Bacterial Leaf Spot_85.png",
+    "nearest_H": "Balanced_From_Sources/train/Healthy/train_772_Healthy Leaves_117.jpg"
+  }
+}

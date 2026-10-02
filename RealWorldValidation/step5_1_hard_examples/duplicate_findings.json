@@ -1,0 +1,373 @@
+{
+  "source_patterns": {
+    "note": "each source folder contributes exactly one image per class, so within-folder position is the only available source-position axis",
+    "H_baseline_trailing_index": {
+      "n": 276,
+      "mean": 563.6014492753624,
+      "median": 478.5,
+      "min": 1,
+      "max": 1252,
+      "top_decile_cut": 1103.0,
+      "in_top_decile": 28
+    },
+    "BS_baseline_trailing_index": {
+      "n": 700,
+      "mean": 50.5,
+      "median": 50.5,
+      "min": 1,
+      "max": 100,
+      "top_decile_cut": 90.10000000000002,
+      "in_top_decile": 70
+    },
+    "H_top1pct_trailing_index": {
+      "n": 9,
+      "mean": 332.1111111111111,
+      "median": 265.0,
+      "min": 1,
+      "max": 1043,
+      "top_decile_cut": 750.2,
+      "in_top_decile": 1
+    },
+    "BS_top1pct_trailing_index": {
+      "n": 7,
+      "mean": 72.42857142857143,
+      "median": 84.0,
+      "min": 2,
+      "max": 85,
+      "top_decile_cut": 85.0,
+      "in_top_decile": 2
+    },
+    "relative_position_within_folder": {
+      "all": {
+        "n": 976,
+        "mean": 0.22028688524590165
+      },
+      "top1pct_hard": {
+        "n": 16,
+        "mean": 0.3125,
+        "median": 0.0
+      },
+      "interpretation_note": "0.0 = first image in its folder, 1.0 = last image"
+    }
+  },
+  "duplicates": {
+    "method": {
+      "exact": "sha256_file on both files (iwnet.utils)",
+      "near_duplicate": "perceptual_hash(phash) + hamming (iwnet.utils) - the same utilities the dataset build used",
+      "perceptual_group": "group id from Balanced_From_Sources/results/split_manifest.csv, assigned at dataset build time by pHash clustering"
+    },
+    "pairs_checked": 23,
+    "n_exact_duplicate_cross_class_pairs": 0,
+    "n_pairs_sharing_a_perceptual_group": 0,
+    "phash_hamming_stats": {
+      "n": 23,
+      "min": 22,
+      "median": 32.0,
+      "max": 38,
+      "note": "0 = perceptually identical; larger = more visually different"
+    },
+    "pairs": [
+      {
+        "pair_type": "mutual_nn",
+        "pair_cosine": 0.9503014764231192,
+        "A_relpath": "Balanced_From_Sources/train/Healthy/train_671_Healthy Leaves_1.jpg",
+        "B_relpath": "Balanced_From_Sources/train/BacterialSpot/train_489_Bacterial Leaf Spot_84.jpg",
+        "A_label": "Healthy",
+        "B_label": "BacterialSpot",
+        "A_perceptual_group": "3581",
+        "B_perceptual_group": "377",
+        "exact_duplicate_bytes": false,
+        "phash_hamming": 32,
+        "same_perceptual_group": false
+      },
+      {
+        "pair_type": "mutual_nn",
+        "pair_cosine": 0.9373340613828121,
+        "A_relpath": "Balanced_From_Sources/test/Healthy/train_135_Healthy Leaves_1043.png",
+        "B_relpath": "Balanced_From_Sources/train/BacterialSpot/train_7_Bacterial Leaf Spot_85.png",
+        "A_label": "Healthy",
+        "B_label": "BacterialSpot",
+        "A_perceptual_group": "3117",
+        "B_perceptual_group": "328",
+        "exact_duplicate_bytes": false,
+        "phash_hamming": 38,
+        "same_perceptual_group": false
+      },
+      {
+        "pair_type": "mutual_nn",
+        "pair_cosine": 0.9358857217878304,
+        "A_relpath": "Balanced_From_Sources/train/Healthy/train_25_Healthy Leaves_265.jpg",
+        "B_relpath": "Balanced_From_Sources/train/BacterialSpot/train_357_Bacterial Leaf Spot_83.jpg",
+        "A_label": "Healthy",
+        "B_label": "BacterialSpot",
+        "A_perceptual_group": "3250",
+        "B_perceptual_group": "278",
+        "exact_duplicate_bytes": false,
+        "phash_hamming": 22,
+        "same_perceptual_group": false
+      },
+      {
+        "pair_type": "mutual_nn",
+        "pair_cosine": 0.931442971254418,
+        "A_relpath": "Balanced_From_Sources/train/Healthy/train_87_377.jpg",
+        "B_relpath": "Balanced_From_Sources/train/BacterialSpot/train_289_Bacterial Leaf Spot_84.jpg",
+        "A_label": "Healthy",
+        "B_label": "BacterialSpot",
+        "A_perceptual_group": "3845",
+        "B_perceptual_group": "204",
+        "exact_duplicate_bytes": false,
+        "phash_hamming": 34,
+        "same_perceptual_group": false
+      },
+      {
+        "pair_type": "mutual_nn",
+        "pair_cosine": 0.9253412933902561,
+        "A_relpath": "Balanced_From_Sources/train/Healthy/train_113_Healthy Leaves_275.jpg",
+        "B_relpath": "Balanced_From_Sources/train/BacterialSpot/train_217_Bacterial Leaf Spot_2.jpg",
+        "A_label": "Healthy",
+        "B_label": "BacterialSpot",
+        "A_perceptual_group": "3093",
+        "B_perceptual_group": "128",
+        "exact_duplicate_bytes": false,
+        "phash_hamming": 22,
+        "same_perceptual_group": false
+      },
+      {
+        "pair_type": "mutual_nn",
+        "pair_cosine": 0.9091010680779438,
+        "A_relpath": "Balanced_From_Sources/train/Healthy/train_772_Healthy Leaves_117.jpg",
+        "B_relpath": "Balanced_From_Sources/train/BacterialSpot/train_6_Bacterial Leaf Spot_16.jpg",
+        "A_label": "Healthy",
+        "B_label": "BacterialSpot",
+        "A_perceptual_group": "3750",
+        "B_perceptual_group": "327",
+        "exact_duplicate_bytes": false,
+        "phash_hamming": 36,
+        "same_perceptual_group": false
+      },
+      {
+        "pair_type": "mutual_nn",
+        "pair_cosine": 0.7689964391847423,
+        "A_relpath": "Balanced_From_Sources/train/Healthy/train_158_cd71e97d-cc73-4fdd-b625-c735844c3ce7___Mt.N.V_HL 6185_90deg.JPG",
+        "B_relpath": "Balanced_From_Sources/train/BacterialSpot/train_267_Bacterial Leaf Spot_58.jpg",
+        "A_label": "Healthy",
+        "B_label": "BacterialSpot",
+        "A_perceptual_group": "3142",
+        "B_perceptual_group": "181",
+        "exact_duplicate_bytes": false,
+        "phash_hamming": 28,
+        "same_perceptual_group": false
+      },
+      {
+        "pair_type": "H_to_BS_top1",
+        "pair_cosine": 0.9503014764231192,
+        "A_relpath": "Balanced_From_Sources/train/Healthy/train_671_Healthy Leaves_1.jpg",
+        "B_relpath": "Balanced_From_Sources/train/BacterialSpot/train_489_Bacterial Leaf Spot_84.jpg",
+        "A_label": "Healthy",
+        "B_label": "BacterialSpot",
+        "A_perceptual_group": "3581",
+        "B_perceptual_group": "",
+        "exact_duplicate_bytes": false,
+        "phash_hamming": 32,
+        "same_perceptual_group": false
+      },
+      {
+        "pair_type": "H_to_BS_top1",
+        "pair_cosine": 0.9500826421300756,
+        "A_relpath": "Balanced_From_Sources/train/Healthy/train_590_Healthy Leaves_213.jpg",
+        "B_relpath": "Balanced_From_Sources/train/BacterialSpot/train_489_Bacterial Leaf Spot_84.jpg",
+        "A_label": "Healthy",
+        "B_label": "BacterialSpot",
+        "A_perceptual_group": "3581",
+        "B_perceptual_group": "",
+        "exact_duplicate_bytes": false,
+        "phash_hamming": 32,
+        "same_perceptual_group": false
+      },
+      {
+        "pair_type": "H_to_BS_top1",
+        "pair_cosine": 0.9373340613828121,
+        "A_relpath": "Balanced_From_Sources/test/Healthy/train_135_Healthy Leaves_1043.png",
+        "B_relpath": "Balanced_From_Sources/train/BacterialSpot/train_7_Bacterial Leaf Spot_85.png",
+        "A_label": "Healthy",
+        "B_label": "BacterialSpot",
+        "A_perceptual_group": "3117",
+        "B_perceptual_group": "",
+        "exact_duplicate_bytes": false,
+        "phash_hamming": 38,
+        "same_perceptual_group": false
+      },
+      {
+        "pair_type": "H_to_BS_top1",
+        "pair_cosine": 0.9358857217878304,
+        "A_relpath": "Balanced_From_Sources/train/Healthy/train_25_Healthy Leaves_265.jpg",
+        "B_relpath": "Balanced_From_Sources/train/BacterialSpot/train_357_Bacterial Leaf Spot_83.jpg",
+        "A_label": "Healthy",
+        "B_label": "BacterialSpot",
+        "A_perceptual_group": "3250",
+        "B_perceptual_group": "",
+        "exact_duplicate_bytes": false,
+        "phash_hamming": 22,
+        "same_perceptual_group": false
+      },
+      {
+        "pair_type": "H_to_BS_top1",
+        "pair_cosine": 0.931442971254418,
+        "A_relpath": "Balanced_From_Sources/train/Healthy/train_87_377.jpg",
+        "B_relpath": "Balanced_From_Sources/train/BacterialSpot/train_289_Bacterial Leaf Spot_84.jpg",
+        "A_label": "Healthy",
+        "B_label": "BacterialSpot",
+        "A_perceptual_group": "3845",
+        "B_perceptual_group": "",
+        "exact_duplicate_bytes": false,
+        "phash_hamming": 34,
+        "same_perceptual_group": false
+      },
+      {
+        "pair_type": "H_to_BS_top1",
+        "pair_cosine": 0.9253412933902561,
+        "A_relpath": "Balanced_From_Sources/train/Healthy/train_113_Healthy Leaves_275.jpg",
+        "B_relpath": "Balanced_From_Sources/train/BacterialSpot/train_217_Bacterial Leaf Spot_2.jpg",
+        "A_label": "Healthy",
+        "B_label": "BacterialSpot",
+        "A_perceptual_group": "3093",
+        "B_perceptual_group": "",
+        "exact_duplicate_bytes": false,
+        "phash_hamming": 22,
+        "same_perceptual_group": false
+      },
+      {
+        "pair_type": "H_to_BS_top1",
+        "pair_cosine": 0.9177954153632034,
+        "A_relpath": "Balanced_From_Sources/train/Healthy/train_314_Healthy Leaves_21.jpg",
+        "B_relpath": "Balanced_From_Sources/train/BacterialSpot/train_289_Bacterial Leaf Spot_84.jpg",
+        "A_label": "Healthy",
+        "B_label": "BacterialSpot",
+        "A_perceptual_group": "3307",
+        "B_perceptual_group": "",
+        "exact_duplicate_bytes": false,
+        "phash_hamming": 26,
+        "same_perceptual_group": false
+      },
+      {
+        "pair_type": "H_to_BS_top1",
+        "pair_cosine": 0.9144361082943278,
+        "A_relpath": "Balanced_From_Sources/train/Healthy/train_875_Healthy Leaves_677.jpg",
+        "B_relpath": "Balanced_From_Sources/train/BacterialSpot/train_357_Bacterial Leaf Spot_83.jpg",
+        "A_label": "Healthy",
+        "B_label": "BacterialSpot",
+        "A_perceptual_group": "3841",
+        "B_perceptual_group": "",
+        "exact_duplicate_bytes": false,
+        "phash_hamming": 30,
+        "same_perceptual_group": false
+      },
+      {
+        "pair_type": "H_to_BS_top1",
+        "pair_cosine": 0.9091010680779438,
+        "A_relpath": "Balanced_From_Sources/train/Healthy/train_772_Healthy Leaves_117.jpg",
+        "B_relpath": "Balanced_From_Sources/train/BacterialSpot/train_6_Bacterial Leaf Spot_16.jpg",
+        "A_label": "Healthy",
+        "B_label": "BacterialSpot",
+        "A_perceptual_group": "3750",
+        "B_perceptual_group": "",
+        "exact_duplicate_bytes": false,
+        "phash_hamming": 36,
+        "same_perceptual_group": false
+      },
+      {
+        "pair_type": "BS_to_H_top1",
+        "pair_cosine": 0.9503014764231192,
+        "A_relpath": "Balanced_From_Sources/train/BacterialSpot/train_489_Bacterial Leaf Spot_84.jpg",
+        "B_relpath": "Balanced_From_Sources/train/Healthy/train_671_Healthy Leaves_1.jpg",
+        "A_label": "BacterialSpot",
+        "B_label": "Healthy",
+        "A_perceptual_group": "377",
+        "B_perceptual_group": "",
+        "exact_duplicate_bytes": false,
+        "phash_hamming": 32,
+        "same_perceptual_group": false
+      },
+      {
+        "pair_type": "BS_to_H_top1",
+        "pair_cosine": 0.944204021216123,
+        "A_relpath": "Balanced_From_Sources/test/BacterialSpot/train_389_Bacterial Leaf Spot_84.jpg",
+        "B_relpath": "Balanced_From_Sources/train/Healthy/train_671_Healthy Leaves_1.jpg",
+        "A_label": "BacterialSpot",
+        "B_label": "Healthy",
+        "A_perceptual_group": "311",
+        "B_perceptual_group": "",
+        "exact_duplicate_bytes": false,
+        "phash_hamming": 22,
+        "same_perceptual_group": false
+      },
+      {
+        "pair_type": "BS_to_H_top1",
+        "pair_cosine": 0.9373340613828121,
+        "A_relpath": "Balanced_From_Sources/train/BacterialSpot/train_7_Bacterial Leaf Spot_85.png",
+        "B_relpath": "Balanced_From_Sources/test/Healthy/train_135_Healthy Leaves_1043.png",
+        "A_label": "BacterialSpot",
+        "B_label": "Healthy",
+        "A_perceptual_group": "328",
+        "B_perceptual_group": "",
+        "exact_duplicate_bytes": false,
+        "phash_hamming": 38,
+        "same_perceptual_group": false
+      },
+      {
+        "pair_type": "BS_to_H_top1",
+        "pair_cosine": 0.9358857217878304,
+        "A_relpath": "Balanced_From_Sources/train/BacterialSpot/train_357_Bacterial Leaf Spot_83.jpg",
+        "B_relpath": "Balanced_From_Sources/train/Healthy/train_25_Healthy Leaves_265.jpg",
+        "A_label": "BacterialSpot",
+        "B_label": "Healthy",
+        "A_perceptual_group": "278",
+        "B_perceptual_group": "",
+        "exact_duplicate_bytes": false,
+        "phash_hamming": 22,
+        "same_perceptual_group": false
+      },
+      {
+        "pair_type": "BS_to_H_top1",
+        "pair_cosine": 0.931442971254418,
+        "A_relpath": "Balanced_From_Sources/train/BacterialSpot/train_289_Bacterial Leaf Spot_84.jpg",
+        "B_relpath": "Balanced_From_Sources/train/Healthy/train_87_377.jpg",
+        "A_label": "BacterialSpot",
+        "B_label": "Healthy",
+        "A_perceptual_group": "204",
+        "B_perceptual_group": "",
+        "exact_duplicate_bytes": false,
+        "phash_hamming": 34,
+        "same_perceptual_group": false
+      },
+      {
+        "pair_type": "BS_to_H_top1",
+        "pair_cosine": 0.9264754271178967,
+        "A_relpath": "Balanced_From_Sources/train/BacterialSpot/train_507_Bacterial Leaf Spot_85.png",
+        "B_relpath": "Balanced_From_Sources/test/Healthy/train_135_Healthy Leaves_1043.png",
+        "A_label": "BacterialSpot",
+        "B_label": "Healthy",
+        "A_perceptual_group": "328",
+        "B_perceptual_group": "",
+        "exact_duplicate_bytes": false,
+        "phash_hamming": 38,
+        "same_perceptual_group": false
+      },
+      {
+        "pair_type": "BS_to_H_top1",
+        "pair_cosine": 0.9253412933902561,
+        "A_relpath": "Balanced_From_Sources/train/BacterialSpot/train_217_Bacterial Leaf Spot_2.jpg",
+        "B_relpath": "Balanced_From_Sources/train/Healthy/train_113_Healthy Leaves_275.jpg",
+        "A_label": "BacterialSpot",
+        "B_label": "Healthy",
+        "A_perceptual_group": "128",
+        "B_perceptual_group": "",
+        "exact_duplicate_bytes": false,
+        "phash_hamming": 22,
+        "same_perceptual_group": false
+      }
+    ],
+    "interpretation_note": "These are findings only. Nothing was deleted, relabelled or modified. Cross-class feature proximity is not evidence that a label is wrong."
+  },
+  "elapsed_sec": 1.83
+}

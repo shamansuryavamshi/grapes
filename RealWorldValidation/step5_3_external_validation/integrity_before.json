@@ -1,0 +1,629 @@
+{
+  "captured_utc": "2026-09-30T03:50:56Z",
+  "phase": "before",
+  "elapsed_sec": 33.67,
+  "baseline_commit": "e101607c78a3c61dda4e3e0d91dfe1ae9a3901a4",
+  "baseline_note": "no new scientific baseline created or switched to",
+  "step": "5.3 external image ground-truth validation (READ-ONLY)",
+  "runtime": {
+    "python": "3.12.10",
+    "torch": "2.14.0+cpu",
+    "torchvision": "0.29.0+cpu",
+    "timm": "1.0.30",
+    "numpy": "2.5.2",
+    "pillow": "12.3.0",
+    "device": "CPU",
+    "cuda_available": false,
+    "os": "Windows-11-10.0.26200-SP0"
+  },
+  "checkpoint": {
+    "path": "Balanced_From_Sources/best_iwnet.pth",
+    "sha256": "c1fae27c83d68b613034ca089a27e8fa629f9478bec307ae5e0ff74e75a27c0b",
+    "bytes": 41213897
+  },
+  "datasets": {
+    "Balanced_From_Sources": {
+      "root": "Balanced_From_Sources",
+      "file_count": 5947,
+      "total_bytes": 1178341200,
+      "fingerprint_sha256": "35c72a0ae283f7e8cb54e09afd73774d39720a5c6efe88ab8ca0cc50aed5068b"
+    },
+    "Balanced_Final_Split": {
+      "root": "Balanced_Final_Split",
+      "file_count": 7200,
+      "total_bytes": 1310546227,
+      "fingerprint_sha256": "389b24a8beac8ad5dd6a8f482166556cd5c95e49330339a548163fce52b6b92f"
+    }
+  },
+  "class_counts": {
+    "train/BacterialSpot": 560,
+    "train/Black_Rot": 720,
+    "train/DownyMildew": 682,
+    "train/Esca": 700,
+    "train/Healthy": 664,
+    "train/Irrelavant": 746,
+    "train/PowderyMildew": 668,
+    "test/BacterialSpot": 140,
+    "test/Black_Rot": 180,
+    "test/DownyMildew": 171,
+    "test/Esca": 176,
+    "test/Healthy": 167,
+    "test/Irrelavant": 187,
+    "test/PowderyMildew": 168
+  },
+  "total_images": 5929,
+  "split_manifest": {
+    "path": "Balanced_From_Sources/results/split_manifest.csv",
+    "sha256": "d25542dab56738102e3d429b9558890f8a9571e628bc414ec8d8c7fd20103cc2"
+  },
+  "external_images": [
+    {
+      "path": "C:\\Users\\shaman\\Desktop\\healthy leaves\\grape leaf.jpg",
+      "filename": "grape leaf.jpg",
+      "bytes": 429238,
+      "sha256": "d5e62c4d30660bdeb7b818b8b6154a7b375a462d0b231e6ce642eea9e33be026",
+      "width": 1920,
+      "height": 1440,
+      "dimensions": "1920x1440",
+      "format": "JPEG",
+      "pil_mode": "RGB",
+      "mtime_utc": "2026-09-29T08:48:23Z"
+    },
+    {
+      "path": "C:\\Users\\shaman\\Desktop\\healthy leaves\\green-leaf-of-grapes-in-the-garden-free-photo.jpg",
+      "filename": "green-leaf-of-grapes-in-the-garden-free-photo.jpg",
+      "bytes": 82790,
+      "sha256": "6d1dd8c348d6791751b7521b951f787623bedfa6e61af850502df275833f9c41",
+      "width": 933,
+      "height": 700,
+      "dimensions": "933x700",
+      "format": "JPEG",
+      "pil_mode": "RGB",
+      "mtime_utc": "2026-09-29T08:49:19Z"
+    },
+    {
+      "path": "C:\\Users\\shaman\\Desktop\\healthy leaves\\images (1).jfif",
+      "filename": "images (1).jfif",
+      "bytes": 24757,
+      "sha256": "d1a95b65ef38dc41135a18822f5b9289b900c34d107701e29fc9ce2e0bdd4c22",
+      "width": 533,
+      "height": 375,
+      "dimensions": "533x375",
+      "format": "JPEG",
+      "pil_mode": "RGB",
+      "mtime_utc": "2026-09-29T09:48:10Z"
+    },
+    {
+      "path": "C:\\Users\\shaman\\Desktop\\healthy leaves\\images (10).jfif",
+      "filename": "images (10).jfif",
+      "bytes": 42151,
+      "sha256": "38ac45742f2b800b1e5e20f39ea9535bc8304a60c03a6d7da1a7f461e356c1ca",
+      "width": 547,
+      "height": 365,
+      "dimensions": "547x365",
+      "format": "JPEG",
+      "pil_mode": "RGB",
+      "mtime_utc": "2026-09-29T09:49:58Z"
+    },
+    {
+      "path": "C:\\Users\\shaman\\Desktop\\healthy leaves\\images (11).jfif",
+      "filename": "images (11).jfif",
+      "bytes": 24257,
+      "sha256": "cdcb50419baa50c76269f35075f834ff97cf0dfacaa211d9f477268590fef0e6",
+      "width": 597,
+      "height": 335,
+      "dimensions": "597x335",
+      "format": "JPEG",
+      "pil_mode": "RGB",
+      "mtime_utc": "2026-09-29T09:50:18Z"
+    },
+    {
+      "path": "C:\\Users\\shaman\\Desktop\\healthy leaves\\images (12).jfif",
+      "filename": "images (12).jfif",
+      "bytes": 47497,
+      "sha256": "4c7d2d4c839af023538aac745f8863d11b79fc691e5286ad7f0fd5e85b327c7a",
+      "width": 400,
+      "height": 400,
+      "dimensions": "400x400",
+      "format": "JPEG",
+      "pil_mode": "RGB",
+      "mtime_utc": "2026-09-29T09:50:29Z"
+    },
+    {
+      "path": "C:\\Users\\shaman\\Desktop\\healthy leaves\\images (13).jfif",
+      "filename": "images (13).jfif",
+      "bytes": 38077,
+      "sha256": "3b5901d4fa651793d4d5082e77de1c8fabdfaae86648a8a7504bb9b81a941e32",
+      "width": 666,
+      "height": 460,
+      "dimensions": "666x460",
+      "format": "JPEG",
+      "pil_mode": "RGB",
+      "mtime_utc": "2026-09-29T09:50:35Z"
+    },
+    {
+      "path": "C:\\Users\\shaman\\Desktop\\healthy leaves\\images (2).jfif",
+      "filename": "images (2).jfif",
+      "bytes": 11473,
+      "sha256": "5a459dfde9feccda7ce04f849a2d5b7d3453f823298e40259ffd100e0cdc0c55",
+      "width": 300,
+      "height": 396,
+      "dimensions": "300x396",
+      "format": "JPEG",
+      "pil_mode": "RGB",
+      "mtime_utc": "2026-09-29T09:48:20Z"
+    },
+    {
+      "path": "C:\\Users\\shaman\\Desktop\\healthy leaves\\images (3).jfif",
+      "filename": "images (3).jfif",
+      "bytes": 37308,
+      "sha256": "0ce299c5bfd7f1473d015d7fa218450b6aefbe9abf864e6bce31c5db617267f3",
+      "width": 576,
+      "height": 347,
+      "dimensions": "576x347",
+      "format": "JPEG",
+      "pil_mode": "RGB",
+      "mtime_utc": "2026-09-29T09:48:27Z"
+    },
+    {
+      "path": "C:\\Users\\shaman\\Desktop\\healthy leaves\\images (4).jfif",
+      "filename": "images (4).jfif",
+      "bytes": 41329,
+      "sha256": "33a07a196f71799290fc7ab1ea83ed70c802ef090107e0bcb186fc72bc4aa115",
+      "width": 499,
+      "height": 375,
+      "dimensions": "499x375",
+      "format": "JPEG",
+      "pil_mode": "RGB",
+      "mtime_utc": "2026-09-29T09:48:40Z"
+    },
+    {
+      "path": "C:\\Users\\shaman\\Desktop\\healthy leaves\\images (5).jfif",
+      "filename": "images (5).jfif",
+      "bytes": 41337,
+      "sha256": "7a4111f817ee776c4f7d667f193455dd048c7f66e88ab46c5aab96344fb39efc",
+      "width": 335,
+      "height": 597,
+      "dimensions": "335x597",
+      "format": "JPEG",
+      "pil_mode": "RGB",
+      "mtime_utc": "2026-09-29T09:49:00Z"
+    },
+    {
+      "path": "C:\\Users\\shaman\\Desktop\\healthy leaves\\images (6).jfif",
+      "filename": "images (6).jfif",
+      "bytes": 27839,
+      "sha256": "cf4c9a55840766e07adc193039a50074b9079c854119e4072c20be8b6f1a2487",
+      "width": 447,
+      "height": 447,
+      "dimensions": "447x447",
+      "format": "JPEG",
+      "pil_mode": "RGB",
+      "mtime_utc": "2026-09-29T09:49:14Z"
+    },
+    {
+      "path": "C:\\Users\\shaman\\Desktop\\healthy leaves\\images (7).jfif",
+      "filename": "images (7).jfif",
+      "bytes": 33960,
+      "sha256": "1e7834529977ef16fd0942485f607fe913c395a2ddc1a57432c26caaabb51975",
+      "width": 480,
+      "height": 640,
+      "dimensions": "480x640",
+      "format": "JPEG",
+      "pil_mode": "RGB",
+      "mtime_utc": "2026-09-29T09:49:39Z"
+    },
+    {
+      "path": "C:\\Users\\shaman\\Desktop\\healthy leaves\\images (8).jfif",
+      "filename": "images (8).jfif",
+      "bytes": 21730,
+      "sha256": "bda12b2a404ba8b8fc1bf1a3cf65d7b207398b98eb7ca5113b6c2cd63d3bb8e2",
+      "width": 439,
+      "height": 300,
+      "dimensions": "439x300",
+      "format": "JPEG",
+      "pil_mode": "RGB",
+      "mtime_utc": "2026-09-29T09:49:45Z"
+    },
+    {
+      "path": "C:\\Users\\shaman\\Desktop\\healthy leaves\\images (9).jfif",
+      "filename": "images (9).jfif",
+      "bytes": 53713,
+      "sha256": "99e4000b00c7eb1eac95c98e0c36275ed1ee1eab85e304c5da4200b1a6e43044",
+      "width": 612,
+      "height": 500,
+      "dimensions": "612x500",
+      "format": "JPEG",
+      "pil_mode": "RGB",
+      "mtime_utc": "2026-09-29T09:49:52Z"
+    },
+    {
+      "path": "C:\\Users\\shaman\\Desktop\\healthy leaves\\images.jfif",
+      "filename": "images.jfif",
+      "bytes": 42105,
+      "sha256": "3212ca515690573c1902c7215f176884fb5c70c0001117146f2dfeaa6720d1d7",
+      "width": 515,
+      "height": 388,
+      "dimensions": "515x388",
+      "format": "JPEG",
+      "pil_mode": "RGB",
+      "mtime_utc": "2026-09-29T09:47:53Z"
+    },
+    {
+      "path": "C:\\Users\\shaman\\Desktop\\healthy leaves\\img1.jfif",
+      "filename": "img1.jfif",
+      "bytes": 49158,
+      "sha256": "85215998727635b476d9952f9850eb4e5d67a0d3fe959c228b367701817a6acb",
+      "width": 738,
+      "height": 414,
+      "dimensions": "738x414",
+      "format": "JPEG",
+      "pil_mode": "RGB",
+      "mtime_utc": "2026-09-29T09:47:42Z"
+    }
+  ],
+  "external_digest_map": {
+    "grape leaf.jpg": "d5e62c4d30660bdeb7b818b8b6154a7b375a462d0b231e6ce642eea9e33be026",
+    "green-leaf-of-grapes-in-the-garden-free-photo.jpg": "6d1dd8c348d6791751b7521b951f787623bedfa6e61af850502df275833f9c41",
+    "images (1).jfif": "d1a95b65ef38dc41135a18822f5b9289b900c34d107701e29fc9ce2e0bdd4c22",
+    "images (10).jfif": "38ac45742f2b800b1e5e20f39ea9535bc8304a60c03a6d7da1a7f461e356c1ca",
+    "images (11).jfif": "cdcb50419baa50c76269f35075f834ff97cf0dfacaa211d9f477268590fef0e6",
+    "images (12).jfif": "4c7d2d4c839af023538aac745f8863d11b79fc691e5286ad7f0fd5e85b327c7a",
+    "images (13).jfif": "3b5901d4fa651793d4d5082e77de1c8fabdfaae86648a8a7504bb9b81a941e32",
+    "images (2).jfif": "5a459dfde9feccda7ce04f849a2d5b7d3453f823298e40259ffd100e0cdc0c55",
+    "images (3).jfif": "0ce299c5bfd7f1473d015d7fa218450b6aefbe9abf864e6bce31c5db617267f3",
+    "images (4).jfif": "33a07a196f71799290fc7ab1ea83ed70c802ef090107e0bcb186fc72bc4aa115",
+    "images (5).jfif": "7a4111f817ee776c4f7d667f193455dd048c7f66e88ab46c5aab96344fb39efc",
+    "images (6).jfif": "cf4c9a55840766e07adc193039a50074b9079c854119e4072c20be8b6f1a2487",
+    "images (7).jfif": "1e7834529977ef16fd0942485f607fe913c395a2ddc1a57432c26caaabb51975",
+    "images (8).jfif": "bda12b2a404ba8b8fc1bf1a3cf65d7b207398b98eb7ca5113b6c2cd63d3bb8e2",
+    "images (9).jfif": "99e4000b00c7eb1eac95c98e0c36275ed1ee1eab85e304c5da4200b1a6e43044",
+    "images.jfif": "3212ca515690573c1902c7215f176884fb5c70c0001117146f2dfeaa6720d1d7",
+    "img1.jfif": "85215998727635b476d9952f9850eb4e5d67a0d3fe959c228b367701817a6acb"
+  },
+  "external_image_count": 17,
+  "existing_manifest": {
+    "path": "RealWorldValidation/manifest.csv",
+    "sha256": "2381b282d32c060d4c0e5e82702683b65acf569c7ad2ad68550eb7fc24de2405"
+  },
+  "step1_5_2_artefacts": {
+    "RealWorldValidation/manifest.csv": {
+      "bytes": 9713,
+      "sha256": "2381b282d32c060d4c0e5e82702683b65acf569c7ad2ad68550eb7fc24de2405"
+    },
+    "RealWorldValidation/predictions.csv": {
+      "bytes": 2282,
+      "sha256": "3815e55b17b69574a7b91b4f9c0cedc1b337b3e1d3495c8326699af47b7372ce"
+    },
+    "RealWorldValidation/predictions_detail.json": {
+      "bytes": 8718,
+      "sha256": "89cb8e6f72dd2af8d228cbb7a1347e6587ccb38975abc2712461d59d28c1e9fd"
+    },
+    "RealWorldValidation/step3_analysis/attention_analysis.json": {
+      "bytes": 26795,
+      "sha256": "f05f0b627d0ce707ba12689545423fb8c1cad6170e1493e3dd490fcdb0ac616f"
+    },
+    "RealWorldValidation/step3_analysis/class_similarity_summary.csv": {
+      "bytes": 524,
+      "sha256": "c87ff0693375a80c97589920294ac36b730a4d44b3ad14682a1a1b1577e5b9b6"
+    },
+    "RealWorldValidation/step3_analysis/contact_sheet.png": {
+      "bytes": 746584,
+      "sha256": "c382ffa20f53595a6c18a471c1d50c714efc50446279e6ae6ea772334169623c"
+    },
+    "RealWorldValidation/step3_analysis/feature_analysis.json": {
+      "bytes": 43615,
+      "sha256": "3cfa45f79f662c91793c47662a580d4ed7d8464d745d2df8dc15a1face10fcc0"
+    },
+    "RealWorldValidation/step3_analysis/nearest_neighbors.csv": {
+      "bytes": 2502,
+      "sha256": "af4b5a0e505f1015e4c47556dd92a7511b843dc2c8948849f9dfc9b0d7bb8a99"
+    },
+    "RealWorldValidation/step3_analysis/step3_report.txt": {
+      "bytes": 10474,
+      "sha256": "956333e89d722cf9f5c181d1f3adfdb8dcae0ec0dacb8e72e7e580ff962869a0"
+    },
+    "RealWorldValidation/step4_analysis/attention_anomaly_stage1.json": {
+      "bytes": 3874,
+      "sha256": "798fa4de374f1cda14b117c265978d55a674225d462977a54ec8821384870553"
+    },
+    "RealWorldValidation/step4_analysis/feature_and_class_analysis.json": {
+      "bytes": 67159,
+      "sha256": "c31bdfe0565eb5afb756b9df013b5acef302420e992b51ee3052d3714a64eb8a"
+    },
+    "RealWorldValidation/step4_analysis/feature_separability.csv": {
+      "bytes": 629,
+      "sha256": "dd1ac385a3dc628abb4a469627d542a37ee6434515053e96c44519f9f7c750e4"
+    },
+    "RealWorldValidation/step4_analysis/feature_separability.json": {
+      "bytes": 6927,
+      "sha256": "488a5167954fb0b1022d5ce0aee0c57dc78038a0492f10959760c519129426fe"
+    },
+    "RealWorldValidation/step4_analysis/step4_hypotheses.json": {
+      "bytes": 25093,
+      "sha256": "30dd95a54299be300d40f8b0867dab8ddb34335a904da738717b2f602750825e"
+    },
+    "RealWorldValidation/step4_analysis/STEP4_ROOT_CAUSE_REPORT.md": {
+      "bytes": 50960,
+      "sha256": "96bb9d20c3b7893e4575fd2e6fad46f507f7770ef12c2b0505b22c0011d12ddf"
+    },
+    "RealWorldValidation/step4_analysis/task11_rejection.json": {
+      "bytes": 5050,
+      "sha256": "35aed8fdefd2ba54c2b6a06fa51f496efcf7b1acba5a770b0f694c044cc89066"
+    },
+    "RealWorldValidation/step4_analysis/variant_measurements.json": {
+      "bytes": 22039,
+      "sha256": "cbf13ac3e1b65df34c2c90d5a73129052ec7003ea55282900ef58887c36421d1"
+    },
+    "RealWorldValidation/step4_analysis/variant_predictions.csv": {
+      "bytes": 9192,
+      "sha256": "ef3e81f9d6962558db3fe17350cdd5cca2626af60d649ffafed6d3a4bfd3661b"
+    },
+    "RealWorldValidation/step4_analysis/variants/B_centre_square.png": {
+      "bytes": 2933920,
+      "sha256": "b7e37fffdc2d8eb9009b89264d0f179a456d9ec0f6e2cb98976824704e0e54f0"
+    },
+    "RealWorldValidation/step4_analysis/variants/C_tight_0.60.png": {
+      "bytes": 1679181,
+      "sha256": "fa79bff0fe3f0dd80bc8dc9e9bc66764e34e4f126dcb6842c29c334f8902b38c"
+    },
+    "RealWorldValidation/step4_analysis/variants/D_wide_squarepad.png": {
+      "bytes": 3679399,
+      "sha256": "27cf73d7d05ec049b39a959c883801cdb2f55e4c5cf17281f5859ed7b484c134"
+    },
+    "RealWorldValidation/step4_analysis/variants/E_resize_only.png": {
+      "bytes": 1100474,
+      "sha256": "edd9205fce2aee5bc42f747f01fffc52f4c0fe3d351010b67b94d8ee161ab671"
+    },
+    "RealWorldValidation/step4_analysis/variants/F_background_reduced.png": {
+      "bytes": 2276375,
+      "sha256": "d680b0014439ee29dc5d52f861b2a10e3214b30b65ba9a7b94ecac5a07fa286b"
+    },
+    "RealWorldValidation/step4_analysis/variants/G_leaf_centered.png": {
+      "bytes": 2933920,
+      "sha256": "b7e37fffdc2d8eb9009b89264d0f179a456d9ec0f6e2cb98976824704e0e54f0"
+    },
+    "RealWorldValidation/step4_analysis/variants/H_hflip.png": {
+      "bytes": 3672241,
+      "sha256": "2216b533d5662aeccac04d8192a12821f5a694aa98bb4ce634a5d02aa87d2237"
+    },
+    "RealWorldValidation/step4_analysis/variants/I_vflip.png": {
+      "bytes": 3672309,
+      "sha256": "7211aa07c90d599f86e3d9caa738320f18a35293624f2d9f22f8b6ab953dd7e0"
+    },
+    "RealWorldValidation/step4_analysis/variants/J_rot90.png": {
+      "bytes": 3685608,
+      "sha256": "9ad2c605fe8b085cc9ffde9e58a3b5d15990c478031fec74640a48f316245c06"
+    },
+    "RealWorldValidation/step4_analysis/variants/K_rot180.png": {
+      "bytes": 3665234,
+      "sha256": "78c06d44feb298e95dc7f90c212e878b012056616b68cc01b6faa287f3c5c8db"
+    },
+    "RealWorldValidation/step4_analysis/verification_log.txt": {
+      "bytes": 8885,
+      "sha256": "81f39108bfca0f236627c9223ce59f83d0ec9dc9d47c5f2e9abdb2158b3efa51"
+    },
+    "RealWorldValidation/step5_1_hard_examples/bacterialspot_to_healthy.csv": {
+      "bytes": 315820,
+      "sha256": "577821e184fb76d11d41c1344e4f8730c4fefa15c94c2bb8f8d5a6a3acdfff50"
+    },
+    "RealWorldValidation/step5_1_hard_examples/distribution_summary.json": {
+      "bytes": 9641,
+      "sha256": "ac35653df66d004977e900945f2b94a4b85220ecb0abe87d0d33197465813793"
+    },
+    "RealWorldValidation/step5_1_hard_examples/duplicate_findings.csv": {
+      "bytes": 5263,
+      "sha256": "fb88b8f58a11dc869a0997ed9c343f61f5c5b6a5c4e63c222c7b01ef76ed3d8e"
+    },
+    "RealWorldValidation/step5_1_hard_examples/duplicate_findings.json": {
+      "bytes": 14890,
+      "sha256": "dadd5336606e8325186761bfc9a9e74fc9a7d08ab94612e2df9d663f306b8597"
+    },
+    "RealWorldValidation/step5_1_hard_examples/external_query_comparison.json": {
+      "bytes": 4449,
+      "sha256": "8e9b1ba4b22f9fd14cb7d4bf654129540f0267b4af51a31cfcb517ef5d41df8c"
+    },
+    "RealWorldValidation/step5_1_hard_examples/feature_extraction_meta.json": {
+      "bytes": 291,
+      "sha256": "8528df72929275a0cd1bf3c78573e66bb1ac6cbc26b6a9fabb0528a308d6dfd3"
+    },
+    "RealWorldValidation/step5_1_hard_examples/hard_example_summary.json": {
+      "bytes": 9644,
+      "sha256": "910914ee4b4d43d53840bd38a599528e1a931b9ede1821cf27b84d8c501b5fe7"
+    },
+    "RealWorldValidation/step5_1_hard_examples/healthy_to_bacterialspot.csv": {
+      "bytes": 408677,
+      "sha256": "16e5e11614df4b4d15a46f5e5861e1bfc17c4c31adc89118ba629119317cb24f"
+    },
+    "RealWorldValidation/step5_1_hard_examples/integrity_after.json": {
+      "bytes": 10909,
+      "sha256": "3aefd7d20e9c1bbdc9eda0b554ec56b65b5c3a68c0d2533ebf231ae8d879b9bb"
+    },
+    "RealWorldValidation/step5_1_hard_examples/integrity_before.json": {
+      "bytes": 10910,
+      "sha256": "531fcd5399eb86527cc1277ecd4d04654f9dac86885ecfede676d5ec4d383275"
+    },
+    "RealWorldValidation/step5_1_hard_examples/mutual_neighbours.csv": {
+      "bytes": 2164,
+      "sha256": "ee2e4dbd3c864689b2a9cbee4a31a3c0942e4f9cb127c2d6203ce229b845f9d9"
+    },
+    "RealWorldValidation/step5_1_hard_examples/pca_projection.json": {
+      "bytes": 100938,
+      "sha256": "6ec7ffe4bdba91f87b082677175ac050b94a93b08919432b450723d37d513a21"
+    },
+    "RealWorldValidation/step5_1_hard_examples/query_vs_population_comparison.json": {
+      "bytes": 1386,
+      "sha256": "13eac3322222f8c36e5fdb969be465671c0d421da39caeaf3421481ae769ac99"
+    },
+    "RealWorldValidation/step5_1_hard_examples/source_position_test.json": {
+      "bytes": 870,
+      "sha256": "a416a4c8e5a9eb49972bfb8b719cf33728be74bf45417fd952ff26ecdc5d5548"
+    },
+    "RealWorldValidation/step5_1_hard_examples/STEP5_1_REPORT.md": {
+      "bytes": 33934,
+      "sha256": "7624579659eebf3c26bfe74788a67d2211db9666747e7dc8d817571b3d4bc32d"
+    },
+    "RealWorldValidation/step5_1_hard_examples/verification_log.txt": {
+      "bytes": 10652,
+      "sha256": "cb50a013ef424651f214092b984ca7492ab11e3af0961a023233b52b1ba3e9f9"
+    },
+    "RealWorldValidation/step5_1_hard_examples/visualizations/bacterialspot_to_healthy_contact_sheet.png": {
+      "bytes": 1841056,
+      "sha256": "d2bfdeae919a4eb313e613b8b81f3b6e8d71419eef94e8acbb5cf1f20eb0e8f6"
+    },
+    "RealWorldValidation/step5_1_hard_examples/visualizations/external_query_contact_sheet.png": {
+      "bytes": 743658,
+      "sha256": "6f0c173e5508af740d5d4692a53b9e0eddba7f06e5469ffb01404c9dd49e0302"
+    },
+    "RealWorldValidation/step5_1_hard_examples/visualizations/healthy_to_bacterialspot_contact_sheet.png": {
+      "bytes": 1598085,
+      "sha256": "a2f39da06d7b7a7c3ec5378eff1dd3c076533f1baf12805e7cbd7b487bb37b2f"
+    },
+    "RealWorldValidation/step5_1_hard_examples/visualizations/mutual_pairs_contact_sheet.png": {
+      "bytes": 1646290,
+      "sha256": "4a698a74e7d2114084bd235f3e868561378a4d76510d1d03f9c849b801a0a993"
+    },
+    "RealWorldValidation/step5_1_hard_examples/visualizations/pca_projection.png": {
+      "bytes": 295176,
+      "sha256": "82495cd2d5198cd45486292c09fa88e9464d59300776dddd0b13a75ffa815436"
+    },
+    "RealWorldValidation/step5_1_hard_examples/visualizations/README.md": {
+      "bytes": 597,
+      "sha256": "1abcb62577560a6a5cded08ca7420274584444935b92267704a4023d31b01f3b"
+    },
+    "RealWorldValidation/step5_2_illumination_diagnostic/_variant_state.npz": {
+      "bytes": 52338,
+      "sha256": "39fac64b73838c3e6ea11c38b97b1b5de233a94adb242b83efd8258683909e75"
+    },
+    "RealWorldValidation/step5_2_illumination_diagnostic/illumination_summary.csv": {
+      "bytes": 24177,
+      "sha256": "05d46c3f618168d870a499ffcc2ea119139f2f3541b5fc1bacf7ee363215bf7a"
+    },
+    "RealWorldValidation/step5_2_illumination_diagnostic/illumination_summary.json": {
+      "bytes": 15873,
+      "sha256": "fc364f50b59c81ffda00f4edca488f0ff036796a1a24c34355826d1c283a86d9"
+    },
+    "RealWorldValidation/step5_2_illumination_diagnostic/integrity_after.json": {
+      "bytes": 20710,
+      "sha256": "2c5ad28f4334afa95ab758911363bddf123da821d4e421757726875db6162044"
+    },
+    "RealWorldValidation/step5_2_illumination_diagnostic/integrity_before.json": {
+      "bytes": 20711,
+      "sha256": "4f4b44cb7ee46ff1451852eb94f26ca2b6b95976db24618265ef73659e906e8c"
+    },
+    "RealWorldValidation/step5_2_illumination_diagnostic/prediction_details.json": {
+      "bytes": 410202,
+      "sha256": "4dbe5ed0f76b4bb481be4076c4a27199caf3386b12dbb63a60098eccd5163400"
+    },
+    "RealWorldValidation/step5_2_illumination_diagnostic/representation_distances.csv": {
+      "bytes": 11505,
+      "sha256": "b7712796c8db6b1e0794448d6bd640de51d3b3df93f87d09c4340e46b5b2fa0d"
+    },
+    "RealWorldValidation/step5_2_illumination_diagnostic/STEP5_2_REPORT.md": {
+      "bytes": 53273,
+      "sha256": "ca5bc77b02c5f863dbbf2b51b3dc189f16f10024515ea7b516f2a06c7b14fc14"
+    },
+    "RealWorldValidation/step5_2_illumination_diagnostic/transformation_manifest.json": {
+      "bytes": 19135,
+      "sha256": "180a9ad703588a8fe972081029f03a0f0ff99b0dac818de57d9a0dcac37b3cf1"
+    },
+    "RealWorldValidation/step5_2_illumination_diagnostic/verification_log.txt": {
+      "bytes": 13797,
+      "sha256": "c3f6ce9dd903352e4b2975be3d17a3f4c15d5c85be894a9422ec7e01f64d4606"
+    },
+    "RealWorldValidation/step5_2_illumination_diagnostic/visualizations/brightness_grid.png": {
+      "bytes": 880954,
+      "sha256": "03879ee5313c641edc4455b06e10f9fce45452e0602124cee1bf545ae4597ac5"
+    },
+    "RealWorldValidation/step5_2_illumination_diagnostic/visualizations/contrast_grid.png": {
+      "bytes": 875865,
+      "sha256": "29932209c6e5cab97f8269ecc4d2fd08ca5d0d21cf8ded491ffa4080feb53210"
+    },
+    "RealWorldValidation/step5_2_illumination_diagnostic/visualizations/correction_grid.png": {
+      "bytes": 1365954,
+      "sha256": "3e263a2db2b0bde8cf4bc9075a13498194bbc638aa83aa06c8fed02f8d8a59b3"
+    },
+    "RealWorldValidation/step5_2_illumination_diagnostic/visualizations/directional_grid.png": {
+      "bytes": 1891297,
+      "sha256": "bf0a68823bf15d48da5c747997e974bd2bb56a57eefb4c5485889d2b6552e6e4"
+    },
+    "RealWorldValidation/step5_2_illumination_diagnostic/visualizations/family_movement.png": {
+      "bytes": 79594,
+      "sha256": "7f3e060f3d3107244c449274cfb8deb97ed55bf3eaadc237cece9a74085e1e58"
+    },
+    "RealWorldValidation/step5_2_illumination_diagnostic/visualizations/gamma_grid.png": {
+      "bytes": 883579,
+      "sha256": "2294c2ce5047aac0fe2621a2b7c10b00e7551a3a27a4d9880b62984ee1c5a99e"
+    },
+    "RealWorldValidation/step5_2_illumination_diagnostic/visualizations/illumination_grid.png": {
+      "bytes": 3264234,
+      "sha256": "3678f449af50f17a66328168ea3ad665565b7f55ff6fb7496a684dae2a83213f"
+    },
+    "RealWorldValidation/step5_2_illumination_diagnostic/visualizations/original.png": {
+      "bytes": 3667259,
+      "sha256": "6e9be95340e8a5d82b07f9978cd55151f0cfa1030d366ca84424a886ef303909"
+    },
+    "RealWorldValidation/step5_2_illumination_diagnostic/visualizations/README.md": {
+      "bytes": 1170,
+      "sha256": "48d96f92fca0e4821080f7e8b8750b49926db19230a9b86364db64d453e62d2f"
+    },
+    "RealWorldValidation/step5_2_illumination_diagnostic/visualizations/response_curves.png": {
+      "bytes": 153393,
+      "sha256": "74a1d4c6b53e37c1bca9e46af850d8419f46d9dfaf1458263a45b4cc5eff30f9"
+    },
+    "RealWorldValidation/step5_2_illumination_diagnostic/visualizations/shadow_grid.png": {
+      "bytes": 1012870,
+      "sha256": "217b9eacb65715810da15f5bbaa217d051e2acf62b3b5b0a94697a07bfbb740c"
+    }
+  },
+  "classes": [
+    "BacterialSpot",
+    "Black_Rot",
+    "DownyMildew",
+    "Esca",
+    "Healthy",
+    "Irrelavant",
+    "PowderyMildew"
+  ],
+  "preprocessing": [
+    {
+      "op": "Resize",
+      "size": 255,
+      "interpolation": "InterpolationMode.BILINEAR"
+    },
+    {
+      "op": "CenterCrop",
+      "size": [
+        224,
+        224
+      ]
+    },
+    {
+      "op": "ToTensor"
+    },
+    {
+      "op": "Normalize",
+      "mean": [
+        0.485,
+        0.456,
+        0.406
+      ],
+      "std": [
+        0.229,
+        0.224,
+        0.225
+      ]
+    }
+  ],
+  "param_count": 10161307,
+  "production_verified_prediction": {
+    "BacterialSpot": 0.8787577152252197,
+    "Black_Rot": 0.02489737793803215,
+    "DownyMildew": 0.01469523087143898,
+    "Esca": 0.006004213355481625,
+    "Healthy": 0.035046033561229706,
+    "Irrelavant": 0.03041236102581024,
+    "PowderyMildew": 0.01018714439123869,
+    "_predicted_class": "BacterialSpot"
+  }
+}

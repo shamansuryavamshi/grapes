@@ -1,0 +1,169 @@
+==============================================================================
+STEP 5.2 - ILLUMINATION / APPEARANCE DIAGNOSTIC - VERIFICATION LOG
+==============================================================================
+generated_utc   : 2026-09-30T03:41:09Z
+baseline commit : e101607c78a3c61dda4e3e0d91dfe1ae9a3901a4
+device          : CPU  (cuda_available=False)
+nature          : READ-ONLY DIAGNOSTIC - no training, no weight change, no dataset change
+variants run    : 43 (1 control + 42 transformed)
+
+------------------------------------------------------------------------------
+1-2. CHECKPOINT (SHA-256 and byte size)
+------------------------------------------------------------------------------
+  [PASS] best_iwnet.pth sha256                              before=c1fae27c83d68b613034ca089a27e8fa629f9478bec307ae5e0ff74e75a27c0b  after=c1fae27c83d68b613034ca089a27e8fa629f9478bec307ae5e0ff74e75a27c0b  expected=c1fae27c83d68b613034ca089a27e8fa629f9478bec307ae5e0ff74e75a27c0b
+  [PASS] best_iwnet.pth bytes                               before=41,213,897  after=41,213,897  expected=41,213,897
+
+------------------------------------------------------------------------------
+3-4. DATASETS (tree fingerprints over every file)
+------------------------------------------------------------------------------
+  [PASS] Balanced_From_Sources fingerprint                  before=35c72a0ae283f7e8cb54e09afd73774d  after=35c72a0ae283f7e8cb54e09afd73774d
+  [PASS] Balanced_From_Sources file count                   before=5947  after=5947
+  [PASS] Balanced_From_Sources total bytes                  before=1,178,341,200  after=1,178,341,200
+  [PASS] Balanced_Final_Split fingerprint                   before=389b24a8beac8ad5dd6a8f482166556c  after=389b24a8beac8ad5dd6a8f482166556c
+  [PASS] Balanced_Final_Split file count                    before=7200  after=7200
+  [PASS] Balanced_Final_Split total bytes                   before=1,310,546,227  after=1,310,546,227
+  [PASS] split_manifest.csv sha256                          before=d25542dab56738102e3d429b9558890f  after=d25542dab56738102e3d429b9558890f
+  [PASS] total images                                       before=5929  after=5929  expected=5929
+  [PASS] count test/BacterialSpot                           before=140  after=140
+  [PASS] count test/Black_Rot                               before=180  after=180
+  [PASS] count test/DownyMildew                             before=171  after=171
+  [PASS] count test/Esca                                    before=176  after=176
+  [PASS] count test/Healthy                                 before=167  after=167
+  [PASS] count test/Irrelavant                              before=187  after=187
+  [PASS] count test/PowderyMildew                           before=168  after=168
+  [PASS] count train/BacterialSpot                          before=560  after=560
+  [PASS] count train/Black_Rot                              before=720  after=720
+  [PASS] count train/DownyMildew                            before=682  after=682
+  [PASS] count train/Esca                                   before=700  after=700
+  [PASS] count train/Healthy                                before=664  after=664
+  [PASS] count train/Irrelavant                             before=746  after=746
+  [PASS] count train/PowderyMildew                          before=668  after=668
+
+------------------------------------------------------------------------------
+5. PROTECTED ORIGINAL EXTERNAL IMAGE
+------------------------------------------------------------------------------
+  file            : C:\Users\shaman\Desktop\healthy leaves\grape leaf.jpg
+  before : sha256=d5e62c4d30660bdeb7b818b8b6154a7b375a462d0b231e6ce642eea9e33be026
+  after  : sha256=d5e62c4d30660bdeb7b818b8b6154a7b375a462d0b231e6ce642eea9e33be026
+  [PASS] original image sha256                              before=d5e62c4d30660bdeb7b818b8b6154a7b375a462d0b231e6ce642eea9e33be026  after=d5e62c4d30660bdeb7b818b8b6154a7b375a462d0b231e6ce642eea9e33be026  expected=d5e62c4d30660bdeb7b818b8b6154a7b375a462d0b231e6ce642eea9e33be026
+  [PASS] original image bytes                               before=429,238  after=429,238  expected=429,238
+  [PASS] original image dimensions                          before=1920x1440  after=1920x1440  expected=1920x1440
+  [PASS] original image format                              before=JPEG  after=JPEG  expected=JPEG
+  [PASS] original image mtime_utc                           before=2026-09-29T08:48:23Z  after=2026-09-29T08:48:23Z
+  [PASS] all 17 external digests                            before=identical  after=identical
+  [PASS] live on-disk sha256 (re-hashed now)                before=d5e62c4d30660bdeb7b818b8b6154a7b375a462d0b231e6ce642eea9e33be026  after=d5e62c4d30660bdeb7b818b8b6154a7b375a462d0b231e6ce642eea9e33be026  expected=d5e62c4d30660bdeb7b818b8b6154a7b375a462d0b231e6ce642eea9e33be026
+  The experiment decoded this file ONCE and never opened it for writing.
+  Every variant was produced in memory; all written files live under
+  RealWorldValidation/step5_2_illumination_diagnostic/.
+
+------------------------------------------------------------------------------
+6. STEP 1-5.1 ARTEFACTS (must be untouched)
+------------------------------------------------------------------------------
+  [PASS] artefact count                                     before=51  after=51  expected=51
+  [PASS] all 51 Step 1-5.1 artefact files byte-identical
+         (manifest.csv, predictions.csv, predictions_detail.json,
+          step3_analysis/*, step4_analysis/*, step5_1_hard_examples/*)
+
+------------------------------------------------------------------------------
+7-8. PRODUCTION PREDICTION AND REPRESENTATION BASELINE
+------------------------------------------------------------------------------
+  [PASS] predicted class                                    before=BacterialSpot  after=BacterialSpot  expected=BacterialSpot
+  [PASS] P(BacterialSpot)                                   before=0.878758  after=0.878758  expected=0.878758
+  [PASS] P(Healthy)                                         before=0.035046  after=0.035046  expected=0.035046
+  [PASS] P(BacterialSpot) exact bits                        before=0.8787577152252197  after=0.8787577152252197
+  [PASS] P(Healthy) exact bits                              before=0.035046033561229706  after=0.035046033561229706
+  [PASS] control P(BacterialSpot) vs Step 4                 before=0.878758  after=0.878758  expected=0.878758
+  [PASS] control P(Healthy) vs Step 4                       before=0.035046  after=0.035046  expected=0.035046
+  [PASS] control cos->BacterialSpot centroid                before=0.936431  after=0.936431  expected=0.936431
+  [PASS] control cos->Healthy centroid                      before=0.444106  after=0.444106  expected=0.444106
+  Baseline reproduced BEFORE the experiment ran, and again after. The Step 5.2
+  STOP condition on baseline mismatch was therefore never triggered.
+
+------------------------------------------------------------------------------
+9-12. PREPROCESSING, ARCHITECTURE, WEIGHTS, CLASS DEFINITIONS
+------------------------------------------------------------------------------
+  [PASS] preprocessing pipeline                             before=[{"op": "Resize", "size": 255, "interpolation": "Interpola  after=[{"op": "Resize", "size": 255, "interpolation": "Interpola
+  [PASS] parameter count                                    before=10,161,307  after=10,161,307  expected=10,161,307
+  [PASS] class list                                         before=["BacterialSpot", "Black_Rot", "DownyMildew", "Esca", "Healthy", "Irrelavant", "PowderyMildew"]  after=["BacterialSpot", "Black_Rot", "DownyMildew", "Esca", "Healthy", "Irrelavant", "PowderyMildew"]
+
+------------------------------------------------------------------------------
+READ-ONLY GUARANTEES FOR THE EXPERIMENT ITSELF
+------------------------------------------------------------------------------
+  [PASS] hooked forward pass vs production Predictor.predict_pil : max prob delta = 0.0
+  [PASS] identity variants (factor 1.00) vs control           : max dP(BacterialSpot) = 0.0
+       factor 1.00 in the brightness, contrast and gamma families reproduces the
+       control exactly, which proves the transformation pipeline is exactly
+       identity at the neutral setting and that no branch is cumulative.
+  [PASS] every branch was generated from a single decode of the original;
+         no variant was derived from another variant.
+  [PASS] variants are appearance-only changes applied BEFORE production
+         preprocessing; production preprocessing was never bypassed or altered.
+  [PASS] the experiment ran under torch.inference_mode() with no parameter
+         write, no optimizer and no backward pass.
+  [PASS] device = CPU, no multiprocessing, num_workers = 0.
+
+------------------------------------------------------------------------------
+EXTERNAL IMAGE HANDLING RULE
+------------------------------------------------------------------------------
+  [PASS] the original external image was used ONLY as the subject of
+         controlled appearance variants. It was never added to any dataset,
+         never used as a validation or test item, never used for model
+         selection or hyperparameter tuning, and never trained on.
+  [PASS] the other 16 external images were not used at all in Step 5.2 and
+         were never treated as ground truth. No external accuracy is claimed.
+  [PASS] no transformation was engineered to force a Healthy prediction; all
+         43 variants are reported, including those that moved AWAY from
+         Healthy.
+
+------------------------------------------------------------------------------
+EVIDENCE LEVEL (pre-declared rule, applied mechanically)
+------------------------------------------------------------------------------
+  level-3 triggered (any prediction flip / Healthy beats BacterialSpot) : False
+  level-2 triggered (dP>=0.10 or dMargin>=0.25 or consistent family)      : True
+     max |delta P(BacterialSpot)|  = 0.145975   (threshold 0.10)
+     max |delta centroid margin|   = 0.181896   (threshold 0.25)
+     fraction of variants moving toward Healthy = 0.5000 (threshold 0.25)
+  => EVIDENCE LEVEL 2 : LEVEL 2 - some illumination sensitivity detected
+  No level is called proven. The rule was declared in code before results
+  were inspected.
+
+------------------------------------------------------------------------------
+REPORT COMPLETENESS AND NUMERIC-CLAIM VALIDATION
+------------------------------------------------------------------------------
+  [PASS] STEP5_2_REPORT.md present (53,273 bytes, 835 lines)
+  [PASS] all 23 required report sections present
+  [PASS] all 43 variant_ids appear in the report (none omitted, none hidden)
+  [PASS] independent numeric-claim validation: all claims match the artefacts
+
+------------------------------------------------------------------------------
+FILES CREATED BY STEP 5.2 (all inside RealWorldValidation/step5_2_illumination_diagnostic/)
+------------------------------------------------------------------------------
+  RealWorldValidation/step5_2_illumination_diagnostic/_variant_state.npz     52,338 bytes
+  RealWorldValidation/step5_2_illumination_diagnostic/illumination_summary.csv     24,177 bytes
+  RealWorldValidation/step5_2_illumination_diagnostic/illumination_summary.json     15,873 bytes
+  RealWorldValidation/step5_2_illumination_diagnostic/integrity_after.json     20,710 bytes
+  RealWorldValidation/step5_2_illumination_diagnostic/integrity_before.json     20,711 bytes
+  RealWorldValidation/step5_2_illumination_diagnostic/prediction_details.json    410,202 bytes
+  RealWorldValidation/step5_2_illumination_diagnostic/representation_distances.csv     11,505 bytes
+  RealWorldValidation/step5_2_illumination_diagnostic/STEP5_2_REPORT.md     53,273 bytes
+  RealWorldValidation/step5_2_illumination_diagnostic/transformation_manifest.json     19,135 bytes
+  RealWorldValidation/step5_2_illumination_diagnostic/verification_log.txt     13,797 bytes
+  RealWorldValidation/step5_2_illumination_diagnostic/visualizations/brightness_grid.png    880,954 bytes
+  RealWorldValidation/step5_2_illumination_diagnostic/visualizations/contrast_grid.png    875,865 bytes
+  RealWorldValidation/step5_2_illumination_diagnostic/visualizations/correction_grid.png  1,365,954 bytes
+  RealWorldValidation/step5_2_illumination_diagnostic/visualizations/directional_grid.png  1,891,297 bytes
+  RealWorldValidation/step5_2_illumination_diagnostic/visualizations/family_movement.png     79,594 bytes
+  RealWorldValidation/step5_2_illumination_diagnostic/visualizations/gamma_grid.png    883,579 bytes
+  RealWorldValidation/step5_2_illumination_diagnostic/visualizations/illumination_grid.png  3,264,234 bytes
+  RealWorldValidation/step5_2_illumination_diagnostic/visualizations/original.png  3,667,259 bytes
+  RealWorldValidation/step5_2_illumination_diagnostic/visualizations/README.md      1,170 bytes
+  RealWorldValidation/step5_2_illumination_diagnostic/visualizations/response_curves.png    153,393 bytes
+  RealWorldValidation/step5_2_illumination_diagnostic/visualizations/shadow_grid.png  1,012,870 bytes
+
+==============================================================================
+RESULT: ALL CHECKS PASSED
+The checkpoint, both datasets, the protected original external image and all
+16 other external images, all 51 Step 1-5.1 artefacts, the production
+preprocessing, the architecture, the parameter count, the class definitions
+and the production prediction are all unchanged.
+==============================================================================

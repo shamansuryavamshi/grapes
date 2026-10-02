@@ -1,0 +1,29 @@
+{
+  "centroids": {
+    "Healthy_n": 831,
+    "BacterialSpot_n": 700,
+    "cos_between_centroids": 0.35652713506378053
+  },
+  "training_margins": {
+    "healthy_train_margin": {
+      "min": -0.7298538956576586,
+      "max": 0.3440778221569354,
+      "mean": -0.5991081477009712
+    },
+    "bacterialspot_train_margin": {
+      "min": -0.08506495979739037,
+      "max": 0.7708474810800371,
+      "mean": 0.6106619803652901
+    },
+    "healthy_train_n": 831,
+    "bacterialspot_train_n": 700,
+    "healthy_train_cos_to_H_centroid": {
+      "min": 0.4848238682407653,
+      "max": 0.9932919318175482
+    },
+    "healthy_train_cos_to_BS_centroid": {
+      "min": 0.6035077826934676,
+      "max": 0.997010785978741
+    }
+  }
+}

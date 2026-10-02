@@ -1,0 +1,12 @@
+{
+  "n_records": 5946,
+  "n_extracted": 5946,
+  "n_unreadable": 0,
+  "unreadable": [],
+  "batch_size": 32,
+  "num_workers": 0,
+  "device": "cpu",
+  "probe_max_prob_delta": 0.0,
+  "cache": "C:\\Users\\shaman\\AppData\\Local\\Temp\\step51_features_v1.npz",
+  "elapsed_sec": 492.75
+}

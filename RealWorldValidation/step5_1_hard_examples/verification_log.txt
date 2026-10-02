@@ -1,0 +1,133 @@
+==============================================================================
+STEP 5.1 - VERIFICATION LOG
+==============================================================================
+generated_utc      : 2026-09-30T03:11:39Z
+baseline commit    : e101607c78a3c61dda4e3e0d91dfe1ae9a3901a4
+device             : CPU  (cuda_available=False)
+Step 5.1 nature    : ANALYSIS ONLY - no training, no weight change, no dataset change
+
+------------------------------------------------------------------------------
+1-2. CHECKPOINT (SHA-256 and byte size)
+------------------------------------------------------------------------------
+  [PASS] best_iwnet.pth sha256                                before=c1fae27c83d68b613034ca089a27e8fa629f9478bec307ae5e0ff74e75a27c0b  after=c1fae27c83d68b613034ca089a27e8fa629f9478bec307ae5e0ff74e75a27c0b  expected=c1fae27c83d68b613034ca089a27e8fa629f9478bec307ae5e0ff74e75a27c0b
+  [PASS] best_iwnet.pth bytes                                 before=41,213,897  after=41,213,897  expected=41,213,897
+
+------------------------------------------------------------------------------
+3-4. DATASETS (tree fingerprints over every file)
+------------------------------------------------------------------------------
+  [PASS] Balanced_From_Sources fingerprint                    before=35c72a0ae283f7e8cb54e09afd73774d  after=35c72a0ae283f7e8cb54e09afd73774d
+  [PASS] Balanced_From_Sources file count                     before=5947  after=5947
+  [PASS] Balanced_From_Sources total bytes                    before=1,178,341,200  after=1,178,341,200
+  [PASS] Balanced_Final_Split fingerprint                     before=389b24a8beac8ad5dd6a8f482166556c  after=389b24a8beac8ad5dd6a8f482166556c
+  [PASS] Balanced_Final_Split file count                      before=7200  after=7200
+  [PASS] Balanced_Final_Split total bytes                     before=1,310,546,227  after=1,310,546,227
+
+  split_manifest.csv is the dataset's own per-file digest record (5929 rows):
+  [PASS] split_manifest.csv sha256                            before=d25542dab56738102e3d429b9558890f  after=d25542dab56738102e3d429b9558890f
+  [PASS] split_manifest.csv rows                              before=5929  after=5929
+
+------------------------------------------------------------------------------
+   CLASS COUNTS (unchanged; Step 5.1 identified hard examples but removed nothing)
+------------------------------------------------------------------------------
+  [PASS] count test/BacterialSpot                             before=140  after=140
+  [PASS] count test/Black_Rot                                 before=180  after=180
+  [PASS] count test/DownyMildew                               before=171  after=171
+  [PASS] count test/Esca                                      before=176  after=176
+  [PASS] count test/Healthy                                   before=167  after=167
+  [PASS] count test/Irrelavant                                before=187  after=187
+  [PASS] count test/PowderyMildew                             before=168  after=168
+  [PASS] count train/BacterialSpot                            before=560  after=560
+  [PASS] count train/Black_Rot                                before=720  after=720
+  [PASS] count train/DownyMildew                              before=682  after=682
+  [PASS] count train/Esca                                     before=700  after=700
+  [PASS] count train/Healthy                                  before=664  after=664
+  [PASS] count train/Irrelavant                               before=746  after=746
+  [PASS] count train/PowderyMildew                            before=668  after=668
+  [PASS] total images                                         before=5929  after=5929  expected=5929
+
+  NOTE: file_count for Balanced_From_Sources (5947) > image count (5929) because the
+        same directory also holds results/*.png|csv and best_iwnet.pth. The fingerprint
+        covers all of them, so the checkpoint is inside this hash as well.
+
+------------------------------------------------------------------------------
+5. EXTERNAL VALIDATION IMAGES (17, never used for training)
+------------------------------------------------------------------------------
+  [PASS] external image count                                 before=17  after=17  expected=17
+  [PASS] all 17 external image sha256 digests identical
+       grape leaf.jpg  d5e62c4d30660bdeb7b818b8b6154a7b  429,238 bytes
+
+------------------------------------------------------------------------------
+6. EXISTING STEP 1-4 ARTEFACTS
+------------------------------------------------------------------------------
+  [PASS] artefact count                                       before=29  after=29  expected=29
+  [PASS] all 29 Step 1-4 artefacts byte-identical (manifest.csv, predictions.csv,
+         predictions_detail.json, step3_analysis/*, step4_analysis/*)
+
+------------------------------------------------------------------------------
+7. PRODUCTION PREDICTION for grape leaf.jpg
+------------------------------------------------------------------------------
+  [PASS] predicted class                                      before=BacterialSpot  after=BacterialSpot  expected=BacterialSpot
+  [PASS] P(BacterialSpot)                                     before=0.878758  after=0.878758  expected=0.878758
+  [PASS] P(Healthy)                                           before=0.035046  after=0.035046  expected=0.035046
+  [PASS] P(BacterialSpot) exact bits                          before=0.8787577152252197  after=0.8787577152252197
+  [PASS] P(Healthy) exact bits                                before=0.035046033561229706  after=0.035046033561229706
+
+------------------------------------------------------------------------------
+8-11. PREPROCESSING, ARCHITECTURE, WEIGHTS, CLASS DEFINITIONS
+------------------------------------------------------------------------------
+  [PASS] preprocessing pipeline                               before=[{"op": "Resize", "size": 255, "interpolation": "Interpolati  after=[{"op": "Resize", "size": 255, "interpolation": "Interpolati
+  [PASS] parameter count                                      before=10,161,307  after=10,161,307  expected=10,161,307
+  [PASS] class list                                           before=["BacterialSpot", "Black_Rot", "DownyMildew", "Esca", "Healthy", "Irrelavant", "PowderyMildew"]  after=["BacterialSpot", "Black_Rot", "DownyMildew", "Esca", "Healthy", "Irrelavant", "PowderyMildew"]
+       preprocessing : Resize(255, bilinear) -> CenterCrop(224,224) -> ToTensor -> Normalize
+       classes        : BacterialSpot, Black_Rot, DownyMildew, Esca, Healthy, Irrelavant, PowderyMildew
+
+------------------------------------------------------------------------------
+READ-ONLY GUARANTEE FOR THE FEATURE HOOK
+------------------------------------------------------------------------------
+  [PASS] forward hook on head[8] vs production single-image path: max prob delta = 0.0
+       a plain forward hook only OBSERVES the tensor the forward pass already
+       computed; the delta of exactly 0.0 confirms production behaviour is unchanged.
+
+------------------------------------------------------------------------------
+EXTERNAL IMAGE HANDLING RULE
+------------------------------------------------------------------------------
+  [PASS] the 17 external images were read for feature extraction and hashing only.
+  [PASS] no external image was written to Balanced_From_Sources or Balanced_Final_Split
+         (proved by the unchanged dataset fingerprints above).
+  [PASS] no external image was used as a training sample; Step 5.1 performed no training.
+  [PASS] 16 of the 17 have no verifiable ground truth and were treated as UNKNOWN.
+         The one VERIFIED image was used solely as a query/reference, never as a label.
+
+------------------------------------------------------------------------------
+NEW FILES CREATED BY STEP 5.1 (all inside RealWorldValidation/step5_1_hard_examples/)
+------------------------------------------------------------------------------
+  RealWorldValidation/step5_1_hard_examples/_analysis_state.npz    104,291 bytes
+  RealWorldValidation/step5_1_hard_examples/bacterialspot_to_healthy.csv    315,820 bytes
+  RealWorldValidation/step5_1_hard_examples/distribution_summary.json      9,641 bytes
+  RealWorldValidation/step5_1_hard_examples/duplicate_findings.csv      5,263 bytes
+  RealWorldValidation/step5_1_hard_examples/duplicate_findings.json     14,890 bytes
+  RealWorldValidation/step5_1_hard_examples/external_query_comparison.json      4,449 bytes
+  RealWorldValidation/step5_1_hard_examples/feature_extraction_meta.json        291 bytes
+  RealWorldValidation/step5_1_hard_examples/hard_example_summary.json      9,644 bytes
+  RealWorldValidation/step5_1_hard_examples/healthy_to_bacterialspot.csv    408,677 bytes
+  RealWorldValidation/step5_1_hard_examples/integrity_after.json     10,909 bytes
+  RealWorldValidation/step5_1_hard_examples/integrity_before.json     10,910 bytes
+  RealWorldValidation/step5_1_hard_examples/mutual_neighbours.csv      2,164 bytes
+  RealWorldValidation/step5_1_hard_examples/pca_projection.json    100,938 bytes
+  RealWorldValidation/step5_1_hard_examples/query_vs_population_comparison.json      1,386 bytes
+  RealWorldValidation/step5_1_hard_examples/source_position_test.json        870 bytes
+  RealWorldValidation/step5_1_hard_examples/STEP5_1_REPORT.md     33,934 bytes
+  RealWorldValidation/step5_1_hard_examples/verification_log.txt     10,489 bytes
+  RealWorldValidation/step5_1_hard_examples/visualizations/bacterialspot_to_healthy_contact_sheet.png  1,841,056 bytes
+  RealWorldValidation/step5_1_hard_examples/visualizations/external_query_contact_sheet.png    743,658 bytes
+  RealWorldValidation/step5_1_hard_examples/visualizations/healthy_to_bacterialspot_contact_sheet.png  1,598,085 bytes
+  RealWorldValidation/step5_1_hard_examples/visualizations/mutual_pairs_contact_sheet.png  1,646,290 bytes
+  RealWorldValidation/step5_1_hard_examples/visualizations/pca_projection.png    295,176 bytes
+  RealWorldValidation/step5_1_hard_examples/visualizations/README.md        597 bytes
+
+==============================================================================
+RESULT: ALL CHECKS PASSED
+The checkpoint, both datasets, all 17 external images, all 29 Step 1-4
+artefacts, the production preprocessing, the architecture, the parameter
+count, the class definitions and the production prediction are unchanged.
+==============================================================================

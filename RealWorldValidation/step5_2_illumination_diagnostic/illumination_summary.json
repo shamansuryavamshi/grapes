@@ -1,0 +1,379 @@
+{
+  "generated_utc": "2026-09-30T03:26:05Z",
+  "step": "5.2 controlled illumination / appearance diagnostic (READ-ONLY)",
+  "baseline_commit": "e101607c78a3c61dda4e3e0d91dfe1ae9a3901a4",
+  "n_variants_total": 43,
+  "n_control": 1,
+  "n_transformed": 42,
+  "control": {
+    "predicted_class": "BacterialSpot",
+    "BacterialSpot_probability": 0.8787577152252197,
+    "Healthy_probability": 0.035046033561229706,
+    "top1_confidence": 0.8787577152252197,
+    "top2_probability": 0.035046033561229706,
+    "top1_top2_margin": 0.84371168166399,
+    "cos_to_BacterialSpot_centroid": 0.9364308880404366,
+    "cos_to_Healthy_centroid": 0.4441061990067171,
+    "centroid_margin_BS_minus_H": 0.4923246890337195,
+    "cos_to_nearest_BS_training_image": 0.9805282806911095,
+    "cos_to_nearest_H_training_image": 0.9154730290938167
+  },
+  "classification_flips": {
+    "n_flips": 0,
+    "flipped": [],
+    "n_variants_with_Healthy_beating_BacterialSpot": 0,
+    "distinct_predicted_classes": [
+      "BacterialSpot"
+    ]
+  },
+  "movement_ranges": {
+    "delta_BacterialSpot_probability": {
+      "min": -0.14597541093826294,
+      "max": 0.021925032138824463
+    },
+    "delta_Healthy_probability": {
+      "min": -0.009389365091919899,
+      "max": 0.04567459970712662
+    },
+    "delta_centroid_margin": {
+      "min": -0.1818958729520863,
+      "max": 0.07208923743807538
+    },
+    "cosine_distance_to_original": {
+      "min": 0.0,
+      "max": 0.09905744573048825,
+      "mean": 0.010222607544391098
+    },
+    "cos_to_original_query_stayed_above": 0.9009425542695118
+  },
+  "family_behaviour": {
+    "brightness": {
+      "n_variants": 5,
+      "mean_delta_BS_prob": -0.005461978912353516,
+      "max_delta_BS_prob": 0.0,
+      "min_delta_BS_prob": -0.011594891548156738,
+      "mean_delta_Healthy_prob": 0.001007525622844696,
+      "max_delta_Healthy_prob": 0.0036694668233394623,
+      "mean_delta_centroid_margin": -0.0005369472792846608,
+      "max_delta_centroid_margin": 0.02539154630688434,
+      "min_delta_centroid_margin": -0.0250838058102279,
+      "mean_cos_distance_to_original": 0.0028304426189010856,
+      "max_cos_distance_to_original": 0.005829713446442453,
+      "n_moved_toward_Healthy": 2,
+      "frac_moved_toward_Healthy": 0.4,
+      "any_prediction_flip": false,
+      "spearman_parameter_vs_margin": {
+        "rho": -0.9999999999999999,
+        "p_value": 1.4042654220543602e-24
+      },
+      "subgroups": {}
+    },
+    "contrast": {
+      "n_variants": 5,
+      "mean_delta_BS_prob": -0.043500757217407225,
+      "max_delta_BS_prob": 0.0,
+      "min_delta_BS_prob": -0.14597541093826294,
+      "mean_delta_Healthy_prob": 0.01295209899544716,
+      "max_delta_Healthy_prob": 0.04567459970712662,
+      "mean_delta_centroid_margin": -0.0337440916762163,
+      "max_delta_centroid_margin": 0.014753772854108727,
+      "min_delta_centroid_margin": -0.13709973070371673,
+      "mean_cos_distance_to_original": 0.012045994523486581,
+      "max_cos_distance_to_original": 0.04524619246237682,
+      "n_moved_toward_Healthy": 2,
+      "frac_moved_toward_Healthy": 0.4,
+      "any_prediction_flip": false,
+      "spearman_parameter_vs_margin": {
+        "rho": -0.8999999999999998,
+        "p_value": 0.03738607346849874
+      },
+      "subgroups": {}
+    },
+    "gamma": {
+      "n_variants": 5,
+      "mean_delta_BS_prob": -0.012099218368530274,
+      "max_delta_BS_prob": 0.021925032138824463,
+      "min_delta_BS_prob": -0.06885319948196411,
+      "mean_delta_Healthy_prob": 0.002926730737090111,
+      "max_delta_Healthy_prob": 0.020735464990139008,
+      "mean_delta_centroid_margin": -0.003081365756814558,
+      "max_delta_centroid_margin": 0.050465402876363474,
+      "min_delta_centroid_margin": -0.0595560260331886,
+      "mean_cos_distance_to_original": 0.0034594289209335825,
+      "max_cos_distance_to_original": 0.009727995845734694,
+      "n_moved_toward_Healthy": 2,
+      "frac_moved_toward_Healthy": 0.4,
+      "any_prediction_flip": false,
+      "spearman_parameter_vs_margin": {
+        "rho": -0.9999999999999999,
+        "p_value": 1.4042654220543602e-24
+      },
+      "subgroups": {}
+    },
+    "directional": {
+      "n_variants": 12,
+      "mean_delta_BS_prob": -0.008301282922426859,
+      "max_delta_BS_prob": 0.008470892906188965,
+      "min_delta_BS_prob": -0.05035895109176636,
+      "mean_delta_Healthy_prob": 0.0030051694872478643,
+      "max_delta_Healthy_prob": 0.02283765748143196,
+      "mean_delta_centroid_margin": -0.008940507173401183,
+      "max_delta_centroid_margin": 0.029577154143289763,
+      "min_delta_centroid_margin": -0.08927998570278894,
+      "mean_cos_distance_to_original": 0.0020352527246666565,
+      "max_cos_distance_to_original": 0.012068199424911441,
+      "n_moved_toward_Healthy": 6,
+      "frac_moved_toward_Healthy": 0.5,
+      "any_prediction_flip": false,
+      "spearman_parameter_vs_margin": null,
+      "subgroups": {
+        "bottom_to_top": {
+          "n": 3,
+          "mean_delta_centroid_margin": -0.05273763500129419,
+          "mean_delta_BS_prob": -0.030013104279836018,
+          "mean_delta_Healthy_prob": 0.013239973535140356,
+          "mean_cos_distance_to_original": 0.005649871828492044,
+          "moved_toward_Healthy": true
+        },
+        "left_to_right": {
+          "n": 3,
+          "mean_delta_centroid_margin": -0.015895096523523906,
+          "mean_delta_BS_prob": -0.01333850622177124,
+          "mean_delta_Healthy_prob": 0.004268245150645574,
+          "mean_cos_distance_to_original": 0.0011276573216097245,
+          "moved_toward_Healthy": true
+        },
+        "right_to_left": {
+          "n": 3,
+          "mean_delta_centroid_margin": 0.013990187032386414,
+          "mean_delta_BS_prob": 0.006767332553863525,
+          "mean_delta_Healthy_prob": -0.0026883135239283242,
+          "mean_cos_distance_to_original": 0.0007972122630762376,
+          "moved_toward_Healthy": false
+        },
+        "top_to_bottom": {
+          "n": 3,
+          "mean_delta_centroid_margin": 0.018880515798826953,
+          "mean_delta_BS_prob": 0.0033791462580362954,
+          "mean_delta_Healthy_prob": -0.0027992272128661475,
+          "mean_cos_distance_to_original": 0.0005662694854886204,
+          "moved_toward_Healthy": false
+        }
+      }
+    },
+    "shadow": {
+      "n_variants": 6,
+      "mean_delta_BS_prob": -0.004887451728185018,
+      "max_delta_BS_prob": 0.007282614707946777,
+      "min_delta_BS_prob": -0.019133269786834717,
+      "mean_delta_Healthy_prob": 0.0006431533644596735,
+      "max_delta_Healthy_prob": 0.006488390266895294,
+      "mean_delta_centroid_margin": 0.007145265405141339,
+      "max_delta_centroid_margin": 0.03784394468726504,
+      "min_delta_centroid_margin": -0.014010666300661168,
+      "mean_cos_distance_to_original": 0.0019341558041281643,
+      "max_cos_distance_to_original": 0.00400426434596346,
+      "n_moved_toward_Healthy": 3,
+      "frac_moved_toward_Healthy": 0.5,
+      "any_prediction_flip": false,
+      "spearman_parameter_vs_margin": null,
+      "subgroups": {
+        "lower_right": {
+          "n": 3,
+          "mean_delta_centroid_margin": -0.010104567007284015,
+          "mean_delta_BS_prob": -0.014696836471557617,
+          "mean_delta_Healthy_prob": 0.004811543971300125,
+          "mean_cos_distance_to_original": 0.0022694578249012887,
+          "moved_toward_Healthy": true
+        },
+        "upper_left": {
+          "n": 3,
+          "mean_delta_centroid_margin": 0.024395097817566696,
+          "mean_delta_BS_prob": 0.004921933015187581,
+          "mean_delta_Healthy_prob": -0.003525237242380778,
+          "mean_cos_distance_to_original": 0.0015988537833550402,
+          "moved_toward_Healthy": false
+        }
+      }
+    },
+    "correction": {
+      "n_variants": 9,
+      "mean_delta_BS_prob": -0.031704756948682994,
+      "max_delta_BS_prob": -0.0013099312782287598,
+      "min_delta_BS_prob": -0.06894302368164062,
+      "mean_delta_Healthy_prob": 0.011427773990564875,
+      "max_delta_Healthy_prob": 0.043024711310863495,
+      "mean_delta_centroid_margin": -0.04260813326473576,
+      "max_delta_centroid_margin": 0.07208923743807538,
+      "min_delta_centroid_margin": -0.1818958729520863,
+      "mean_cos_distance_to_original": 0.03351580211411678,
+      "max_cos_distance_to_original": 0.09905744573048825,
+      "n_moved_toward_Healthy": 6,
+      "frac_moved_toward_Healthy": 0.6666666666666666,
+      "any_prediction_flip": false,
+      "spearman_parameter_vs_margin": null,
+      "subgroups": {}
+    }
+  },
+  "luminance_vs_outcome": {
+    "pearson_lum_vs_BS_prob_all": {
+      "r": 0.2929039217722163,
+      "p": 0.059772445473844894
+    },
+    "pearson_lum_vs_centroid_margin_all": {
+      "r": 0.27170959638245024,
+      "p": 0.08174447754003329
+    },
+    "pearson_lum_vs_BS_prob_brightness_family_only": {
+      "r": -0.4999100855014177,
+      "p": 0.391101366849427
+    },
+    "note": "a strong correlation with luminance alone would suggest a pure brightness effect; the sign differs between the multiplicative brightness family and the gamma family, so luminance alone does not explain the pattern"
+  },
+  "hypothesis_test": {
+    "A_brightness_alters_BS_prob": {
+      "answer": "yes, measurably but weakly",
+      "evidence": "brightness x0.70..x1.30 moves P(BacterialSpot) by -0.0116 to +0.0000 (family mean -0.0055); direction is monotone - brighter => lower P(BacterialSpot)",
+      "spearman_param_vs_margin": {
+        "rho": -0.9999999999999999,
+        "p_value": 1.4042654220543602e-24
+      }
+    },
+    "B_contrast_alters_BS_prob": {
+      "answer": "yes, the strongest of the three global knobs",
+      "evidence": "contrast x1.30 gives P(BacterialSpot) -0.1460 and P(Healthy) +0.0457, the largest single change in any global-brightness/contrast/gamma variant; family mean -0.0435"
+    },
+    "C_gamma_alters_BS_prob": {
+      "answer": "yes, and non-monotonically relative to luminance",
+      "evidence": "gamma 0.70..1.30 moves P(BacterialSpot) by -0.0689 to +0.0219; gamma 0.70 BRIGHTENS (mean lum 142.4 vs control 116.9) yet gives the HIGHEST P(BacterialSpot) of the whole study (0.9007), so the effect is not explained by luminance alone"
+    },
+    "D_directional_shadow_moves_representation": {
+      "answer": "yes, but the movement is small and direction-dependent",
+      "evidence": "directional family mean cosine distance to the original is only 0.00204 (max 0.01207); the four light directions split into two that move toward Healthy (-0.0159 margin each) and two that move toward BacterialSpot (+0.0140 each). Elliptical shadows are smaller still (mean cosine distance 0.00193)."
+    },
+    "E_illumination_correction_moves_toward_Healthy": {
+      "answer": "yes - the correction family moves most consistently toward Healthy, but not far enough to matter",
+      "evidence": "correction family: 6 of 9 variants moved toward Healthy, mean delta margin -0.0426, best single movement -0.1819 (P(BacterialSpot) -0.0689, P(Healthy) +0.0430). Healthy never becomes the top class."
+    },
+    "F_any_flip": {
+      "answer": "NO - zero prediction flips",
+      "evidence": "0 of 42 non-control variants changed predicted class; all 43 variants including the control are predicted BacterialSpot. No variant has P(Healthy) > P(BacterialSpot)."
+    },
+    "G_largest_movement_toward_Healthy": {
+      "variant": "correction__flatfield_r128_a1.00",
+      "label": "Flat-field r=128 a=1.00",
+      "delta_centroid_margin": -0.1818958729520863,
+      "delta_BS_prob": -0.06894302368164062,
+      "delta_Healthy_prob": 0.043024711310863495,
+      "P_Healthy_after": 0.0780707448720932,
+      "P_BS_after": 0.8098146915435791,
+      "margin_after": 0.3104288160816332
+    },
+    "H_largest_movement_toward_BacterialSpot": {
+      "variant": "correction__retinex_a0.50",
+      "label": "Retinex-style MSCR a=0.50",
+      "delta_centroid_margin": 0.07208923743807538,
+      "delta_BS_prob": -0.0013099312782287598,
+      "delta_Healthy_prob": -0.005950266495347023,
+      "P_BS_after": 0.877447783946991,
+      "P_Healthy_after": 0.029095767065882683,
+      "margin_after": 0.5644139264717949
+    },
+    "I_consistent_across_family": {
+      "answer": "no",
+      "evidence": {
+        "brightness": {
+          "frac_moved_toward_Healthy": 0.4,
+          "spearman": {
+            "rho": -0.9999999999999999,
+            "p_value": 1.4042654220543602e-24
+          }
+        },
+        "contrast": {
+          "frac_moved_toward_Healthy": 0.4,
+          "spearman": {
+            "rho": -0.8999999999999998,
+            "p_value": 0.03738607346849874
+          }
+        },
+        "gamma": {
+          "frac_moved_toward_Healthy": 0.4,
+          "spearman": {
+            "rho": -0.9999999999999999,
+            "p_value": 1.4042654220543602e-24
+          }
+        },
+        "directional": {
+          "frac_moved_toward_Healthy": 0.5,
+          "spearman": null
+        },
+        "shadow": {
+          "frac_moved_toward_Healthy": 0.5,
+          "spearman": null
+        },
+        "correction": {
+          "frac_moved_toward_Healthy": 0.6666666666666666,
+          "spearman": null
+        }
+      }
+    },
+    "J_large_enough_to_consider_illumination": {
+      "answer": "no",
+      "evidence": "max |delta P(BacterialSpot)| = 0.1460 (threshold 0.10); max |delta centroid margin| = 0.1819 (threshold 0.25); 0 prediction flips. The most favourable variant still leaves P(BacterialSpot) 0.8098 versus P(Healthy) 0.0781 - a 10.4x gap in the WRONG direction."
+    }
+  },
+  "evidence_level_rule": {
+    "declared_before_inspection": true,
+    "LEVEL_3": {
+      "rule": "at least one variant flips the predicted class to Healthy (i.e. any variant where P(Healthy) > P(BacterialSpot)), OR the predicted class changes at all",
+      "meaning": "strong illumination sensitivity; substantially moves the prediction toward Healthy/BacterialSpot"
+    },
+    "LEVEL_2": {
+      "rule": "no flip, BUT any of: max |delta P(BacterialSpot)| >= 0.10, OR max |delta centroid margin| >= 0.25, OR >=25% of non-control variants move toward Healthy AND the direction is consistent within at least one whole family",
+      "meaning": "some illumination sensitivity; illumination plausibly contributes but does not fully explain the failure"
+    },
+    "LEVEL_1": {
+      "rule": "none of the above",
+      "meaning": "little/no illumination sensitivity; lighting alone does not explain the failure"
+    },
+    "no_level_is_ever_called_proven": true
+  },
+  "evidence_level_computation": {
+    "n_flips": 0,
+    "n_Healthy_beating_BS": 0,
+    "max_abs_delta_BS_prob": 0.14597541093826294,
+    "threshold_for_level2": 0.1,
+    "max_abs_delta_centroid_margin": 0.1818958729520863,
+    "threshold_for_level2_margin": 0.25,
+    "frac_variants_toward_Healthy": 0.5,
+    "threshold_for_level2_frac": 0.25,
+    "families_meeting_consistency_threshold": [
+      "brightness",
+      "contrast",
+      "gamma",
+      "directional",
+      "shadow",
+      "correction"
+    ],
+    "level3_triggered": false,
+    "level2_triggered": true
+  },
+  "evidence_level": 2,
+  "evidence_level_label": "LEVEL 2 - some illumination sensitivity detected",
+  "no_level_is_proven": true,
+  "transformation_manifest_summary": {
+    "n_variants": 43,
+    "groups": [
+      "brightness",
+      "contrast",
+      "control",
+      "correction",
+      "directional",
+      "gamma",
+      "shadow"
+    ],
+    "identity_variant_max_BS_prob_delta": 0.0,
+    "hook_max_prob_delta": 0.0
+  },
+  "elapsed_sec": 0.02
+}

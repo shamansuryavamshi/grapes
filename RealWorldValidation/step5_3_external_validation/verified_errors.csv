@@ -1,0 +1,2 @@
+filename,ground_truth,prediction,top1_confidence,Healthy_probability,BacterialSpot_probability,top1_top2_margin,subset,evidence_level,evidence_source,centroid_margin_BS_minus_H
+grape leaf.jpg,Healthy,BacterialSpot,0.8787577152252197,0.035046033561229706,0.8787577152252197,0.84371168166399,VERIFIED,A (image identity) / NOT-A (disease determination),"Project-owner human visual confirmation, recorded in RealWorldValidation/manifest.csv (ground_truth_source='Independently confirmed'). Source page fetched and identity-confirmed.",0.4923246890337195

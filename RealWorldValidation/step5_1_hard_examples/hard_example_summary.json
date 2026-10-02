@@ -1,0 +1,395 @@
+{
+  "generated_utc": "2026-09-30T03:02:52Z",
+  "baseline_commit": "e101607c78a3c61dda4e3e0d91dfe1ae9a3901a4",
+  "runtime": {
+    "python": "3.12.10",
+    "numpy": "2.5.2",
+    "device": "CPU",
+    "torch": "torch 2.14.0+cpu"
+  },
+  "representation": {
+    "layer": "head[8] = BatchNorm1d(64) output (classifier bottleneck)",
+    "dim": 64,
+    "metric": "cosine similarity on L2-normalised features (dot product)",
+    "same_as_step4": true
+  },
+  "preprocessing": "Resize(255, bilinear) -> CenterCrop(224,224) -> ToTensor -> Normalize",
+  "hook_probe_max_prob_delta": 0.0,
+  "counts": {
+    "dataset_images": 5929,
+    "Healthy": 831,
+    "BacterialSpot": 700,
+    "Healthy_train": 664,
+    "Healthy_test": 167,
+    "BacterialSpot_train": 560,
+    "BacterialSpot_test": 140
+  },
+  "hard_example_criteria": {
+    "H_c1_cross_top1_percentile": {
+      "label": "Healthy: top-percentile max cosine to any BacterialSpot image",
+      "direction": "higher value = more cross-class-similar",
+      "threshold_values": {
+        "p99": 0.9090997497563047,
+        "p99.5": 0.9305277195747939,
+        "p99.9": 0.9501198439598931
+      },
+      "counts": {
+        "p99": 9,
+        "p99.5": 5,
+        "p99.9": 1
+      },
+      "union_count": 9
+    },
+    "BS_c1_cross_top1_percentile": {
+      "label": "BacterialSpot: top-percentile max cosine to any Healthy image",
+      "direction": "higher value = more cross-class-similar",
+      "threshold_values": {
+        "p99": 0.9251736447381831,
+        "p99.5": 0.9336865602737913,
+        "p99.9": 0.9460393552334292
+      },
+      "counts": {
+        "p99": 7,
+        "p99.5": 4,
+        "p99.9": 1
+      },
+      "union_count": 7
+    },
+    "H_c2_centroid_margin_percentile": {
+      "label": "Healthy: largest centroid margin, i.e. cos(BS centroid) - cos(Healthy centroid)",
+      "direction": "higher value = more cross-class-similar",
+      "threshold_values": {
+        "p99": -0.20986855473692898,
+        "p99.5": -0.17157034376526734,
+        "p100": 0.3440778221569354
+      },
+      "counts": {
+        "p99": 9,
+        "p99.5": 5,
+        "p100": 1
+      },
+      "union_count": 9
+    },
+    "BS_c2_centroid_margin_percentile": {
+      "label": "BacterialSpot: largest centroid margin, i.e. cos(Healthy centroid) - cos(BS centroid)",
+      "direction": "higher value = more cross-class-similar",
+      "threshold_values": {
+        "p99": -0.11748258627743989,
+        "p99.5": -0.04448306183399787,
+        "p100": 0.08506495979739037
+      },
+      "counts": {
+        "p99": 7,
+        "p99.5": 4,
+        "p100": 1
+      },
+      "union_count": 7
+    },
+    "H_c3_small_same_cross_gap_percentile": {
+      "label": "Healthy: smallest (same-class max cos - cross-class max cos) gap",
+      "direction": "lower value = less class-separable",
+      "threshold_values": {
+        "p1": 0.06748447085294021,
+        "p5": 0.13462394874256584,
+        "p10": 0.19166780277533513
+      },
+      "counts": {
+        "p1": 9,
+        "p5": 42,
+        "p10": 84
+      },
+      "union_count": 84
+    },
+    "BS_c3_small_same_cross_gap_percentile": {
+      "label": "BacterialSpot: smallest (same-class max cos - cross-class max cos) gap",
+      "direction": "lower value = less class-separable",
+      "threshold_values": {
+        "p1": 0.059724230117655284,
+        "p5": 0.10026275937709712,
+        "p10": 0.11650184375469641
+      },
+      "counts": {
+        "p1": 7,
+        "p5": 35,
+        "p10": 70
+      },
+      "union_count": 70
+    },
+    "H_c4_absolute_cross_over": {
+      "label": "Healthy: absolute cross-over, independent of any percentile",
+      "centroid_favours_cross_class": 2,
+      "cross_nn_closer_than_same_nn": 2
+    },
+    "BS_c4_absolute_cross_over": {
+      "label": "BacterialSpot: absolute cross-over, independent of any percentile",
+      "centroid_favours_cross_class": 2,
+      "cross_nn_closer_than_same_nn": 0
+    }
+  },
+  "hard_example_counts": {
+    "Healthy_candidates_union_permissive": 85,
+    "Healthy_candidates_union_strict": 3,
+    "BacterialSpot_candidates_union_permissive": 70,
+    "BacterialSpot_candidates_union_strict": 2
+  },
+  "strongest": {
+    "Healthy_max_cos_to_BS": 0.9503014764231192,
+    "Healthy_max_cos_to_BS_relpath": "Balanced_From_Sources/train/Healthy/train_671_Healthy Leaves_1.jpg",
+    "BacterialSpot_max_cos_to_H": 0.9503014764231192,
+    "BacterialSpot_max_cos_to_H_relpath": "Balanced_From_Sources/train/BacterialSpot/train_489_Bacterial Leaf Spot_84.jpg",
+    "centroid_H_to_BS": 0.35652713506378053
+  },
+  "mutual_neighbour_pairs": 7,
+  "concentration": {
+    "note_source_group_is_constant_per_class": true,
+    "H_top1pct_source_folder": {
+      "total": 9,
+      "distinct": 9,
+      "top_groups": [
+        {
+          "value": "train_671",
+          "count": 1
+        },
+        {
+          "value": "train_590",
+          "count": 1
+        },
+        {
+          "value": "train_135",
+          "count": 1
+        },
+        {
+          "value": "train_25",
+          "count": 1
+        },
+        {
+          "value": "train_87",
+          "count": 1
+        },
+        {
+          "value": "train_113",
+          "count": 1
+        },
+        {
+          "value": "train_314",
+          "count": 1
+        },
+        {
+          "value": "train_875",
+          "count": 1
+        }
+      ]
+    },
+    "H_top1pct_split": {
+      "total": 9,
+      "distinct": 2,
+      "top_groups": [
+        {
+          "value": "train",
+          "count": 8
+        },
+        {
+          "value": "test",
+          "count": 1
+        }
+      ]
+    },
+    "H_top1pct_perceptual_group": {
+      "total": 9,
+      "distinct": 8,
+      "top_groups": [
+        {
+          "value": "3581",
+          "count": 2
+        },
+        {
+          "value": "3117",
+          "count": 1
+        },
+        {
+          "value": "3250",
+          "count": 1
+        },
+        {
+          "value": "3845",
+          "count": 1
+        },
+        {
+          "value": "3093",
+          "count": 1
+        },
+        {
+          "value": "3307",
+          "count": 1
+        },
+        {
+          "value": "3841",
+          "count": 1
+        },
+        {
+          "value": "3750",
+          "count": 1
+        }
+      ]
+    },
+    "BS_top1pct_source_folder": {
+      "total": 7,
+      "distinct": 7,
+      "top_groups": [
+        {
+          "value": "train_489",
+          "count": 1
+        },
+        {
+          "value": "train_389",
+          "count": 1
+        },
+        {
+          "value": "train_7",
+          "count": 1
+        },
+        {
+          "value": "train_357",
+          "count": 1
+        },
+        {
+          "value": "train_289",
+          "count": 1
+        },
+        {
+          "value": "train_507",
+          "count": 1
+        },
+        {
+          "value": "train_217",
+          "count": 1
+        }
+      ]
+    },
+    "BS_top1pct_split": {
+      "total": 7,
+      "distinct": 2,
+      "top_groups": [
+        {
+          "value": "train",
+          "count": 6
+        },
+        {
+          "value": "test",
+          "count": 1
+        }
+      ]
+    },
+    "BS_top1pct_perceptual_group": {
+      "total": 7,
+      "distinct": 6,
+      "top_groups": [
+        {
+          "value": "328",
+          "count": 2
+        },
+        {
+          "value": "377",
+          "count": 1
+        },
+        {
+          "value": "311",
+          "count": 1
+        },
+        {
+          "value": "278",
+          "count": 1
+        },
+        {
+          "value": "204",
+          "count": 1
+        },
+        {
+          "value": "128",
+          "count": 1
+        }
+      ]
+    },
+    "baseline_H_source_folder": {
+      "total": 831,
+      "distinct": 831,
+      "top_groups": [
+        {
+          "value": "train_671",
+          "count": 1
+        },
+        {
+          "value": "train_590",
+          "count": 1
+        },
+        {
+          "value": "train_135",
+          "count": 1
+        },
+        {
+          "value": "train_25",
+          "count": 1
+        },
+        {
+          "value": "train_87",
+          "count": 1
+        },
+        {
+          "value": "train_113",
+          "count": 1
+        },
+        {
+          "value": "train_314",
+          "count": 1
+        },
+        {
+          "value": "train_875",
+          "count": 1
+        }
+      ]
+    },
+    "baseline_BS_source_folder": {
+      "total": 700,
+      "distinct": 700,
+      "top_groups": [
+        {
+          "value": "train_489",
+          "count": 1
+        },
+        {
+          "value": "train_389",
+          "count": 1
+        },
+        {
+          "value": "train_7",
+          "count": 1
+        },
+        {
+          "value": "train_357",
+          "count": 1
+        },
+        {
+          "value": "train_289",
+          "count": 1
+        },
+        {
+          "value": "train_507",
+          "count": 1
+        },
+        {
+          "value": "train_217",
+          "count": 1
+        },
+        {
+          "value": "train_317",
+          "count": 1
+        }
+      ]
+    },
+    "shared_source_folders_between_HS_and_BS_top1pct": [],
+    "n_shared_source_folders": 0,
+    "shared_perceptual_groups_between_HS_and_BS_top1pct": [],
+    "n_shared_perceptual_groups": 0
+  },
+  "elapsed_sec": 0.81
+}
