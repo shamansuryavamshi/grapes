@@ -1,0 +1,14 @@
+# Canonicalise commit authorship.
+#
+# Every commit in this repository was authored as
+# "PavanNs02 <pavan.ns206@gmail.com>", an identity not associated with
+# the account that owns this repository. Map that identity to the owner's
+# GitHub noreply address so history is attributed correctly.
+#
+# This file is display-only: it does not rewrite history, and no commit
+# object, tree or SHA is altered by its presence. The original author
+# string remains inside the commit objects and is still publicly readable.
+#
+# Field order is: <canonical-name> <canonical-email> <commit-identity-to-match>
+
+shamansuryavamshi <159625960+shamansuryavamshi@users.noreply.github.com> PavanNs02 <pavan.ns206@gmail.com>
