@@ -1,8 +1,40 @@
-﻿anyio==4.15.1
+# Fully pinned environment - the exact versions IWNET was trained and tested with:
+#
+#   Python 3.12.10 . Windows . CUDA 13.0
+#   PyTorch 2.14.0+cu130 / torchvision 0.29.0+cu130
+#
+# WHY THIS FILE DECLARES AN INDEX
+#
+# The torch and torchvision pins below carry a "+cu130" local version identifier.
+# Builds with a local version identifier are NOT published on PyPI - they exist
+# only in PyTorch's own package index. A plain
+#
+#   pip install -r requirements-lock.txt
+#
+# therefore fails to resolve those two packages ("No matching distribution found
+# for torch==2.14.0+cu130") unless that index is declared. The
+# --extra-index-url line below is what makes this file installable as written,
+# while keeping the exact CUDA builds the model was validated with.
+#
+# Install:
+#
+#   pip install -r requirements-lock.txt
+#
+# CPU-only machines: this lock intentionally pins the CUDA 13.0 builds used for
+# training and will not satisfy a CPU-only install. Use requirements.txt (loose
+# ranges) for CPU inference, installing torch first from the index that matches
+# your hardware, as documented in README.md and requirements.txt.
+#
+# Scope: runtime dependencies are declared in requirements.txt and test-only
+# packages in requirements-dev.txt. Both are subsets of the pins below.
+
+--extra-index-url https://download.pytorch.org/whl/cu130
+
+anyio==4.15.1
 fastapi==0.141.1
 httpx==0.28.1
 matplotlib==3.11.2
-numpy==2.5.3
+numpy==2.5.2
 pillow==12.3.0
 pydantic==2.13.5
 pytest==9.1.1

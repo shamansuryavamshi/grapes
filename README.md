@@ -12,6 +12,15 @@ model selection or early stopping.
 > raw softmax output. It is **not calibrated** and is not a measure of
 > diagnostic certainty.
 
+> **The 96.30% above is a held-out test-split result on curated data — it is not
+> a real-world accuracy figure.** Those 1,189 images come from the same curated
+> source collections as the training split. A separate real-world validation was
+> carried out on genuinely external photographs and it did **not** yield a usable
+> generalisation estimate: only 1 of 17 external images could be given
+> independent ground truth. Read
+> [Real-World / External Validation](#real-world--external-validation) before
+> quoting the headline number.
+
 ---
 
 ## The 7 classes
@@ -93,6 +102,97 @@ visually distinct source collection.
 
 Reproduce with `python grape.py --evaluate`. Figures and CSV reports land in
 `Balanced_From_Sources/results/`.
+
+---
+
+## Real-World / External Validation
+
+> **The 96.30% figure above is the held-out test-set result, not the
+> external real-world validation result.** The two measure different things and
+> must not be compared or interchanged.
+
+| | Held-out test evaluation | External / real-world validation |
+|---|---|---|
+| Images | 1,189 | 17 |
+| Ground-truth labels available | all 1,189 | 1 `VERIFIED`, 16 `UNKNOWN` |
+| Images that can be scored | 1,189 | **1** |
+| Result | 96.30% accuracy, macro F1 0.9623 | **0 / 1** |
+
+### The workflow: Step 5.1, Step 5.2, Step 5.3
+
+`RealWorldValidation/` holds a separate, read-only real-world validation
+workflow, performed against the frozen checkpoint:
+
+| Step | Question | Conclusion |
+|---|---|---|
+| **Step 5.1** | Hard-example analysis of the two Healthy ↔ BacterialSpot confusion directions in feature space. | Characterises the confusable pairs; no model change. |
+| **Step 5.2** | Illumination diagnostic across 43 brightness / contrast / gamma / shadow / correction variants. | Illumination sensitivity is **insufficient** to explain the observed failure. |
+| **Step 5.3** | Ground-truth validation on 17 genuinely external images. | **`CATEGORY_A` — insufficient ground truth to judge real-world performance.** |
+
+### Step 5.3: how ground truth was decided
+
+Ground truth came only from **independent evidence**. The model prediction,
+filenames, pixel statistics, training-set similarity and visual impression were
+all explicitly excluded as evidence. Each image is adjudicated in
+`RealWorldValidation/step5_3_external_validation/external_ground_truth.csv`
+under a `final_ground_truth_status`:
+
+| `final_ground_truth_status` | Count |
+|---|---|
+| `VERIFIED` | 1 |
+| `SUPPORTED` | 0 |
+| `DISPUTED` | 0 |
+| `UNKNOWN` | 16 |
+
+**16 of the 17 external images remain `UNKNOWN`.** This is not a search that
+gave up early: the provenance attempts are logged in full — including the
+failures — in `evidence_log.csv`, and the other 16 files carry no EXIF, XMP,
+IPTC, JPEG comment or embedded URL. Reverse-image search and analyst visual
+inspection were unavailable and are recorded as tooling gaps rather than
+omitted. Only one image has a machine-readable source, and that source confirms
+the image's identity while making **no** statement about plant health.
+
+The verified subset therefore contains **exactly one usable ground-truth
+example**.
+
+### The verified result — and what it does not mean
+
+The single `VERIFIED` image was misclassified:
+
+| Field | Value |
+|---|---|
+| File | `grape leaf.jpg` |
+| Ground truth | `Healthy` |
+| Prediction | `BacterialSpot` |
+| `BacterialSpot` probability | 0.8788 |
+| `Healthy` probability | 0.0350 |
+| Top-1 / top-2 margin | 0.8437 |
+| **Verified accuracy** | **0 / 1** |
+
+**0/1 is not the model's real-world accuracy.** It is a single observation about
+a single file, and specifically:
+
+- **A sample of n = 1 cannot support a generalisation estimate.** No confidence
+  interval is quoted, because any interval on 0/1 spans effectively the entire
+  range and would misrepresent the evidence.
+- It is **not** an error rate, **not** an accuracy percentage, and says nothing
+  about any other image.
+- The 16 `UNKNOWN` images are **excluded from every calculation** rather than
+  guessed. Assigning labels to them in order to score them would manufacture the
+  very ground truth this step exists to obtain.
+- Only `Healthy` has a verified example. There are **zero** verified
+  `BacterialSpot` images, so the opposite error direction is entirely
+  unmeasured and cannot be compared.
+- The verified error was the model's *most confident* external prediction
+  (margin 0.8437), not a borderline call near the decision boundary.
+
+The practical conclusion of Step 5.3 is that the **binding constraint is the
+availability of independent ground truth, not the model**. On this evidence,
+**retraining is not justified** — and no automatic relabelling of any image was
+performed.
+
+Full method, evidence log, per-image adjudication and analysis:
+[`RealWorldValidation/step5_3_external_validation/STEP5_3_REPORT.md`](RealWorldValidation/step5_3_external_validation/STEP5_3_REPORT.md).
 
 ---
 
@@ -305,8 +405,8 @@ pip install -r requirements-dev.txt
 python -m pytest
 ```
 
-128 tests, ~25 s, no GPU required (they run on tiny synthetic images and a
-synthetic B0 model). They cover the parts where a silent wrong answer is
+161 tests, ~2 min on CPU, no GPU required (they run on tiny synthetic images and
+a synthetic B0 model). They cover the parts where a silent wrong answer is
 possible rather than a crash:
 
 - **Class contract** — exact names, order, the `Irrelavant` spelling, alias
@@ -363,6 +463,7 @@ frontend/              no-build web UI (vanilla HTML/CSS/JS)
 tests/                 pytest suite
 grape.py               CLI entry point
 config.yaml            the exact configuration behind the reported result
+RealWorldValidation/   Step 5.1-5.3 real-world / external validation (read-only)
 ```
 
 ## Reproducing the reported number
