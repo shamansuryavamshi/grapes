@@ -1,15 +1,16 @@
-# Runtime dependencies for IWNET.
+# Runtime dependencies for IWNET (CPU inference).
 #
-# Install PyTorch FIRST from the index that matches your hardware, otherwise pip
-# will pull a CPU-only wheel:
-#   pip install torch torchvision --index-url https://download.pytorch.org/whl/cu130
-# then:  pip install -r requirements.txt
+# The torch pins below are the CPU-only builds from PyTorch's own index. This
+# keeps the Vercel/Docker bundle free of the multi-gigabyte CUDA libraries.
+# The CUDA builds used for training are pinned in requirements-lock.txt.
 #
 # requirements-lock.txt pins the exact versions this project was trained and
 # tested with (Python 3.12.10, Windows, CUDA 13.0).
 
-torch>=2.4,<3
-torchvision>=0.19,<1
+--extra-index-url https://download.pytorch.org/whl/cpu
+
+torch==2.14.0+cpu
+torchvision==0.29.0+cpu
 
 numpy>=1.26
 pillow>=10.0
